@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>李智杨 (Li Zhiyang) | Bioinformatics & Systems Biology</title>
-  <meta name="description" content="李智杨 (Li Zhiyang) - Undergraduate Researcher in Bioinformatics & Systems Biology at Guangdong Medical University. Focused on Single-Cell, Spatial Transcriptomics, LUAD Oncology, and AI-assisted Scientific Research.">
+  <title>李智杨 (Li Zhiyang) | eto-1024 · 学术主页与生信导航</title>
+  <meta name="description" content="李智杨 (Li Zhiyang) - 广东医科大学临床研究中心入驻学者、医学本科生。专注单细胞与空间转录组学、肺腺癌（LUAD）浸润机制与 AI 生信科研自动化。">
   <meta name="author" content="Li Zhiyang">
 
-  <!-- Inter & JetBrains Mono Fonts (Gold standard typography) -->
+  <!-- Typography: Geist, Plus Jakarta Sans, Newsreader, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
   
   <!-- Stylesheet & Favicon -->
   <link rel="icon" type="image/jpeg" href="avatar.jpg">
-  <link rel="stylesheet" href="styles.css?v=1.2">
+  <link rel="stylesheet" href="styles.css?v=2.0">
 </head>
 <body class="dark-theme">
   <!-- Subtle Ambient Glow -->
@@ -26,12 +26,25 @@
   <!-- Header Navigation -->
   <header class="site-header" id="header">
     <div class="header-inner">
-      <a href="#hero" class="brand-link">
-        <img src="avatar.jpg" alt="eto-1024" class="brand-avatar-img" width="28" height="28" style="width:28px;height:28px;border-radius:6px;object-fit:cover;flex-shrink:0;">
-        <span class="brand-name">eto-1024</span>
-      </a>
+      <div class="header-left">
+        <a href="#hero" class="brand-link" id="brandLink">
+          <img src="avatar.jpg" alt="eto-1024" class="brand-avatar-img" width="28" height="28">
+          <span class="brand-name">eto-1024</span>
+        </a>
 
-      <nav class="nav-links" id="navLinks">
+        <!-- View Switcher Segmented Tabs -->
+        <div class="view-switch-tabs">
+          <button class="view-tab-btn active" data-view="profile" id="tabProfile">
+            <i class="fa-solid fa-user-graduate"></i> <span>个人主页</span>
+          </button>
+          <button class="view-tab-btn" data-view="hub" id="tabHub">
+            <i class="fa-solid fa-compass"></i> <span>生信导航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Nav Links for Profile View -->
+      <nav class="nav-links" id="profileNav">
         <a href="#about" class="nav-link">关于</a>
         <a href="#research" class="nav-link">研究</a>
         <a href="#publications" class="nav-link">论文</a>
@@ -41,12 +54,22 @@
         <a href="#education" class="nav-link">经历</a>
       </nav>
 
+      <!-- Nav Links for Hub View -->
+      <nav class="nav-links" id="hubNav" style="display: none;">
+        <a href="#hub-cancer" class="nav-link">肿瘤多组学</a>
+        <a href="#hub-singlecell" class="nav-link">单细胞与空转</a>
+        <a href="#hub-pathways" class="nav-link">通路与网络</a>
+        <a href="#hub-clinical" class="nav-link">预后与药敏</a>
+        <a href="#hub-tools" class="nav-link">生态与框架</a>
+        <a href="#hub-ai" class="nav-link">AI for Science</a>
+      </nav>
+
       <div class="header-actions">
         <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" title="切换明暗主题">
           <i class="fa-solid fa-moon icon-moon"></i>
           <i class="fa-solid fa-sun icon-sun"></i>
         </button>
-        <a href="#contact" class="btn-contact-nav">联系我</a>
+        <a href="#contact" class="btn-contact-nav" id="btnContactNav">联系我</a>
         <button class="menu-btn-mobile" id="menuBtnMobile" aria-label="Toggle menu">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -55,460 +78,1143 @@
   </header>
 
   <main class="main-content">
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="hero">
-      <div class="hero-container">
-        <div class="hero-profile-row">
-          <div class="hero-avatar-box" style="width:72px;height:72px;flex-shrink:0;position:relative;">
-            <div class="avatar-ring" style="width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;">
-              <img src="avatar.jpg" alt="李智杨 (Li Zhiyang) / eto-1024" class="hero-avatar-img" width="72" height="72" style="width:72px;height:72px;max-width:72px;max-height:72px;border-radius:50%;object-fit:cover;display:block;">
+    <!-- ==========================================================================
+         VIEW 1: PERSONAL ACADEMIC PORTFOLIO (DEFAULT)
+         ========================================================================== -->
+    <div id="viewProfile" class="page-view active">
+      <!-- HERO SECTION -->
+      <section class="hero-section" id="hero">
+        <div class="hero-container">
+          <div class="hero-profile-row">
+            <div class="hero-avatar-box">
+              <div class="avatar-ring">
+                <img src="avatar.jpg" alt="李智杨 (Li Zhiyang) / eto-1024" class="hero-avatar-img" width="72" height="72">
+              </div>
+              <div class="status-indicator" title="Active in Research"></div>
             </div>
-            <div class="status-indicator" title="Active in Research"></div>
+
+            <div class="hero-header-text">
+              <div class="status-pill">
+                <span class="pulse-dot"></span>
+                <span>Resident Researcher · Clinical Research Center, GDMU</span>
+              </div>
+              <h1 class="hero-name">李智杨 <span class="hero-name-sub">Li Zhiyang</span></h1>
+              <p class="hero-tagline">
+                广东医科大学临床研究中心入驻学者 · 医学本科生
+              </p>
+            </div>
           </div>
 
-          <div class="hero-header-text">
-            <div class="status-pill">
-              <span class="pulse-dot"></span>
-              <span>Resident Researcher · Clinical Research Center, GDMU</span>
-            </div>
-            <h1 class="hero-name">李智杨 <span class="hero-name-sub">Li Zhiyang</span></h1>
-            <p class="hero-tagline">
-              广东医科大学临床研究中心入驻学者 · 医学本科生
-            </p>
-          </div>
-        </div>
-
-        <p class="hero-statement">
-          独立自学生物信息学两年，具备<strong>从 Bulk 到单细胞、空间转录组的全流程独立分析能力</strong>。主攻<strong>肺腺癌（LUAD）</strong>侵袭转移与微环境空间生态位解析，并探索 <strong>AI Agent 生信科研自动化</strong>。
-        </p>
-
-        <!-- Action Links -->
-        <div class="hero-link-bar">
-          <a href="https://orcid.org/0009-0003-3866-2181" target="_blank" rel="noopener" class="badge-link orcid-badge">
-            <i class="fa-brands fa-orcid"></i> ORCID: 0009-0003-3866-2181
-          </a>
-          <a href="mailto:etonsalmon160@gmail.com" class="badge-link">
-            <i class="fa-regular fa-envelope"></i> etonsalmon160@gmail.com
-          </a>
-          <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="badge-link">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="badge-link bilibili">
-            <i class="fa-brands fa-bilibili"></i> B站 @生物小小疯子
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="content-section" id="about">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">01.</span> 关于我与学术背景
-        </h2>
-
-        <div class="prose-content">
-          <p>
-            独立自学生物信息学两年，具备独立开展从 <strong>Bulk RNA-seq 到单细胞（scRNA-seq）、再到空间转录组（Spatial Transcriptomics）</strong> 全流程数据挖掘与建模能力。现为<strong>广东医科大学临床研究中心入驻学者</strong>、麻醉学专业本科生。
-          </p>
-          <p>
-            科研实践中坚持<strong>“生物学直觉先行、统计模型严谨、分析流程可复现”</strong>。重点深挖<strong>肺腺癌侵袭转移前沿（Invasion Front）</strong>的微环境空间异质性与调控网络，并探索 <strong>AI Agent</strong> 在生信流程自动化与统计合规审计中的落地。
+          <p class="hero-statement">
+            独立自学生物信息学两年，具备<strong>从 Bulk 到单细胞、空间转录组的全流程独立分析能力</strong>。主攻<strong>肺腺癌（LUAD）</strong>侵袭转移与微环境空间生态位解析，并探索 <strong>AI Agent 生信科研自动化</strong>。
           </p>
 
-          <blockquote class="research-philosophy">
-            “Combining biological intuition, statistical rigor and computational methods to extract reproducible biological signals from complex biomedical data.”
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH INTERESTS -->
-    <section class="content-section" id="research">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">02.</span> 核心研究方向
-        </h2>
-
-        <div class="research-grid">
-          <!-- Item 1 -->
-          <div class="research-card">
-            <div class="card-header-icon">
-              <i class="fa-solid fa-microscope"></i>
-            </div>
-            <h3 class="card-title">单细胞与空间转录组学</h3>
-            <p class="card-desc">
-              聚焦单细胞与组织原位空间转录组的联合建模，开展高精度细胞类型注释、微环境空间反褶积（Deconvolution）、细胞通讯及空间生态位（Spatial Niches）解析。
-            </p>
-            <div class="card-tags">
-              <span>scRNA-seq</span>
-              <span>Spatial Omics</span>
-              <span>Spatial Niche</span>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="research-card">
-            <div class="card-header-icon">
-              <i class="fa-solid fa-dna"></i>
-            </div>
-            <h3 class="card-title">肺腺癌（LUAD）侵袭与转移机制</h3>
-            <p class="card-desc">
-              以肺腺癌为疾病模型，重点解析肿瘤侵袭浸润前沿（Invasive Front）的克隆异质性、基质重塑、免疫微环境抑制特征及关键调控靶标轴。
-            </p>
-            <div class="card-tags">
-              <span>LUAD</span>
-              <span>Invasion Front</span>
-              <span>Microenvironment</span>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="research-card">
-            <div class="card-header-icon">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <h3 class="card-title">多组学分子分型与临床预后</h3>
-            <p class="card-desc">
-              整合大规模临床多组学与独立公共队列数据，运用机器学习特征筛选、统计建模与生存分析，构建稳健的分子亚型分层与预后评估模型。
-            </p>
-            <div class="card-tags">
-              <span>Multi-Omics</span>
-              <span>Molecular Subtyping</span>
-              <span>Prognosis Modeling</span>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="research-card">
-            <div class="card-header-icon">
-              <i class="fa-solid fa-robot"></i>
-            </div>
-            <h3 class="card-title">AI Agent & 生信科研自动化</h3>
-            <p class="card-desc">
-              探索大语言模型与 Agent 编排框架在组学研究中的工程落地，实现从原始矩阵到建模报告的端到端自动化编排，以及统计合规与可复现性审计。
-            </p>
-            <div class="card-tags">
-              <span>AI for Science</span>
-              <span>Agentic Workflows</span>
-              <span>Reproducibility</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS SECTION -->
-    <section class="content-section" id="publications">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">03.</span> 学术论文与预印本 (Publications & Preprints)
-        </h2>
-
-        <div class="projects-list">
-          <!-- Paper 1 -->
-          <div class="project-entry">
-            <div class="project-entry-header">
-              <span class="entry-type"><i class="fa-solid fa-file-lines"></i> Preprint · Research Square</span>
-              <span class="entry-date">May 2026</span>
-            </div>
-            <h3 class="project-entry-title">
-              <a href="https://doi.org/10.21203/rs.3.rs-9644970/v1" target="_blank" rel="noopener" class="paper-title-link">
-                Multi-omics Integration Analysis Identifies MMP1, HILPDA, and COL6A5 as Critical Determinants of Invasive Progression and Metastatic Adaptation in Lung Adenocarcinoma <i class="fa-solid fa-arrow-up-right-from-square icon-ext"></i>
-              </a>
-            </h3>
-            <p class="project-entry-desc">
-              <strong>李智杨 (Li Zhiyang)</strong>, et al.
-            </p>
-            <div class="paper-links">
-              <a href="https://doi.org/10.21203/rs.3.rs-9644970/v1" target="_blank" rel="noopener" class="paper-btn">
-                <i class="fa-solid fa-link"></i> DOI: 10.21203/rs.3.rs-9644970/v1
-              </a>
-              <span class="paper-badge">Multi-Omics</span>
-              <span class="paper-badge">LUAD Metastasis</span>
-            </div>
-          </div>
-
-          <!-- Paper 2 -->
-          <div class="project-entry">
-            <div class="project-entry-header">
-              <span class="entry-type"><i class="fa-solid fa-file-lines"></i> Preprint · Research Square</span>
-              <span class="entry-date">May 2026</span>
-            </div>
-            <h3 class="project-entry-title">
-              <a href="https://doi.org/10.21203/rs.3.rs-9643718/v1" target="_blank" rel="noopener" class="paper-title-link">
-                Proteomic Characterization of KRAS Mutation Landscapes in Lung Adenocarcinoma: A Multi-Algorithm Machine Learning Framework Identifies MUC5AC-Mediated Immune-Inflammatory Reprogramming <i class="fa-solid fa-arrow-up-right-from-square icon-ext"></i>
-              </a>
-            </h3>
-            <p class="project-entry-desc">
-              <strong>李智杨 (Li Zhiyang)</strong>, et al.
-            </p>
-            <div class="paper-links">
-              <a href="https://doi.org/10.21203/rs.3.rs-9643718/v1" target="_blank" rel="noopener" class="paper-btn">
-                <i class="fa-solid fa-link"></i> DOI: 10.21203/rs.3.rs-9643718/v1
-              </a>
-              <span class="paper-badge">Proteomics</span>
-              <span class="paper-badge">Machine Learning</span>
-              <span class="paper-badge">KRAS Landscape</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="content-section" id="projects">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">04.</span> 课题实践与分析流程
-        </h2>
-
-        <div class="projects-list">
-          <!-- Project Card 1 -->
-          <div class="project-entry">
-            <div class="project-entry-header">
-              <span class="entry-type">Spatial & Single-Cell Project</span>
-              <span class="entry-date">2025 - Present</span>
-            </div>
-            <h3 class="project-entry-title">肺腺癌单细胞到空间转录组映射与侵袭前沿微环境生态位解析</h3>
-            <p class="project-entry-desc">
-              整合原发与转移性肺腺癌的高通量单细胞与组织空间转录组数据，构建细胞空间解聚与原位坐标映射流水线。定量解析侵袭前沿（Invasive Front）恶性上皮细胞与基质、免疫细胞的空间共定位模式。
-            </p>
-            <ul class="entry-bullets">
-              <li>建立严格的单细胞质控与批次校正规范，实现高保真原位空间映射。</li>
-              <li>识别与局部微浸润显著相关的特征共表达模块及空间受配体通讯网络。</li>
-              <li>基于 Python (Scanpy, Squidpy) 与 R 跨平台交叉验证分析结果。</li>
-            </ul>
-            <div class="entry-tags">
-              <span>scRNA-seq</span>
-              <span>Spatial Visium</span>
-              <span>Cell Deconvolution</span>
-            </div>
-          </div>
-
-          <!-- Project Card 2 -->
-          <div class="project-entry">
-            <div class="project-entry-header">
-              <span class="entry-type">Multi-Cohort Transcriptomics</span>
-              <span class="entry-date">2025 - Present</span>
-            </div>
-            <h3 class="project-entry-title">关键靶标及协同调控网络的多队列分子分型与临床预后建模</h3>
-            <p class="project-entry-desc">
-              在 TCGA 及多个独立微阵列/RNA-seq 肺腺癌临床队列中，系统探究关键靶标及其协同调控轴的表达异质性、基因组变异关联与免疫微环境浸润特征。
-            </p>
-            <ul class="entry-bullets">
-              <li>运用单/多变量 Cox 比例风险回归与机器学习筛选，验证候选特征跨队列预后稳健性。</li>
-              <li>结合免疫浸润算法与基因集富集分析，阐明特征亚型的免疫微环境表型。</li>
-              <li>输出符合高水平期刊标准的出版级统计图表与跨队列元分析报告。</li>
-            </ul>
-            <div class="entry-tags">
-              <span>TCGA / GEO</span>
-              <span>Survival Analysis</span>
-              <span>Machine Learning</span>
-            </div>
-          </div>
-
-          <!-- Project Card 3 -->
-          <div class="project-entry">
-            <div class="project-entry-header">
-              <span class="entry-type">AI & Workflow Engineering</span>
-              <span class="entry-date">2026</span>
-            </div>
-            <h3 class="project-entry-title">面向计算生物学研究的 AI Agent 自动化分析与结果审计工作流</h3>
-            <p class="project-entry-desc">
-              设计针对高维生物组学数据的智能体驱动执行流水线，支持从原始表达矩阵输入到统计建模与结构化报告生成的自动化衔接，重点集成科研合规性自检与防伪重复机制。
-            </p>
-            <ul class="entry-bullets">
-              <li>内置统计推断审查规则，自动规避批次纠正矩阵直接用于假设检验等典型方法学误区。</li>
-              <li>提供结构化代码生成与自动化流水线编排能力，提升探索性生信分析的迭代效率。</li>
-            </ul>
-            <div class="entry-tags">
-              <span>AI Agent</span>
-              <span>Statistical Audit</span>
-              <span>Workflow Orchestration</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section class="content-section" id="skills">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">05.</span> 技能与全栈工程体系 (Skills & Engineering Stack)
-        </h2>
-
-        <div class="skills-category-list">
-          <!-- Skill Group 1: Omics -->
-          <div class="skill-group">
-            <h4 class="skill-group-name"><i class="fa-solid fa-dna icon-skill"></i> 组学与计算生物学 (Omics & Computational Biology)</h4>
-            <div class="skill-tags">
-              <span class="stag">scRNA-seq (Seurat, Scanpy)</span>
-              <span class="stag">Spatial Omics (10x Visium, Squidpy)</span>
-              <span class="stag">Bulk RNA-seq (DESeq2, edgeR)</span>
-              <span class="stag">TCGA / GEO Multi-Cohort Mining</span>
-              <span class="stag">Cell-Cell Communication (CellChat, LIANA)</span>
-              <span class="stag">Pathway & Gene Set Enrichment (GSEA, GSVA)</span>
-              <span class="stag">Immune Infiltration (CIBERSORTx, ssGSEA)</span>
-            </div>
-          </div>
-
-          <!-- Skill Group 2: Full-Stack Engineering -->
-          <div class="skill-group">
-            <h4 class="skill-group-name"><i class="fa-solid fa-code icon-skill"></i> 全栈软件与数据工程 (Full-Stack & Data Engineering)</h4>
-            <div class="skill-tags">
-              <span class="stag">Python (FastAPI, Flask, AsyncIO)</span>
-              <span class="stag">Streamlit 数据分析与交互应用</span>
-              <span class="stag">Modern JavaScript / TypeScript</span>
-              <span class="stag">HTML5 / Semantic CSS3 / Responsive UI</span>
-              <span class="stag">R (Bioconductor, Tidyverse, Shiny)</span>
-              <span class="stag">SQL (PostgreSQL, SQLite, Complex Queries)</span>
-              <span class="stag">High-Perf Data Processing (Pandas, Polars, NumPy)</span>
-              <span class="stag">RESTful API Design & Integration</span>
-            </div>
-          </div>
-
-          <!-- Skill Group 3: AI & DevOps -->
-          <div class="skill-group">
-            <h4 class="skill-group-name"><i class="fa-solid fa-server icon-skill"></i> AI 智能体与系统架构 (AI Agent, DevOps & Cloud)</h4>
-            <div class="skill-tags">
-              <span class="stag">AI Agent 科研流水线编排</span>
-              <span class="stag">LLM 辅助数据分析与结果审计</span>
-              <span class="stag">Linux / Unix Shell Scripting & HPC</span>
-              <span class="stag">Git & GitHub Actions (CI/CD)</span>
-              <span class="stag">Docker 容器化部署</span>
-              <span class="stag">DNS, SSL & Web 域名运维部署</span>
-            </div>
-          </div>
-
-          <!-- Skill Group 4: Statistics & Viz -->
-          <div class="skill-group">
-            <h4 class="skill-group-name"><i class="fa-solid fa-chart-pie icon-skill"></i> 统计建模与出版级可视化 (Statistics & Scientific Visualization)</h4>
-            <div class="skill-tags">
-              <span class="stag">Lasso-Cox / 多变量生存分析模型</span>
-              <span class="stag">ComplexHeatmap (R 出版级热图定制)</span>
-              <span class="stag">ggplot2 & Matplotlib 高阶图表体系</span>
-              <span class="stag">PCA / UMAP / t-SNE 降维分析</span>
-              <span class="stag">多重假设检验校正 (FDR / Benjamini-Hochberg)</span>
-            </div>
-          </div>
-
-          <!-- Skill Group 5: Medical Foundation -->
-          <div class="skill-group">
-            <h4 class="skill-group-name"><i class="fa-solid fa-stethoscope icon-skill"></i> 医学与临床素养 (Medical & Clinical Foundation)</h4>
-            <div class="skill-tags">
-              <span class="stag">麻醉学临床与基础理论</span>
-              <span class="stag">肿瘤微环境浸润病理生理机制</span>
-              <span class="stag">分子生物学常规湿实验规范</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BILIBILI COMMUNITY -->
-    <section class="content-section" id="bilibili">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">06.</span> 内容创作与技术分享
-        </h2>
-
-        <div class="bilibili-box">
-          <div class="bili-header">
-            <div class="bili-logo-icon">
-              <i class="fa-brands fa-bilibili"></i>
-            </div>
-            <div>
-              <h3 class="bili-channel-name">B站 UP主：生物小小疯子</h3>
-              <p class="bili-sub">致力于传播清晰、严谨、可复现的生物信息学与 AI 科研干货</p>
-            </div>
-          </div>
-          <p class="bili-description">
-            在 Bilibili 平台持续分享计算生物学前沿方法拆解、单细胞与空间转录组实战教学、TCGA/GEO 数据挖掘技巧以及 AI 辅助科研工作流心得。
-          </p>
-          <div class="bili-action-row">
-            <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="btn-bili-visit">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> 在 B 站搜索并访问频道
+          <!-- Action Links -->
+          <div class="hero-link-bar">
+            <a href="https://orcid.org/0009-0003-3866-2181" target="_blank" rel="noopener" class="badge-link orcid-badge">
+              <i class="fa-brands fa-orcid"></i> ORCID: 0009-0003-3866-2181
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION / TIMELINE -->
-    <section class="content-section" id="education">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">07.</span> 教育与科研足迹
-        </h2>
-
-        <div class="timeline-block">
-          <!-- Item 1 -->
-          <div class="timeline-row">
-            <div class="time-col">2024 - 至今</div>
-            <div class="desc-col">
-              <h4 class="time-title">广东医科大学 (Guangdong Medical University)</h4>
-              <p class="time-sub">临床研究中心入驻学者 · 麻醉学专业本科生 · 湛江校区</p>
-              <p class="time-detail">
-                入驻临床研究中心开展课题研究，独立自学生信两年，掌握从 Bulk RNA-seq 到单细胞、空间转录组的全流程高阶分析与建模能力。
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="timeline-row">
-            <div class="time-col">2025 - 2026</div>
-            <div class="desc-col">
-              <h4 class="time-title">计算肿瘤学课题研究与工作流探索</h4>
-              <p class="time-sub">Independent Computational Oncology Researcher</p>
-              <p class="time-detail">
-                推进肺腺癌侵袭前沿微环境解析与 SMAP2 调控网络挖掘；设计并开发 AI Agent 赋能的生信科研自动化辅助工具。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="content-section" id="contact">
-      <div class="section-container">
-        <h2 class="section-title">
-          <span class="title-num">08.</span> 联系与交流
-        </h2>
-
-        <div class="contact-panel">
-          <p class="contact-lead">
-            无论您是希望就计算生物学课题、单细胞与空间组学分析、科研自动化工具进行学术交流，还是探讨合作机会，均欢迎随时联系！
-          </p>
-
-          <div class="contact-button-row">
-            <a href="mailto:etonsalmon160@gmail.com" class="btn-contact-main">
+            <a href="mailto:etonsalmon160@gmail.com" class="badge-link">
               <i class="fa-regular fa-envelope"></i> etonsalmon160@gmail.com
             </a>
-            <button class="btn-contact-secondary" id="btnCopyEmail" title="复制邮箱">
-              <i class="fa-regular fa-copy"></i> 复制邮箱
-            </button>
-            <a href="https://orcid.org/0009-0003-3866-2181" target="_blank" rel="noopener" class="btn-contact-secondary">
-              <i class="fa-brands fa-orcid"></i> ORCID
-            </a>
-            <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="btn-contact-secondary">
+            <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="badge-link">
               <i class="fa-brands fa-github"></i> GitHub
             </a>
+            <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="badge-link bilibili">
+              <i class="fa-brands fa-bilibili"></i> B站 @生物小小疯子
+            </a>
+            <button class="badge-link btn-hub-jump" id="btnHeroToHub">
+              <i class="fa-solid fa-compass"></i> 打开生信资源导航
+            </button>
           </div>
         </div>
+      </section>
+
+      <!-- 01. ABOUT SECTION -->
+      <section class="content-section" id="about">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">01.</span> 关于我与学术背景
+          </h2>
+
+          <div class="prose-content">
+            <p>
+              独立自学生物信息学两年，具备独立开展从 <strong>Bulk RNA-seq 到单细胞（scRNA-seq）、再到空间转录组（Spatial Transcriptomics）</strong> 全流程数据挖掘与建模能力。现为<strong>广东医科大学临床研究中心入驻学者</strong>、麻醉学专业本科生。
+            </p>
+            <p>
+              科研实践中坚持<strong>“生物学直觉先行、统计模型严谨、分析流程可复现”</strong>。重点深挖<strong>肺腺癌侵袭转移前沿（Invasion Front）</strong>的微环境空间异质性与调控网络，并探索 <strong>AI Agent</strong> 在生信流程自动化与统计合规审计中的落地。
+            </p>
+
+            <blockquote class="research-philosophy">
+              “Combining biological intuition, statistical rigor and computational methods to extract reproducible biological signals from complex biomedical data.”
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02. RESEARCH INTERESTS -->
+      <section class="content-section" id="research">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">02.</span> 核心研究方向
+          </h2>
+
+          <div class="research-grid">
+            <!-- Item 1 -->
+            <div class="research-card">
+              <div class="card-header-icon">
+                <i class="fa-solid fa-microscope"></i>
+              </div>
+              <h3 class="card-title">单细胞与空间转录组学</h3>
+              <p class="card-desc">
+                聚焦单细胞与组织原位空间转录组的联合建模，开展高精度细胞类型注释、微环境空间反褶积（Deconvolution）、细胞通讯及空间生态位（Spatial Niches）解析。
+              </p>
+              <div class="card-tags">
+                <span>scRNA-seq</span>
+                <span>Spatial Omics</span>
+                <span>Spatial Niche</span>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="research-card">
+              <div class="card-header-icon">
+                <i class="fa-solid fa-dna"></i>
+              </div>
+              <h3 class="card-title">肺腺癌（LUAD）侵袭与转移机制</h3>
+              <p class="card-desc">
+                以肺腺癌为疾病模型，重点解析肿瘤侵袭浸润前沿（Invasive Front）的克隆异质性、基质重塑、免疫微环境抑制特征及关键调控靶标轴。
+              </p>
+              <div class="card-tags">
+                <span>LUAD</span>
+                <span>Invasion Front</span>
+                <span>Microenvironment</span>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="research-card">
+              <div class="card-header-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h3 class="card-title">多组学分子分型与临床预后</h3>
+              <p class="card-desc">
+                整合大规模临床多组学与独立公共队列数据，运用机器学习特征筛选、统计建模与生存分析，构建稳健的分子亚型分层与预后评估模型。
+              </p>
+              <div class="card-tags">
+                <span>Multi-Omics</span>
+                <span>Molecular Subtyping</span>
+                <span>Prognosis Modeling</span>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="research-card">
+              <div class="card-header-icon">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <h3 class="card-title">AI Agent & 生信科研自动化</h3>
+              <p class="card-desc">
+                探索大语言模型与 Agent 编排框架在组学研究中的工程落地，实现从原始矩阵到建模报告的端到端自动化编排，以及统计合规与可复现性审计。
+              </p>
+              <div class="card-tags">
+                <span>AI for Science</span>
+                <span>Agentic Workflows</span>
+                <span>Reproducibility</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. PUBLICATIONS SECTION -->
+      <section class="content-section" id="publications">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">03.</span> 学术论文与预印本 (Publications & Preprints)
+          </h2>
+
+          <div class="projects-list">
+            <!-- Paper 1 -->
+            <div class="project-entry">
+              <div class="project-entry-header">
+                <span class="entry-type"><i class="fa-solid fa-file-lines"></i> Preprint · Research Square</span>
+                <span class="entry-date">May 2026</span>
+              </div>
+              <h3 class="project-entry-title">
+                <a href="https://doi.org/10.21203/rs.3.rs-9644970/v1" target="_blank" rel="noopener" class="paper-title-link">
+                  Multi-omics Integration Analysis Identifies MMP1, HILPDA, and COL6A5 as Critical Determinants of Invasive Progression and Metastatic Adaptation in Lung Adenocarcinoma <i class="fa-solid fa-arrow-up-right-from-square icon-ext"></i>
+                </a>
+              </h3>
+              <p class="project-entry-desc">
+                <strong>李智杨 (Li Zhiyang)</strong>, et al.
+              </p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.21203/rs.3.rs-9644970/v1" target="_blank" rel="noopener" class="paper-btn">
+                  <i class="fa-solid fa-link"></i> DOI: 10.21203/rs.3.rs-9644970/v1
+                </a>
+                <span class="paper-badge">Multi-Omics</span>
+                <span class="paper-badge">LUAD Metastasis</span>
+              </div>
+            </div>
+
+            <!-- Paper 2 -->
+            <div class="project-entry">
+              <div class="project-entry-header">
+                <span class="entry-type"><i class="fa-solid fa-file-lines"></i> Preprint · Research Square</span>
+                <span class="entry-date">May 2026</span>
+              </div>
+              <h3 class="project-entry-title">
+                <a href="https://doi.org/10.21203/rs.3.rs-9643718/v1" target="_blank" rel="noopener" class="paper-title-link">
+                  Proteomic Characterization of KRAS Mutation Landscapes in Lung Adenocarcinoma: A Multi-Algorithm Machine Learning Framework Identifies MUC5AC-Mediated Immune-Inflammatory Reprogramming <i class="fa-solid fa-arrow-up-right-from-square icon-ext"></i>
+                </a>
+              </h3>
+              <p class="project-entry-desc">
+                <strong>李智杨 (Li Zhiyang)</strong>, et al.
+              </p>
+              <div class="paper-links">
+                <a href="https://doi.org/10.21203/rs.3.rs-9643718/v1" target="_blank" rel="noopener" class="paper-btn">
+                  <i class="fa-solid fa-link"></i> DOI: 10.21203/rs.3.rs-9643718/v1
+                </a>
+                <span class="paper-badge">Proteomics</span>
+                <span class="paper-badge">Machine Learning</span>
+                <span class="paper-badge">KRAS Landscape</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04. PROJECTS SECTION -->
+      <section class="content-section" id="projects">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">04.</span> 课题实践与分析流程
+          </h2>
+
+          <div class="projects-list">
+            <!-- Project Card 1 -->
+            <div class="project-entry">
+              <div class="project-entry-header">
+                <span class="entry-type">Spatial & Single-Cell Project</span>
+                <span class="entry-date">2025 - Present</span>
+              </div>
+              <h3 class="project-entry-title">肺腺癌单细胞到空间转录组映射与侵袭前沿微环境生态位解析</h3>
+              <p class="project-entry-desc">
+                整合原发与转移性肺腺癌的高通量单细胞与组织空间转录组数据，构建细胞空间解聚与原位坐标映射流水线。定量解析侵袭前沿（Invasive Front）恶性上皮细胞与基质、免疫细胞的空间共定位模式。
+              </p>
+              <ul class="entry-bullets">
+                <li>建立严格的单细胞质控与批次校正规范，实现高保真原位空间映射。</li>
+                <li>识别与局部微浸润显著相关的特征共表达模块及空间受配体通讯网络。</li>
+                <li>基于 Python (Scanpy, Squidpy) 与 R 跨平台交叉验证分析结果。</li>
+              </ul>
+              <div class="entry-tags">
+                <span>scRNA-seq</span>
+                <span>Spatial Visium</span>
+                <span>Cell Deconvolution</span>
+              </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-entry">
+              <div class="project-entry-header">
+                <span class="entry-type">Multi-Cohort Transcriptomics</span>
+                <span class="entry-date">2025 - Present</span>
+              </div>
+              <h3 class="project-entry-title">关键靶标及协同调控网络的多队列分子分型与临床预后建模</h3>
+              <p class="project-entry-desc">
+                在 TCGA 及多个独立微阵列/RNA-seq 肺腺癌临床队列中，系统探究关键靶标及其协同调控轴的表达异质性、基因组变异关联与免疫微环境浸润特征。
+              </p>
+              <ul class="entry-bullets">
+                <li>运用单/多变量 Cox 比例风险回归与机器学习筛选，验证候选特征跨队列预后稳健性。</li>
+                <li>结合免疫浸润算法与基因集富集分析，阐明特征亚型的免疫微环境表型。</li>
+                <li>输出符合高水平期刊标准的出版级统计图表与跨队列元分析报告。</li>
+              </ul>
+              <div class="entry-tags">
+                <span>TCGA / GEO</span>
+                <span>Survival Analysis</span>
+                <span>Machine Learning</span>
+              </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-entry">
+              <div class="project-entry-header">
+                <span class="entry-type">AI & Workflow Engineering</span>
+                <span class="entry-date">2026</span>
+              </div>
+              <h3 class="project-entry-title">面向计算生物学研究的 AI Agent 自动化分析与结果审计工作流</h3>
+              <p class="project-entry-desc">
+                设计针对高维生物组学数据的智能体驱动执行流水线，支持从原始表达矩阵输入到统计建模与结构化报告生成的自动化衔接，重点集成科研合规性自检与防伪重复机制。
+              </p>
+              <ul class="entry-bullets">
+                <li>内置统计推断审查规则，自动规避批次纠正矩阵直接用于假设检验等典型方法学误区。</li>
+                <li>提供结构化代码生成与自动化流水线编排能力，提升探索性生信分析的迭代效率。</li>
+              </ul>
+              <div class="entry-tags">
+                <span>AI Agent</span>
+                <span>Statistical Audit</span>
+                <span>Workflow Orchestration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05. SKILLS SECTION -->
+      <section class="content-section" id="skills">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">05.</span> 技能与全栈工程体系 (Skills & Engineering Stack)
+          </h2>
+
+          <div class="skills-category-list">
+            <!-- Skill Group 1: Omics -->
+            <div class="skill-group">
+              <h4 class="skill-group-name"><i class="fa-solid fa-dna icon-skill"></i> 组学与计算生物学 (Omics & Computational Biology)</h4>
+              <div class="skill-tags">
+                <span class="stag">scRNA-seq (Seurat, Scanpy)</span>
+                <span class="stag">Spatial Omics (10x Visium, Squidpy)</span>
+                <span class="stag">Bulk RNA-seq (DESeq2, edgeR)</span>
+                <span class="stag">TCGA / GEO Multi-Cohort Mining</span>
+                <span class="stag">Cell-Cell Communication (CellChat, LIANA)</span>
+                <span class="stag">Pathway & Gene Set Enrichment (GSEA, GSVA)</span>
+                <span class="stag">Immune Infiltration (CIBERSORTx, ssGSEA)</span>
+              </div>
+            </div>
+
+            <!-- Skill Group 2: Full-Stack Engineering -->
+            <div class="skill-group">
+              <h4 class="skill-group-name"><i class="fa-solid fa-code icon-skill"></i> 全栈软件与数据工程 (Full-Stack & Data Engineering)</h4>
+              <div class="skill-tags">
+                <span class="stag">Python (FastAPI, Flask, AsyncIO)</span>
+                <span class="stag">Streamlit 数据分析与交互应用</span>
+                <span class="stag">Modern JavaScript / TypeScript</span>
+                <span class="stag">HTML5 / Semantic CSS3 / Responsive UI</span>
+                <span class="stag">R (Bioconductor, Tidyverse, Shiny)</span>
+                <span class="stag">SQL (PostgreSQL, SQLite, Complex Queries)</span>
+                <span class="stag">High-Perf Data Processing (Pandas, Polars, NumPy)</span>
+                <span class="stag">RESTful API Design & Integration</span>
+              </div>
+            </div>
+
+            <!-- Skill Group 3: AI & DevOps -->
+            <div class="skill-group">
+              <h4 class="skill-group-name"><i class="fa-solid fa-server icon-skill"></i> AI 智能体与系统架构 (AI Agent, DevOps & Cloud)</h4>
+              <div class="skill-tags">
+                <span class="stag">AI Agent 科研流水线编排</span>
+                <span class="stag">LLM 辅助数据分析与结果审计</span>
+                <span class="stag">Linux / Unix Shell Scripting & HPC</span>
+                <span class="stag">Git & GitHub Actions (CI/CD)</span>
+                <span class="stag">Docker 容器化部署</span>
+                <span class="stag">DNS, SSL & Web 域名运维部署</span>
+              </div>
+            </div>
+
+            <!-- Skill Group 4: Statistics & Viz -->
+            <div class="skill-group">
+              <h4 class="skill-group-name"><i class="fa-solid fa-chart-pie icon-skill"></i> 统计建模与出版级可视化 (Statistics & Scientific Visualization)</h4>
+              <div class="skill-tags">
+                <span class="stag">Lasso-Cox / 多变量生存分析模型</span>
+                <span class="stag">ComplexHeatmap (R 出版级热图定制)</span>
+                <span class="stag">ggplot2 & Matplotlib 高阶图表体系</span>
+                <span class="stag">PCA / UMAP / t-SNE 降维分析</span>
+                <span class="stag">多重假设检验校正 (FDR / Benjamini-Hochberg)</span>
+              </div>
+            </div>
+
+            <!-- Skill Group 5: Medical Foundation -->
+            <div class="skill-group">
+              <h4 class="skill-group-name"><i class="fa-solid fa-stethoscope icon-skill"></i> 医学与临床素养 (Medical & Clinical Foundation)</h4>
+              <div class="skill-tags">
+                <span class="stag">麻醉学临床与基础理论</span>
+                <span class="stag">肿瘤微环境浸润病理生理机制</span>
+                <span class="stag">分子生物学常规湿实验规范</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06. BILIBILI COMMUNITY -->
+      <section class="content-section" id="bilibili">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">06.</span> 内容创作与技术分享
+          </h2>
+
+          <div class="bilibili-box">
+            <div class="bili-header">
+              <div class="bili-logo-icon">
+                <i class="fa-brands fa-bilibili"></i>
+              </div>
+              <div>
+                <h3 class="bili-channel-name">B站 UP主：生物小小疯子</h3>
+                <p class="bili-sub">致力于传播清晰、严谨、可复现的生物信息学与 AI 科研干货</p>
+              </div>
+            </div>
+            <p class="bili-description">
+              在 Bilibili 平台持续分享计算生物学前沿方法拆解、单细胞与空间转录组实战教学、TCGA/GEO 数据挖掘技巧以及 AI 辅助科研工作流心得。
+            </p>
+            <div class="bili-action-row">
+              <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="btn-bili-visit">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> 在 B 站搜索并访问频道
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07. EDUCATION / TIMELINE -->
+      <section class="content-section" id="education">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">07.</span> 教育与科研足迹
+          </h2>
+
+          <div class="timeline-block">
+            <!-- Item 1 -->
+            <div class="timeline-row">
+              <div class="time-col">2024 - 至今</div>
+              <div class="desc-col">
+                <h4 class="time-title">广东医科大学 (Guangdong Medical University)</h4>
+                <p class="time-sub">临床研究中心入驻学者 · 麻醉学专业本科生 · 湛江校区</p>
+                <p class="time-detail">
+                  入驻临床研究中心开展课题研究，独立自学生信两年，掌握从 Bulk RNA-seq 到单细胞、空间转录组的全流程高阶分析与建模能力。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-row">
+              <div class="time-col">2025 - 2026</div>
+              <div class="desc-col">
+                <h4 class="time-title">计算肿瘤学课题研究与工作流探索</h4>
+                <p class="time-sub">Independent Computational Oncology Researcher</p>
+                <p class="time-detail">
+                  推进肺腺癌侵袭前沿微环境解析与关键调控网络挖掘；设计并开发 AI Agent 赋能的生信科研自动化辅助工具。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08. CONTACT -->
+      <section class="content-section" id="contact">
+        <div class="section-container">
+          <h2 class="section-title">
+            <span class="title-num">08.</span> 联系与交流
+          </h2>
+
+          <div class="contact-panel">
+            <p class="contact-lead">
+              无论您是希望就计算生物学课题、单细胞与空间组学分析、科研自动化工具进行学术交流，还是探讨合作机会，均欢迎随时联系！
+            </p>
+
+            <div class="contact-button-row">
+              <a href="mailto:etonsalmon160@gmail.com" class="btn-contact-main">
+                <i class="fa-regular fa-envelope"></i> etonsalmon160@gmail.com
+              </a>
+              <button class="btn-contact-secondary" id="btnCopyEmail" title="复制邮箱">
+                <i class="fa-regular fa-copy"></i> 复制邮箱
+              </button>
+              <a href="https://orcid.org/0009-0003-3866-2181" target="_blank" rel="noopener" class="btn-contact-secondary">
+                <i class="fa-brands fa-orcid"></i> ORCID
+              </a>
+              <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="btn-contact-secondary">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================================================
+         VIEW 2: BIOINFORMATICS RESOURCE NAVIGATION HUB (SWITCHABLE)
+         ========================================================================== -->
+    <div id="viewHub" class="page-view" style="display: none;">
+      <!-- HUB HERO & SEARCH -->
+      <section class="hub-hero-section">
+        <div class="section-container">
+          <div class="hub-hero-header">
+            <span class="hub-badge"><i class="fa-solid fa-compass"></i> 权威生信与计算生物学图谱</span>
+            <h1 class="hub-title">Bioinformatics Resource Hub</h1>
+            <p class="hub-subtitle">
+              系统收录全球权威公共多组学数据库、单细胞与空间图谱、通路注释、临床药敏平台及 AI for Science 前沿工具。
+            </p>
+          </div>
+
+          <!-- Instant Search Bar -->
+          <div class="hub-search-container">
+            <div class="hub-search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="hubSearchInput" class="hub-search-input" placeholder="输入数据库名称、关键词或功能（如 TCGA, scRNA, GSEA, Spatial, KMplot, 免疫浸润）..." autocomplete="off">
+              <button id="hubSearchClear" class="search-clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Quick Filter Pills -->
+            <div class="hub-filter-pills" id="hubFilterPills">
+              <button class="filter-pill active" data-filter="all">全部平台 (<span id="countAll">0</span>)</button>
+              <button class="filter-pill" data-filter="cancer"><i class="fa-solid fa-database"></i> 肿瘤多组学</button>
+              <button class="filter-pill" data-filter="singlecell"><i class="fa-solid fa-microscope"></i> 单细胞与空转</button>
+              <button class="filter-pill" data-filter="pathway"><i class="fa-solid fa-network-wired"></i> 通路与网络</button>
+              <button class="filter-pill" data-filter="clinical"><i class="fa-solid fa-chart-line"></i> 预后与药敏</button>
+              <button class="filter-pill" data-filter="tool"><i class="fa-solid fa-cube"></i> 生态与框架</button>
+              <button class="filter-pill" data-filter="ai"><i class="fa-solid fa-robot"></i> AI for Science</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HUB CONTENT SECTIONS -->
+      <div class="hub-sections-wrapper">
+        <!-- 1. CANCER & MULTI-OMICS -->
+        <section class="content-section hub-category-section" id="hub-cancer" data-category="cancer">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-database sec-icon"></i> 01. 核心肿瘤与公共组学数据库</h2>
+              <span class="hub-sec-desc">涵盖大规模癌症基因组、转录组、蛋白质组与独立临床队列</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Item 1: GDC TCGA -->
+              <a href="https://portal.gdc.cancer.gov/" target="_blank" rel="noopener" class="hub-card" data-tags="tcga gdc 癌症 基因组 rna-seq cnv 突变 临床 预后 多组学 肺癌 luad">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">GDC Data Portal (TCGA)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">NCI 官方肿瘤门户</span>
+                </div>
+                <p class="hub-card-desc">美国 NCI 官方癌症基因组图谱门户，涵盖 33+ 癌种的多组学原始与处理数据（RNA-seq, WES, CNV, 甲基化及临床预后）。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">TCGA</span>
+                  <span class="h-tag">Multi-Omics</span>
+                  <span class="h-tag">Clinical</span>
+                </div>
+              </a>
+
+              <!-- Item 2: NCBI GEO -->
+              <a href="https://www.ncbi.nlm.nih.gov/geo/" target="_blank" rel="noopener" class="hub-card" data-tags="geo ncbi 表达谱 芯片 微阵列 rna-seq 外部验证 独立队列">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">NCBI GEO</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">全球最大表达数据库</span>
+                </div>
+                <p class="hub-card-desc">全球最大的高通量基因表达公共数据库，汇集数十万个独立微阵列芯片与 RNA-seq 临床队列，外部验证与 Meta 分析首选。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Microarray</span>
+                  <span class="h-tag">RNA-seq</span>
+                  <span class="h-tag">Cohort Validation</span>
+                </div>
+              </a>
+
+              <!-- Item 3: cBioPortal -->
+              <a href="https://www.cbioportal.org/" target="_blank" rel="noopener" class="hub-card" data-tags="cbioportal 癌症 突变 拷贝数 表达相关性 生存分析 在线可视化">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">cBioPortal for Cancer Genomics</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">交互式癌症基因组学</span>
+                </div>
+                <p class="hub-card-desc">MSKCC 打造的顶级癌症基因组学交互探索平台，支持在线分析基因突变谱、共突变/互斥、生存曲线与表达相关性。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Mutations</span>
+                  <span class="h-tag">Oncoprint</span>
+                  <span class="h-tag">Survival</span>
+                </div>
+              </a>
+
+              <!-- Item 4: CPTAC -->
+              <a href="https://proteomics.cancer.gov/programs/cptac" target="_blank" rel="noopener" class="hub-card" data-tags="cptac 蛋白质组 磷酸化 修饰组 质谱 临床蛋白组 转录组联合">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">CPTAC Data Portal</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">临床蛋白质组联盟</span>
+                </div>
+                <p class="hub-card-desc">提供高精度的肿瘤蛋白质组学、磷酸化修饰组与匹配转录组数据，是深挖蛋白景观与通路重塑的权威来源。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Proteomics</span>
+                  <span class="h-tag">Phosphoproteomics</span>
+                  <span class="h-tag">NCI</span>
+                </div>
+              </a>
+
+              <!-- Item 5: DepMap / CCLE -->
+              <a href="https://depmap.org/portal/" target="_blank" rel="noopener" class="hub-card" data-tags="depmap ccle 细胞系 crispr 敲除 靶标 依赖性 药敏 基因合成致死">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">DepMap (Cancer Dependency Map)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">癌症依赖性与靶标图谱</span>
+                </div>
+                <p class="hub-card-desc">Broad 研究所主导的癌细胞系全基因组 CRISPR 敲除筛选与药敏图谱，快速验证候选基因对肿瘤生存的必需性。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">CRISPR Screen</span>
+                  <span class="h-tag">Gene Dependency</span>
+                  <span class="h-tag">Broad</span>
+                </div>
+              </a>
+
+              <!-- Item 6: ICGC -->
+              <a href="https://dcc.icgc.org/" target="_blank" rel="noopener" class="hub-card" data-tags="icgc 国际癌症 体细胞突变 结构变异 突变特征谱">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">ICGC Data Portal</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">国际癌症基因组联盟</span>
+                </div>
+                <p class="hub-card-desc">汇集全球 50+ 种癌症的体细胞突变、基因组结构变异与多国独立队列，适合突变特征谱分析。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Somatic Mutations</span>
+                  <span class="h-tag">Global Cohorts</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. SINGLE-CELL & SPATIAL OMICS -->
+        <section class="content-section hub-category-section" id="hub-singlecell" data-category="singlecell">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-microscope sec-icon"></i> 02. 单细胞与空间转录组图谱</h2>
+              <span class="hub-sec-desc">人类细胞图谱、原位组织空间组学切片与肿瘤微环境单细胞生态</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Item 1: CZ CELLxGENE -->
+              <a href="https://cellxgene.cziscience.com/" target="_blank" rel="noopener" class="hub-card" data-tags="cellxgene czi 单细胞 scrna-seq h5ad 细胞图谱 marker 基因表达 在线降维">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">CZ CELLxGENE</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">全球最大单细胞门户</span>
+                </div>
+                <p class="hub-card-desc">CZI 打造的标准化单细胞数据浏览器与下载中心，收录数千万高质量细胞数据，支持在线交互降维与 h5ad 下载。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">scRNA-seq</span>
+                  <span class="h-tag">h5ad Download</span>
+                  <span class="h-tag">Marker Query</span>
+                </div>
+              </a>
+
+              <!-- Item 2: Human Cell Atlas -->
+              <a href="https://data.humancellatlas.org/" target="_blank" rel="noopener" class="hub-card" data-tags="hca human cell atlas 人类细胞图谱 参考集 基线 正常组织 多组学">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Human Cell Atlas (HCA)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">人类细胞图谱计划</span>
+                </div>
+                <p class="hub-card-desc">定义人类所有正常器官与组织的参考级单细胞多组学图谱，是疾病细胞对比与健康基线参考的标准。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Reference Atlas</span>
+                  <span class="h-tag">Healthy Baseline</span>
+                </div>
+              </a>
+
+              <!-- Item 3: TISCH 2.0 -->
+              <a href="http://tisch.comp-genomics.org/" target="_blank" rel="noopener" class="hub-card" data-tags="tisch 肿瘤免疫 微环境 tme 巨噬细胞 t细胞 成纤维细胞 浸润 单细胞">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">TISCH 2.0</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">肿瘤免疫单细胞图谱</span>
+                </div>
+                <p class="hub-card-desc">系统收录近 200 个高质量肿瘤微环境（TME）单细胞数据集，聚焦肿瘤浸润免疫细胞与基质细胞异质性挖掘。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Tumor Microenvironment</span>
+                  <span class="h-tag">Immune Cell</span>
+                </div>
+              </a>
+
+              <!-- Item 4: Broad Single Cell Portal -->
+              <a href="https://singlecell.broadinstitute.org/" target="_blank" rel="noopener" class="hub-card" data-tags="broad scp single cell portal 顶刊 单细胞 在线可视化 聚类">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Broad Single Cell Portal (SCP)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">顶刊配套交互中心</span>
+                </div>
+                <p class="hub-card-desc">Broad Institute 权威单细胞在线交互平台，收录大量 Cell/Nature/Science 论文配套的高维单细胞数据集。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Broad Institute</span>
+                  <span class="h-tag">High-Impact Papers</span>
+                </div>
+              </a>
+
+              <!-- Item 5: 10x Genomics Datasets -->
+              <a href="https://www.10xgenomics.com/datasets" target="_blank" rel="noopener" class="hub-card" data-tags="10x 官方 visium xenium chromium 空间转录组 示范数据 基准测试">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">10x Genomics Official Datasets</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">官方空间与单细胞数据</span>
+                </div>
+                <p class="hub-card-desc">10x 官方示范数据集中心（Chromium 3'/5', Visium 组织空间转录组, Xenium 原位亚细胞分辨），流程评测基准。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Visium Spatial</span>
+                  <span class="h-tag">Chromium</span>
+                  <span class="h-tag">Benchmark</span>
+                </div>
+              </a>
+
+              <!-- Item 6: SpatialDB -->
+              <a href="https://www.spatialomics.org/SpatialDB/" target="_blank" rel="noopener" class="hub-card" data-tags="spatialdb 空间转录组 visium slide-seq merfish 组织微环境 原位切片">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">SpatialDB</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">空间组学数据库</span>
+                </div>
+                <p class="hub-card-desc">专门收录多种空间组学技术（Visium, Slide-seq, MERFISH 等）的空间表达切片数据，支持空间共定位比对。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Spatial Omics</span>
+                  <span class="h-tag">Microenvironment</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. PATHWAYS & NETWORKS -->
+        <section class="content-section hub-category-section" id="hub-pathways" data-category="pathway">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-network-wired sec-icon"></i> 03. 通路富集、生物网络与功能注释</h2>
+              <span class="hub-sec-desc">标准基因集、代谢与信号转导通路、蛋白质相互作用（PPI）网络</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Item 1: MSigDB -->
+              <a href="https://www.gsea-msigdb.org/gsea/msigdb/" target="_blank" rel="noopener" class="hub-card" data-tags="msigdb gsea hallmark c2 c5 go kegg 基因集 通路富集 broad">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">MSigDB (Broad Institute)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">分子特征金标准库</span>
+                </div>
+                <p class="hub-card-desc">分子特征数据库，包含 Hallmark, C2 经典通路, C5 GO, C8 细胞型等标准基因集，GSEA 与 GSVA 分析的核心底库。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">GSEA</span>
+                  <span class="h-tag">Hallmark</span>
+                  <span class="h-tag">GSVA</span>
+                </div>
+              </a>
+
+              <!-- Item 2: KEGG -->
+              <a href="https://www.genome.jp/kegg/" target="_blank" rel="noopener" class="hub-card" data-tags="kegg 代谢通路 信号转导 基因网络 生物化学 生物信息经典">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">KEGG Pathway Database</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">生化代谢与信号通路</span>
+                </div>
+                <p class="hub-card-desc">京都基因与基因组百科全书，经典生化代谢路径、信号转导通路及人类疾病通路的权威底图。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Metabolism</span>
+                  <span class="h-tag">Signaling</span>
+                </div>
+              </a>
+
+              <!-- Item 3: Reactome -->
+              <a href="https://reactome.org/" target="_blank" rel="noopener" class="hub-card" data-tags="reactome 分子通路 级联反应 生物反应网络 开源同行评审">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Reactome Pathway Knowledgebase</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">层级分子反应网络</span>
+                </div>
+                <p class="hub-card-desc">开源且经严格同行评审的分子通路知识库，提供极为精细的生物分子反应层级与交互图谱。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Biochemical Reaction</span>
+                  <span class="h-tag">Pathway Analysis</span>
+                </div>
+              </a>
+
+              <!-- Item 4: STRING -->
+              <a href="https://string-db.org/" target="_blank" rel="noopener" class="hub-card" data-tags="string ppi 蛋白互作 相互作用网络 hub基因 共表达 物理结合">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">STRING Database</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">蛋白质相互作用 (PPI)</span>
+                </div>
+                <p class="hub-card-desc">全球应用最广泛的蛋白质相互作用数据库，整合物理结合与功能共表达证据，构建 PPI 互作网络与核心 Hub 基因首选。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">PPI Network</span>
+                  <span class="h-tag">Hub Genes</span>
+                  <span class="h-tag">Cytoscape</span>
+                </div>
+              </a>
+
+              <!-- Item 5: Enrichr -->
+              <a href="https://maayanlab.cloud/Enrichr/" target="_blank" rel="noopener" class="hub-card" data-tags="enrichr 一键富集 ora go kegg tf 转录因子 maayan">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Enrichr</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">综合基因集富集分析</span>
+                </div>
+                <p class="hub-card-desc">Ma'ayan 实验室开发的综合富集平台，集成上百个基因集库（转录因子、通路、表型、疾病），API 支持极佳。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">ORA Analysis</span>
+                  <span class="h-tag">100+ Gene Libraries</span>
+                </div>
+              </a>
+
+              <!-- Item 6: BioGRID -->
+              <a href="https://thebiogrid.org/" target="_blank" rel="noopener" class="hub-card" data-tags="biogrid 实验验证 遗传互作 蛋白互作 化学互作 文献审阅">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">BioGRID</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">人工审阅生物物理互作</span>
+                </div>
+                <p class="hub-card-desc">经人工审阅的高可靠性生物物理相互作用数据库（包含 PPI、遗传相互作用与化学相互作用）。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Experimental Evidence</span>
+                  <span class="h-tag">Interactions</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. CLINICAL & PHARMACOGENOMICS -->
+        <section class="content-section hub-category-section" id="hub-clinical" data-category="clinical">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-chart-line sec-icon"></i> 04. 临床预后、免疫浸润与药敏靶标</h2>
+              <span class="hub-sec-desc">生存分析、免疫微环境评估算法、抗肿瘤药物敏感性与临床靶点</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Item 1: KM Plotter -->
+              <a href="https://kmplot.com/" target="_blank" rel="noopener" class="hub-card" data-tags="kmplot 生存分析 os pfs rfs 肺癌 乳腺癌 胃癌 卵巢癌 预后曲线">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Kaplan-Meier Plotter (KMplot)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">快速生存分析平台</span>
+                </div>
+                <p class="hub-card-desc">快速评估基因/miRNA 在肺癌（LUAD/LUSC）等大规模肿瘤样本中的 OS/PFS/RFS 生存曲线，验证预后靶点必备。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Kaplan-Meier</span>
+                  <span class="h-tag">LUAD Prognosis</span>
+                  <span class="h-tag">Survival</span>
+                </div>
+              </a>
+
+              <!-- Item 2: TIMER 2.0 -->
+              <a href="http://cistrome.shinyapps.io/timer/" target="_blank" rel="noopener" class="hub-card" data-tags="timer 免疫浸润 cibersort epic xcell 肿瘤免疫 微环境相关性">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">TIMER 2.0</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">肿瘤免疫评估资源网</span>
+                </div>
+                <p class="hub-card-desc">整合 6 种主流免疫解聚算法（CIBERSORT, TIMER, EPIC, xCell 等），在线交叉验证靶基因与肿瘤免疫浸润的相关性。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Immune Infiltration</span>
+                  <span class="h-tag">CIBERSORT</span>
+                  <span class="h-tag">TME</span>
+                </div>
+              </a>
+
+              <!-- Item 3: GEPIA 2 -->
+              <a href="http://gepia2.cancer-pku.cn/" target="_blank" rel="noopener" class="hub-card" data-tags="gepia tcga gtex 差异表达 肿瘤vs正常 基因表达谱 北大">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">GEPIA 2 (PKU)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">TCGA & GTEx 表达对比</span>
+                </div>
+                <p class="hub-card-desc">北京大学团队开发的癌症表达分析平台，无缝整合 TCGA 肿瘤与 GTEx 正常组织，快速检验靶基因特异性表达。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Tumor vs Normal</span>
+                  <span class="h-tag">Expression Profile</span>
+                </div>
+              </a>
+
+              <!-- Item 4: GDSC -->
+              <a href="https://www.cancerrxgene.org/" target="_blank" rel="noopener" class="hub-card" data-tags="gdsc 药敏 药物敏感性 ic50 化疗 靶向药 细胞系 基因突变药敏">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">GDSC (Genomics of Drug Sensitivity)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">癌症药敏基因组学</span>
+                </div>
+                <p class="hub-card-desc">全球最大的癌症药物敏感性基因组学数据库，包含数百种抗肿瘤药物在千种细胞系中的 IC50 药敏与突变关联。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Drug Response</span>
+                  <span class="h-tag">IC50</span>
+                  <span class="h-tag">Pharmacogenomics</span>
+                </div>
+              </a>
+
+              <!-- Item 5: OncoKB -->
+              <a href="https://www.oncokb.org/" target="_blank" rel="noopener" class="hub-card" data-tags="oncokb mskcc 临床变异 突变靶点 fda 靶向治疗 精准医疗">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">OncoKB</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">MSKCC 精准肿瘤学知识库</span>
+                </div>
+                <p class="hub-card-desc">MSKCC 维护的精准肿瘤学变异知识库，按 FDA 获批与临床证据级别对突变靶点进行严格的分级评估。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Precision Oncology</span>
+                  <span class="h-tag">Actionable Mutations</span>
+                </div>
+              </a>
+
+              <!-- Item 6: ClinVar -->
+              <a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank" rel="noopener" class="hub-card" data-tags="clinvar ncbi 临床变异 致病性 acmg 遗传变异 snp">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">NCBI ClinVar</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">基因组变异临床意义</span>
+                </div>
+                <p class="hub-card-desc">NCBI 官方人类基因组变异与表型关系数据库，遵循 ACMG 变异致病性分类标准。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Clinical Significance</span>
+                  <span class="h-tag">Pathogenicity</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. TOOLS & ECOSYSTEMS -->
+        <section class="content-section hub-category-section" id="hub-tools" data-category="tool">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-cube sec-icon"></i> 05. 核心分析框架与生信生态</h2>
+              <span class="hub-sec-desc">R/Bioconductor、Python/scverse、Nextflow/Snakemake 流程标准</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Item 1: Bioconductor -->
+              <a href="https://www.bioconductor.org/" target="_blank" rel="noopener" class="hub-card" data-tags="bioconductor r deseq2 edger seurat complexheatmap 生信包 生态">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Bioconductor (R)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">R 生信计算核心生态</span>
+                </div>
+                <p class="hub-card-desc">全球 R 语言生物学计算核心生态，涵盖 DESeq2, edgeR, ComplexHeatmap, Seurat, SingleCellExperiment 等金标准包。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">R Packages</span>
+                  <span class="h-tag">Genomics</span>
+                  <span class="h-tag">Bioconductor</span>
+                </div>
+              </a>
+
+              <!-- Item 2: scverse -->
+              <a href="https://scverse.org/" target="_blank" rel="noopener" class="hub-card" data-tags="scverse scanpy squidpy anndata muon python 单细胞 空间组学 现代生态">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">scverse (Python)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">现代 Python 单细胞空间生态</span>
+                </div>
+                <p class="hub-card-desc">现代 Python 单细胞与空间组学生态的核心基石（Scanpy, Squidpy, AnnData, Muon, scvi-tools, Decoupler）。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Scanpy</span>
+                  <span class="h-tag">Squidpy</span>
+                  <span class="h-tag">AnnData</span>
+                </div>
+              </a>
+
+              <!-- Item 3: nf-core -->
+              <a href="https://nf-core.com/" target="_blank" rel="noopener" class="hub-card" data-tags="nf-core nextflow rnaseq scrnaseq 工业级 自动化流水线 可复现">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">nf-core (Nextflow)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">生产级生信工作流标准</span>
+                </div>
+                <p class="hub-card-desc">全球开源社区打造的工业级生产分析工作流标准（nf-core/rnaseq, nf-core/scrnaseq 等），高度可复现。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Nextflow</span>
+                  <span class="h-tag">Reproducible</span>
+                  <span class="h-tag">Pipelines</span>
+                </div>
+              </a>
+
+              <!-- Item 4: UCSC Genome Browser -->
+              <a href="https://genome.ucsc.edu/" target="_blank" rel="noopener" class="hub-card" data-tags="ucsc 基因组浏览器 轨道 track bigwig bed 注释 hg38 hg19">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">UCSC Genome Browser</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">金标准基因组浏览器</span>
+                </div>
+                <p class="hub-card-desc">全球金标准基因组可视化与注释中心，提供海量染色体物理坐标轨道、基因结构及表观修饰数据。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Genome Tracks</span>
+                  <span class="h-tag">hg38 Reference</span>
+                </div>
+              </a>
+
+              <!-- Item 5: AlphaFold DB -->
+              <a href="https://alphafold.ebi.ac.uk/" target="_blank" rel="noopener" class="hub-card" data-tags="alphafold deepmind 蛋白质结构 3d预测 结构生物学 pdb">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">AlphaFold Structure Database</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">蛋白质 3D 结构预测库</span>
+                </div>
+                <p class="hub-card-desc">DeepMind 与 EMBL-EBI 联合构建的全球蛋白质 3D 预测结构公共库，覆盖两亿多种蛋白质的三维构象。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">3D Structure</span>
+                  <span class="h-tag">DeepMind</span>
+                  <span class="h-tag">PDB</span>
+                </div>
+              </a>
+
+              <!-- Item 6: Snakemake Workflows -->
+              <a href="https://snakemake.github.io/" target="_blank" rel="noopener" class="hub-card" data-tags="snakemake 工作流 编排 python 可复现 科研自动化">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Snakemake Workflows</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">Python 工作流编排引擎</span>
+                </div>
+                <p class="hub-card-desc">基于 Python 语法的可复现科研流程编排引擎，支持规模化自动化分析与本地/集群调度。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Workflow Engine</span>
+                  <span class="h-tag">HPC / Cloud</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. AI FOR SCIENCE -->
+        <section class="content-section hub-category-section" id="hub-ai" data-category="ai">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-robot sec-icon"></i> 06. AI for Science 与生物大模型</h2>
+              <span class="hub-sec-desc">蛋白质语言模型、分子机器学习与智能体科研自动化工具</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Item 1: ESM (Meta) -->
+              <a href="https://www.evolutionaryscale.ai/" target="_blank" rel="noopener" class="hub-card" data-tags="esm meta evolutionary scale 蛋白质语言模型 esm-2 esmfold plm">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">ESM (EvolutionaryScale / Meta)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-ai">前沿蛋白质语言模型</span>
+                </div>
+                <p class="hub-card-desc">前 Meta FAIR 团队打造的生物大模型（ESM-2 / ESMFold），引领基于自注意力机制的蛋白质序列与功能预测。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Protein LLM</span>
+                  <span class="h-tag">ESM-2</span>
+                  <span class="h-tag">ESMFold</span>
+                </div>
+              </a>
+
+              <!-- Item 2: HuggingFace Biology -->
+              <a href="https://huggingface.co/models?pipeline_tag=feature-extraction&search=bio" target="_blank" rel="noopener" class="hub-card" data-tags="huggingface bio transformers dnallm 单细胞大模型 geneformer scgpt">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Hugging Face Bio Models</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-ai">开源生物大模型中心</span>
+                </div>
+                <p class="hub-card-desc">汇集 Geneformer, scGPT, HyenaDNA, Nucleotide Transformer 等单细胞与基因组前沿预训练模型。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">scGPT</span>
+                  <span class="h-tag">Geneformer</span>
+                  <span class="h-tag">Bio-Transformers</span>
+                </div>
+              </a>
+
+              <!-- Item 3: BioLib -->
+              <a href="https://biolib.com/" target="_blank" rel="noopener" class="hub-card" data-tags="biolib 开源计算生物 算法云平台 生信ai应用">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">BioLib</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-ai">计算生物学 AI 云平台</span>
+                </div>
+                <p class="hub-card-desc">连接前沿生物 AI 模型与科研人员的开放平台，支持一键调用各类蛋白质设计与序列分析算法。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Cloud AI</span>
+                  <span class="h-tag">Bio-Algorithms</span>
+                </div>
+              </a>
+
+              <!-- Item 4: DeepChem -->
+              <a href="https://deepchem.io/" target="_blank" rel="noopener" class="hub-card" data-tags="deepchem 分子机器学习 药物发现 qsar 图神经网络">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">DeepChem</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-ai">分子与药物机器学习</span>
+                </div>
+                <p class="hub-card-desc">高质量的开源深度学习库，专为药物发现、材料科学与量子化学建模提供端到端算法支持。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Drug Discovery</span>
+                  <span class="h-tag">GNN</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-container">
       <p class="footer-text">
-        © 2026 李智杨 (Li Zhiyang) · Built with clean semantic web standards and hosted on GitHub Pages.
+        © 2026 李智杨 (Li Zhiyang) · 广东医科大学临床研究中心入驻学者 · Hosted on GitHub Pages.
       </p>
       <p class="footer-subtext">
-        Domain: <a href="https://eto-1024.me">eto-1024.me</a> · Academic Portfolio
+        Domain: <a href="https://eto-1024.me">eto-1024.me</a> · Academic Portfolio & Bio-Nav Hub
       </p>
     </div>
   </footer>
@@ -516,7 +1222,7 @@
   <!-- Toast -->
   <div class="toast-popup" id="toast">已成功复制邮箱地址到剪贴板！</div>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="script.js?v=2.0"></script>
 </body>
 </html>
