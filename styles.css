@@ -125,19 +125,20 @@ body.light-theme .site-header {
 }
 
 .header-inner {
-  max-width: 880px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .header-left {
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  flex-shrink: 0;
 }
 
 .brand-link {
@@ -145,6 +146,7 @@ body.light-theme .site-header {
   align-items: center;
   gap: 0.65rem;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .brand-avatar-img {
@@ -164,36 +166,52 @@ body.light-theme .site-header {
 
 /* View Switcher Segmented Control */
 .view-switch-tabs {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   background: var(--bg-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  padding: 2px;
-  gap: 2px;
+  padding: 3px;
+  gap: 4px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .view-tab-btn {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 500;
-  padding: 0.3rem 0.65rem;
+  padding: 0.35rem 0.75rem;
   border-radius: var(--radius-xs);
   color: var(--text-secondary);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  gap: 0.4rem;
   transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  user-select: none;
+  line-height: 1.2;
+}
+
+.view-tab-btn span {
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .view-tab-btn:hover {
   color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .view-tab-btn.active {
   background: var(--text-primary);
   color: var(--bg-page);
   font-weight: 600;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
 }
 
 body.light-theme .view-tab-btn.active {
@@ -204,13 +222,24 @@ body.light-theme .view-tab-btn.active {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1.25rem;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-links::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-link {
   font-size: 0.86rem;
   color: var(--text-secondary);
   font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: var(--transition);
 }
 
@@ -1263,17 +1292,29 @@ body.light-theme .doc-filter-pill.active {
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
-@media (max-width: 768px) {
-  .header-inner {
-    padding: 0.75rem 1rem;
-  }
-
+@media (max-width: 1100px) {
   .nav-links {
     display: none !important;
   }
 
   .menu-btn-mobile {
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 0.65rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+  .view-tab-btn {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.78rem;
   }
 
   .research-grid,
@@ -1294,8 +1335,13 @@ body.light-theme .doc-filter-pill.active {
   .hero-name {
     font-size: 1.75rem;
   }
+}
 
-  .view-switch-tabs span {
+@media (max-width: 480px) {
+  .view-tab-btn span {
+    font-size: 0.75rem;
+  }
+  .btn-contact-nav {
     display: none;
   }
 }

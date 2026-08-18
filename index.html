@@ -17,7 +17,7 @@
   
   <!-- Stylesheet & Favicon -->
   <link rel="icon" type="image/jpeg" href="avatar.jpg">
-  <link rel="stylesheet" href="styles.css?v=2.0">
+  <link rel="stylesheet" href="styles.css?v=3.5">
 </head>
 <body class="dark-theme">
   <!-- Subtle Ambient Glow -->
@@ -27,20 +27,20 @@
   <header class="site-header" id="header">
     <div class="header-inner">
       <div class="header-left">
-        <a href="#hero" class="brand-link" id="brandLink">
+        <a href="#hero" class="brand-link" id="brandLink" onclick="switchView('profile')">
           <img src="avatar.jpg" alt="eto-1024" class="brand-avatar-img" width="28" height="28">
           <span class="brand-name">eto-1024</span>
         </a>
 
         <!-- View Switcher Segmented Tabs -->
         <div class="view-switch-tabs">
-          <button class="view-tab-btn active" data-view="profile" id="tabProfile">
+          <button class="view-tab-btn active" data-view="profile" id="tabProfile" onclick="switchView('profile')">
             <i class="fa-solid fa-user-graduate"></i> <span>个人主页</span>
           </button>
-          <button class="view-tab-btn" data-view="hub" id="tabHub">
+          <button class="view-tab-btn" data-view="hub" id="tabHub" onclick="switchView('hub')">
             <i class="fa-solid fa-compass"></i> <span>生信导航</span>
           </button>
-          <button class="view-tab-btn" data-view="docs" id="tabDocs">
+          <button class="view-tab-btn" data-view="docs" id="tabDocs" onclick="switchView('docs')">
             <i class="fa-solid fa-book-open"></i> <span>技术文档</span>
           </button>
         </div>
@@ -1863,6 +1863,6 @@
   <div class="toast-popup" id="toast">已成功复制邮箱地址到剪贴板！</div>
 
   <!-- Scripts -->
-  <script src="script.js?v=2.0"></script>
+  <script src="script.js?v=3.5"></script>
 </body>
 </html>

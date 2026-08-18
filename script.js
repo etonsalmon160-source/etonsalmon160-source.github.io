@@ -89,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Expose globally for inline onclick handlers
+  window.switchView = switchView;
+
   if (tabProfile) tabProfile.addEventListener('click', () => switchView('profile'));
   if (tabHub) tabHub.addEventListener('click', () => switchView('hub'));
   if (tabDocs) tabDocs.addEventListener('click', () => switchView('docs'));
