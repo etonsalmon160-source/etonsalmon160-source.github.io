@@ -446,20 +446,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function initScrollReveal() {
     const targetElements = document.querySelectorAll(
-      '.hub-sec-header, .section-header, .hub-card, .doc-card, .tool-download-card, .research-card, .skill-group, .timeline-row, .script-block, .hero-profile-row, .hub-hero-header, .hub-search-container'
+      '.hero-profile-row, .hero-statement, .hero-link-bar, .section-title, .prose-content, .research-card, .timeline-row, .skill-group, .project-entry, .contact-box, .hub-sec-header, .hub-card, .doc-card, .tool-download-card, .script-block, .hub-hero-header, .hub-search-container'
     );
 
     targetElements.forEach(el => {
       el.classList.add('reveal-init');
     });
 
-    // Configure distinct stagger delay for card grids
-    const grids = document.querySelectorAll('.hub-card-grid, .research-grid, .skills-grid');
+    // Configure distinct stagger delay for card grids and lists
+    const grids = document.querySelectorAll('.research-grid, .timeline-container, .skills-category-list, .projects-list, .hub-card-grid');
     grids.forEach(grid => {
       const children = Array.from(grid.children);
       children.forEach((child, idx) => {
         child.classList.add('reveal-stagger');
-        child.style.setProperty('--stagger-delay', `${(idx % 4) * 110}ms`);
+        child.style.setProperty('--stagger-delay', `${(idx % 4) * 90}ms`);
       });
     });
 
