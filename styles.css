@@ -371,6 +371,64 @@ body.light-theme .avatar-ring {
   border-color: rgba(0, 174, 236, 0.4);
 }
 
+.badge-link.orcid-badge:hover {
+  color: #a6ce39;
+  border-color: rgba(166, 206, 57, 0.5);
+}
+
+.paper-title-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.paper-title-link:hover {
+  color: var(--accent-green);
+}
+
+.paper-title-link .icon-ext {
+  font-size: 0.75rem;
+  margin-left: 0.35rem;
+  color: var(--text-muted);
+}
+
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.paper-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--accent-green);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-xs);
+  transition: var(--transition);
+}
+
+.paper-btn:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: var(--accent-green);
+}
+
+.paper-badge {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-subtle);
+}
+
 /* ==========================================================================
    Section Standard
    ========================================================================== */
