@@ -24,7 +24,7 @@
   
   <!-- Stylesheet & Favicon -->
   <link rel="icon" type="image/jpeg" href="avatar.jpg">
-  <link rel="stylesheet" href="styles.css?v=8.0">
+  <link rel="stylesheet" href="styles.css?v=8.1">
 </head>
 <body class="dark-theme">
   <!-- Subtle Ambient Glow -->
@@ -2365,10 +2365,18 @@ winget install Astral.uv --accept-package-agreements --accept-source-agreements<
                   <span class="hub-card-tag tag-tool">高精度生信工作流指令集</span>
                 </div>
                 <p class="hub-card-desc">专为 AI Agent（Antigravity / Cursor / Claude Code）打造的标准化生信执行准则，涵盖自适应质控、负二项 GLM、LFC 收缩与变异过滤。</p>
-                <div class="hub-card-footer">
+                <div class="hub-card-footer" style="margin-bottom: 0.85rem;">
                   <span class="h-tag">bio-differential-expression</span>
                   <span class="h-tag">bio-single-cell</span>
                   <span class="h-tag">bio-variant-calling</span>
+                </div>
+                <div class="tool-action-row">
+                  <a href="https://github.com/anthropics/anthropic-quickstarts" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-brands fa-github"></i> 开源 Skill 仓库
+                  </a>
+                  <a href="#doc-community" onclick="switchView('docs')" class="btn-tool-sub">
+                    <i class="fa-solid fa-book-open"></i> 生信高阶技术文档
+                  </a>
                 </div>
               </div>
 
@@ -2382,10 +2390,18 @@ winget install Astral.uv --accept-package-agreements --accept-source-agreements<
                   <span class="hub-card-tag tag-tool">模型实时直连生物数据库</span>
                 </div>
                 <p class="hub-card-desc">基于 Anthropic Model Context Protocol 协议，让 AI 具备直接在本地检索 PubMed 文献、查询 UniProt 蛋白质注释与 Ensembl 基因坐标的实时扩展能力。</p>
-                <div class="hub-card-footer">
+                <div class="hub-card-footer" style="margin-bottom: 0.85rem;">
                   <span class="h-tag">mcp-pubmed</span>
                   <span class="h-tag">mcp-uniprot</span>
                   <span class="h-tag">mcp-bigquery</span>
+                </div>
+                <div class="tool-action-row">
+                  <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> MCP 官方文档
+                  </a>
+                  <a href="https://github.com/modelcontextprotocol/servers" target="_blank" rel="noopener" class="btn-tool-sub">
+                    <i class="fa-brands fa-github"></i> GitHub MCP 仓库
+                  </a>
                 </div>
               </div>
             </div>
@@ -2438,6 +2454,6 @@ winget install Astral.uv --accept-package-agreements --accept-source-agreements<
   <div class="toast-popup" id="toast">已成功复制邮箱地址到剪贴板！</div>
 
   <!-- Scripts -->
-  <script src="script.js?v=8.0"></script>
+  <script src="script.js?v=8.1"></script>
 </body>
 </html>
