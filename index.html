@@ -132,12 +132,12 @@
             </div>
             <h3 class="card-title">单细胞与空间转录组学</h3>
             <p class="card-desc">
-              利用 10x Genomics scRNA-seq 与 Visium 空间转录组数据，开展细胞类型反褶积（Deconvolution）、细胞通讯推断（CellChat/LIANA）与空间微环境生态位（Spatial Niche）建模。
+              聚焦单细胞与组织原位空间转录组的联合建模，开展高精度细胞类型注释、微环境空间反褶积（Deconvolution）、细胞通讯及空间生态位（Spatial Niches）解析。
             </p>
             <div class="card-tags">
               <span>scRNA-seq</span>
-              <span>Spatial Transcriptomics</span>
-              <span>Squidpy / Seurat</span>
+              <span>Spatial Omics</span>
+              <span>Spatial Niche</span>
             </div>
           </div>
 
@@ -146,14 +146,14 @@
             <div class="card-header-icon">
               <i class="fa-solid fa-dna"></i>
             </div>
-            <h3 class="card-title">肺腺癌（LUAD）侵袭与转移</h3>
+            <h3 class="card-title">肺腺癌（LUAD）侵袭与转移机制</h3>
             <p class="card-desc">
-              以肺腺癌为主要疾病模型，解析肿瘤浸润前沿（Invasive Front）的异质性克隆，挖掘 <strong>SMAP2</strong> 及其协同分子网络（CSRNP1, PDE4D, MMP1, HILPDA, COL6A5）在基质重塑与微浸润中的关键作用。
+              以肺腺癌为疾病模型，重点解析肿瘤侵袭浸润前沿（Invasive Front）的克隆异质性、基质重塑、免疫微环境抑制特征及关键调控靶标轴。
             </p>
             <div class="card-tags">
               <span>LUAD</span>
-              <span>SMAP2 Axis</span>
-              <span>Tumor Microenvironment</span>
+              <span>Invasion Front</span>
+              <span>Microenvironment</span>
             </div>
           </div>
 
@@ -164,12 +164,12 @@
             </div>
             <h3 class="card-title">多组学分子分型与临床预后</h3>
             <p class="card-desc">
-              整合 TCGA-LUAD、GEO（GSE31210、GSE68465 等）独立临床队列，通过 Lasso-Cox 回归、无监督聚类与免疫浸润评估（CIBERSORTx/ssGSEA），建立可信度高的分子亚型与预后评估模型。
+              整合大规模临床多组学与独立公共队列数据，运用机器学习特征筛选、统计建模与生存分析，构建稳健的分子亚型分层与预后评估模型。
             </p>
             <div class="card-tags">
-              <span>TCGA / GEO</span>
-              <span>Lasso-Cox</span>
-              <span>Survival Analysis</span>
+              <span>Multi-Omics</span>
+              <span>Molecular Subtyping</span>
+              <span>Prognosis Modeling</span>
             </div>
           </div>
 
@@ -180,11 +180,11 @@
             </div>
             <h3 class="card-title">AI Agent & 生信科研自动化</h3>
             <p class="card-desc">
-              构建基于大语言模型与 Agent 编排框架的端到端科研辅助流水线，涵盖自动化质控过滤、下游统计推断合规性审查（独立过滤、LFC 收缩）与科学结果可复现性审计。
+              探索大语言模型与 Agent 编排框架在组学研究中的工程落地，实现从原始矩阵到建模报告的端到端自动化编排，以及统计合规与可复现性审计。
             </p>
             <div class="card-tags">
               <span>AI for Science</span>
-              <span>Workflow Automation</span>
+              <span>Agentic Workflows</span>
               <span>Reproducibility</span>
             </div>
           </div>
@@ -208,18 +208,17 @@
             </div>
             <h3 class="project-entry-title">肺腺癌单细胞到空间转录组映射与侵袭前沿微环境生态位解析</h3>
             <p class="project-entry-desc">
-              整合原发与转移性肺腺癌的高通量单细胞数据集与 Visium 组织空间转录组切片，构建细胞空间解聚与原位坐标映射流水线。定量解析浸润前沿（Invasive Front）处恶性上皮细胞与成纤维细胞、肿瘤相关巨噬细胞（TAM）的空间共定位特征。
+              整合原发与转移性肺腺癌的高通量单细胞与组织空间转录组数据，构建细胞空间解聚与原位坐标映射流水线。定量解析侵袭前沿（Invasive Front）恶性上皮细胞与基质、免疫细胞的空间共定位模式。
             </p>
             <ul class="entry-bullets">
-              <li>建立了严格的双端单细胞质控与批次效应校正规范，确保低假阳性率。</li>
-              <li>识别出与肿瘤局部微浸润显著相关的特征共表达模块与空间配受体通讯轴。</li>
-              <li>采用 Python (Scanpy, Squidpy) 与 R (Seurat, SpatialExperiment) 进行跨平台交叉验证。</li>
+              <li>建立严格的单细胞质控与批次校正规范，实现高保真原位空间映射。</li>
+              <li>识别与局部微浸润显著相关的特征共表达模块及空间受配体通讯网络。</li>
+              <li>基于 Python (Scanpy, Squidpy) 与 R 跨平台交叉验证分析结果。</li>
             </ul>
             <div class="entry-tags">
-              <span>10x Genomics</span>
-              <span>Visium</span>
-              <span>Scanpy</span>
-              <span>Cell-Cell Communication</span>
+              <span>scRNA-seq</span>
+              <span>Spatial Visium</span>
+              <span>Cell Deconvolution</span>
             </div>
           </div>
 
@@ -229,20 +228,19 @@
               <span class="entry-type">Multi-Cohort Transcriptomics</span>
               <span class="entry-date">2025 - Present</span>
             </div>
-            <h3 class="project-entry-title">SMAP2 及关联分子群的多队列转录组学挖掘与分子分型建模</h3>
+            <h3 class="project-entry-title">关键靶标及协同调控网络的多队列分子分型与临床预后建模</h3>
             <p class="project-entry-desc">
-              在 TCGA-LUAD（n=535）及多个 GEO 独立肺腺癌微阵列/RNA-seq 队列中，系统探究 SMAP2 及其功能协同基因（CSRNP1, PDE4D, MMP1, HILPDA, COL6A5）的表达模式、拷贝数变异关联及免疫微环境浸润表型。
+              在 TCGA 及多个独立微阵列/RNA-seq 肺腺癌临床队列中，系统探究关键靶标及其协同调控轴的表达异质性、基因组变异关联与免疫微环境浸润特征。
             </p>
             <ul class="entry-bullets">
-              <li>通过单变量与多变量 Cox 比例风险回归模型，验证候选靶标在多中心独立队列中的预后稳健性。</li>
-              <li>结合 CIBERSORTx 与 ssGSEA，阐明靶标高表达亚群在免疫逃逸与基质激活维度的生物学特征。</li>
-              <li>输出符合主流学术期刊标准的出版级可视化图表（ComplexHeatmap、火山图、Forest Plot 等）。</li>
+              <li>运用单/多变量 Cox 比例风险回归与机器学习筛选，验证候选特征跨队列预后稳健性。</li>
+              <li>结合免疫浸润算法与基因集富集分析，阐明特征亚型的免疫微环境表型。</li>
+              <li>输出符合高水平期刊标准的出版级统计图表与跨队列元分析报告。</li>
             </ul>
             <div class="entry-tags">
-              <span>TCGA-LUAD</span>
-              <span>GEO Meta-Analysis</span>
-              <span>Cox Regression</span>
-              <span>ComplexHeatmap</span>
+              <span>TCGA / GEO</span>
+              <span>Survival Analysis</span>
+              <span>Machine Learning</span>
             </div>
           </div>
 
