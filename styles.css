@@ -1041,12 +1041,12 @@ body.light-theme .icon-moon { display: none; }
   gap: 0.5rem;
 }
 
-.filter-pill {
-  font-size: 0.82rem;
-  font-weight: 500;
-  padding: 0.35rem 0.85rem;
+.filter-pill,
+.doc-filter-pill {
+  padding: 0.4rem 0.85rem;
+  background: var(--bg-card);
   border-radius: var(--radius-full);
-  background: var(--bg-subtle);
+  font-size: 0.82rem;
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   display: inline-flex;
@@ -1055,19 +1055,22 @@ body.light-theme .icon-moon { display: none; }
   transition: var(--transition);
 }
 
-.filter-pill:hover {
+.filter-pill:hover,
+.doc-filter-pill:hover {
   border-color: var(--border-hover);
   color: var(--text-primary);
 }
 
-.filter-pill.active {
+.filter-pill.active,
+.doc-filter-pill.active {
   background: var(--text-primary);
   color: var(--bg-page);
   font-weight: 600;
   border-color: var(--text-primary);
 }
 
-body.light-theme .filter-pill.active {
+body.light-theme .filter-pill.active,
+body.light-theme .doc-filter-pill.active {
   background: #09090b;
   color: #ffffff;
 }

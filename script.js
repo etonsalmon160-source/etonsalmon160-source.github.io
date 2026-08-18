@@ -1,5 +1,5 @@
 /**
- * Li Zhiyang (eto-1024) Academic Portfolio & Bio-Nav Hub - Core Scripts
+ * Li Zhiyang (eto-1024) Academic Portfolio, Bio-Nav Hub & Bio-Docs Curriculum - Core Scripts
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,57 +29,69 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 2. Two-Page View Switcher (Profile vs Bio-Nav Hub)
+  // 2. Three-Page View Switcher (Profile vs Bio-Nav Hub vs Bio-Docs)
   // ==========================================================================
   const tabProfile = document.getElementById('tabProfile');
   const tabHub = document.getElementById('tabHub');
+  const tabDocs = document.getElementById('tabDocs');
+
   const viewProfile = document.getElementById('viewProfile');
   const viewHub = document.getElementById('viewHub');
+  const viewDocs = document.getElementById('viewDocs');
+
   const profileNav = document.getElementById('profileNav');
   const hubNav = document.getElementById('hubNav');
+  const docsNav = document.getElementById('docsNav');
+
   const btnHeroToHub = document.getElementById('btnHeroToHub');
   const brandLink = document.getElementById('brandLink');
 
   function switchView(target) {
-    if (target === 'hub') {
-      // Show Hub
-      viewProfile.style.display = 'none';
-      viewProfile.classList.remove('active');
+    // Hide all views first
+    viewProfile.style.display = 'none';
+    viewProfile.classList.remove('active');
+    viewHub.style.display = 'none';
+    viewHub.classList.remove('active');
+    viewDocs.style.display = 'none';
+    viewDocs.classList.remove('active');
 
+    // Reset tabs
+    tabProfile.classList.remove('active');
+    tabHub.classList.remove('active');
+    tabDocs.classList.remove('active');
+
+    // Reset top navs
+    profileNav.style.display = 'none';
+    hubNav.style.display = 'none';
+    docsNav.style.display = 'none';
+
+    if (target === 'hub') {
       viewHub.style.display = 'block';
       viewHub.classList.add('active');
-
-      tabProfile.classList.remove('active');
       tabHub.classList.add('active');
-
-      profileNav.style.display = 'none';
       hubNav.style.display = 'flex';
-
       window.history.replaceState(null, '', '#hub');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'docs') {
+      viewDocs.style.display = 'block';
+      viewDocs.classList.add('active');
+      tabDocs.classList.add('active');
+      docsNav.style.display = 'flex';
+      window.history.replaceState(null, '', '#docs');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Show Profile
-      viewHub.style.display = 'none';
-      viewHub.classList.remove('active');
-
       viewProfile.style.display = 'block';
       viewProfile.classList.add('active');
-
-      tabHub.classList.remove('active');
       tabProfile.classList.add('active');
-
-      hubNav.style.display = 'none';
       profileNav.style.display = 'flex';
-
       window.history.replaceState(null, '', '#');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
-  if (tabProfile && tabHub) {
-    tabProfile.addEventListener('click', () => switchView('profile'));
-    tabHub.addEventListener('click', () => switchView('hub'));
-  }
+  if (tabProfile) tabProfile.addEventListener('click', () => switchView('profile'));
+  if (tabHub) tabHub.addEventListener('click', () => switchView('hub'));
+  if (tabDocs) tabDocs.addEventListener('click', () => switchView('docs'));
 
   if (btnHeroToHub) {
     btnHeroToHub.addEventListener('click', (e) => {
@@ -96,31 +108,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Check initial URL hash
-  if (window.location.hash === '#hub' || window.location.hash.startsWith('#hub-')) {
+  // Check initial URL hash on page load
+  const currentHash = window.location.hash;
+  if (currentHash === '#hub' || currentHash.startsWith('#hub-')) {
     switchView('hub');
+  } else if (currentHash === '#docs' || currentHash.startsWith('#doc-')) {
+    switchView('docs');
   }
 
   // ==========================================================================
-  // 3. Bioinformatics Hub Search & Filter Logic
+  // 3. Bioinformatics Resource Hub Search & Filter Logic
   // ==========================================================================
-  const hubCards = document.querySelectorAll('.hub-card');
-  const hubCategorySections = document.querySelectorAll('.hub-category-section');
+  const hubCards = document.querySelectorAll('#viewHub .hub-card');
+  const hubCategorySections = document.querySelectorAll('#viewHub .hub-category-section');
   const hubSearchInput = document.getElementById('hubSearchInput');
   const hubSearchClear = document.getElementById('hubSearchClear');
-  const filterPills = document.querySelectorAll('.filter-pill');
+  const filterPills = document.querySelectorAll('#hubFilterPills .filter-pill');
   const countAllSpan = document.getElementById('countAll');
 
   if (countAllSpan) {
     countAllSpan.textContent = hubCards.length;
   }
 
-  let activeCategory = 'all';
-  let searchQuery = '';
+  let activeHubCategory = 'all';
+  let searchHubQuery = '';
 
   function filterHubResources() {
-    let visibleTotal = 0;
-
     hubCategorySections.forEach(section => {
       const secCategory = section.getAttribute('data-category');
       const cardsInSection = section.querySelectorAll('.hub-card');
@@ -132,35 +145,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const desc = (card.querySelector('.hub-card-desc')?.textContent || '').toLowerCase();
         const combinedText = `${title} ${desc} ${tags}`;
 
-        const matchCategory = (activeCategory === 'all' || activeCategory === secCategory);
-        const matchSearch = searchQuery === '' || combinedText.includes(searchQuery.toLowerCase());
+        const matchCategory = (activeHubCategory === 'all' || activeHubCategory === secCategory);
+        const matchSearch = searchHubQuery === '' || combinedText.includes(searchHubQuery.toLowerCase());
 
         if (matchCategory && matchSearch) {
           card.style.display = 'flex';
           visibleInSection++;
-          visibleTotal++;
         } else {
           card.style.display = 'none';
         }
       });
 
-      // Hide whole section if no cards match
-      if (visibleInSection === 0) {
-        section.style.display = 'none';
-      } else {
-        section.style.display = 'block';
-      }
+      section.style.display = visibleInSection === 0 ? 'none' : 'block';
     });
   }
 
   if (hubSearchInput) {
     hubSearchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim();
-      if (searchQuery.length > 0) {
-        hubSearchClear.style.display = 'block';
-      } else {
-        hubSearchClear.style.display = 'none';
-      }
+      searchHubQuery = e.target.value.trim();
+      hubSearchClear.style.display = searchHubQuery.length > 0 ? 'block' : 'none';
       filterHubResources();
     });
   }
@@ -168,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hubSearchClear) {
     hubSearchClear.addEventListener('click', () => {
       hubSearchInput.value = '';
-      searchQuery = '';
+      searchHubQuery = '';
       hubSearchClear.style.display = 'none';
       filterHubResources();
       hubSearchInput.focus();
@@ -179,13 +182,84 @@ document.addEventListener('DOMContentLoaded', () => {
     pill.addEventListener('click', () => {
       filterPills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      activeCategory = pill.getAttribute('data-filter') || 'all';
+      activeHubCategory = pill.getAttribute('data-filter') || 'all';
       filterHubResources();
     });
   });
 
   // ==========================================================================
-  // 4. Copy Email Functionality
+  // 4. Bioinformatics Technical Docs Search & Filter Logic
+  // ==========================================================================
+  const docCards = document.querySelectorAll('#viewDocs .doc-card');
+  const docCategorySections = document.querySelectorAll('#viewDocs .hub-category-section');
+  const docSearchInput = document.getElementById('docSearchInput');
+  const docSearchClear = document.getElementById('docSearchClear');
+  const docFilterPills = document.querySelectorAll('#docFilterPills .doc-filter-pill');
+  const countDocsAllSpan = document.getElementById('countDocsAll');
+
+  if (countDocsAllSpan) {
+    countDocsAllSpan.textContent = docCards.length;
+  }
+
+  let activeDocCategory = 'all';
+  let searchDocQuery = '';
+
+  function filterDocResources() {
+    docCategorySections.forEach(section => {
+      const secCategory = section.getAttribute('data-category');
+      const cardsInSection = section.querySelectorAll('.doc-card');
+      let visibleInSection = 0;
+
+      cardsInSection.forEach(card => {
+        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+        const title = (card.querySelector('.hub-card-name')?.textContent || '').toLowerCase();
+        const desc = (card.querySelector('.hub-card-desc')?.textContent || '').toLowerCase();
+        const combinedText = `${title} ${desc} ${tags}`;
+
+        const matchCategory = (activeDocCategory === 'all' || activeDocCategory === secCategory);
+        const matchSearch = searchDocQuery === '' || combinedText.includes(searchDocQuery.toLowerCase());
+
+        if (matchCategory && matchSearch) {
+          card.style.display = 'flex';
+          visibleInSection++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      section.style.display = visibleInSection === 0 ? 'none' : 'block';
+    });
+  }
+
+  if (docSearchInput) {
+    docSearchInput.addEventListener('input', (e) => {
+      searchDocQuery = e.target.value.trim();
+      docSearchClear.style.display = searchDocQuery.length > 0 ? 'block' : 'none';
+      filterDocResources();
+    });
+  }
+
+  if (docSearchClear) {
+    docSearchClear.addEventListener('click', () => {
+      docSearchInput.value = '';
+      searchDocQuery = '';
+      docSearchClear.style.display = 'none';
+      filterDocResources();
+      docSearchInput.focus();
+    });
+  }
+
+  docFilterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      docFilterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeDocCategory = pill.getAttribute('data-filter') || 'all';
+      filterDocResources();
+    });
+  });
+
+  // ==========================================================================
+  // 5. Copy Email Functionality
   // ==========================================================================
   const btnCopyEmail = document.getElementById('btnCopyEmail');
   const toast = document.getElementById('toast');
@@ -205,13 +279,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 5. Scroll Spy Navigation Highlight
+  // 6. Scroll Spy Navigation Highlight
   // ==========================================================================
   window.addEventListener('scroll', () => {
     const scrollPosition = window.pageYOffset + 120;
-    const isHub = viewHub && viewHub.style.display === 'block';
-    const activeNav = isHub ? hubNav : profileNav;
-    const currentSections = isHub ? document.querySelectorAll('.hub-category-section[id]') : document.querySelectorAll('#viewProfile section[id]');
+    let activeNav = profileNav;
+    let currentSections = document.querySelectorAll('#viewProfile section[id]');
+
+    if (viewHub && viewHub.style.display === 'block') {
+      activeNav = hubNav;
+      currentSections = document.querySelectorAll('#viewHub .hub-category-section[id]');
+    } else if (viewDocs && viewDocs.style.display === 'block') {
+      activeNav = docsNav;
+      currentSections = document.querySelectorAll('#viewDocs .hub-category-section[id]');
+    }
 
     currentSections.forEach(sec => {
       const top = sec.offsetTop;
@@ -230,14 +311,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 6. Mobile Menu Toggle
+  // 7. Mobile Menu Toggle
   // ==========================================================================
   const menuBtnMobile = document.getElementById('menuBtnMobile');
 
   if (menuBtnMobile) {
     menuBtnMobile.addEventListener('click', () => {
-      const isHub = viewHub && viewHub.style.display === 'block';
-      const currentNav = isHub ? hubNav : profileNav;
+      let currentNav = profileNav;
+      if (viewHub && viewHub.style.display === 'block') currentNav = hubNav;
+      if (viewDocs && viewDocs.style.display === 'block') currentNav = docsNav;
 
       if (currentNav.style.display === 'flex') {
         currentNav.style.display = 'none';

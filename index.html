@@ -40,6 +40,9 @@
           <button class="view-tab-btn" data-view="hub" id="tabHub">
             <i class="fa-solid fa-compass"></i> <span>生信导航</span>
           </button>
+          <button class="view-tab-btn" data-view="docs" id="tabDocs">
+            <i class="fa-solid fa-book-open"></i> <span>技术文档</span>
+          </button>
         </div>
       </div>
 
@@ -63,6 +66,17 @@
         <a href="#hub-tools" class="nav-link">生态与框架</a>
         <a href="#hub-ai" class="nav-link">AI for Science</a>
         <a href="#hub-literature" class="nav-link">文献与常用</a>
+      </nav>
+
+      <!-- Nav Links for Docs View -->
+      <nav class="nav-links" id="docsNav" style="display: none;">
+        <a href="#doc-foundations" class="nav-link">统计基础</a>
+        <a href="#doc-bulk" class="nav-link">Bulk转录组</a>
+        <a href="#doc-singlecell" class="nav-link">单细胞全流程</a>
+        <a href="#doc-spatial" class="nav-link">空间组学</a>
+        <a href="#doc-variant" class="nav-link">变异检测</a>
+        <a href="#doc-pipelines" class="nav-link">流程与工程</a>
+        <a href="#doc-community" class="nav-link">大神实战</a>
       </nav>
 
       <div class="header-actions">
@@ -1379,6 +1393,451 @@
                 <div class="hub-card-footer">
                   <span class="h-tag">Academic Network</span>
                   <span class="h-tag">Full-Text Request</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         VIEW 3: BIOINFORMATICS TECHNICAL DOCUMENTATION & TUTORIALS HUB
+         ========================================================================== -->
+    <div id="viewDocs" class="page-view" style="display: none;">
+      <!-- DOCS HERO & SEARCH -->
+      <section class="hub-hero-section">
+        <div class="section-container">
+          <div class="hub-hero-header">
+            <span class="hub-badge"><i class="fa-solid fa-graduation-cap"></i> 全栈生信权威技术研习图谱</span>
+            <h1 class="hub-title">Bioinformatics Technical Curriculum</h1>
+            <p class="hub-subtitle">
+              精选全球权威学术机构（Harvard、Broad、EMBL、Sanger、Theis Lab）、Bioconductor 官方与 GitHub 生信领军学者的金标准技术文档与实战教程。
+            </p>
+          </div>
+
+          <!-- Instant Search Bar for Docs -->
+          <div class="hub-search-container">
+            <div class="hub-search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="docSearchInput" class="hub-search-input" placeholder="输入教程名称、算法、工具或作者（如 DESeq2, OSCA, Seurat, Squidpy, GATK, Nextflow, Tommy Tang）..." autocomplete="off">
+              <button id="docSearchClear" class="search-clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Quick Filter Pills for Docs -->
+            <div class="hub-filter-pills" id="docFilterPills">
+              <button class="doc-filter-pill active" data-filter="all">全部教程 (<span id="countDocsAll">0</span>)</button>
+              <button class="doc-filter-pill" data-filter="foundations"><i class="fa-solid fa-square-root-variable"></i> 统计与基础</button>
+              <button class="doc-filter-pill" data-filter="bulk"><i class="fa-solid fa-chart-simple"></i> Bulk 转录组</button>
+              <button class="doc-filter-pill" data-filter="singlecell"><i class="fa-solid fa-microscope"></i> 单细胞全流程</button>
+              <button class="doc-filter-pill" data-filter="spatial"><i class="fa-solid fa-layer-group"></i> 空间组学</button>
+              <button class="doc-filter-pill" data-filter="variant"><i class="fa-solid fa-dna"></i> 变异检测</button>
+              <button class="doc-filter-pill" data-filter="pipelines"><i class="fa-solid fa-gears"></i> 流程与工程</button>
+              <button class="doc-filter-pill" data-filter="community"><i class="fa-solid fa-fire"></i> 大神实战精粹</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCS CONTENT SECTIONS -->
+      <div class="hub-sections-wrapper">
+        <!-- 1. FOUNDATIONS & STATISTICS -->
+        <section class="content-section hub-category-section" id="doc-foundations" data-category="foundations">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-square-root-variable sec-icon"></i> 01. 统计计算、Linux 与生信基石</h2>
+              <span class="hub-sec-desc">哈佛医学院官方培训、EMBL 统计学金标准教材与 HPC 实践手册</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Doc 1: HBC Training -->
+              <a href="https://hbctraining.github.io/main/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="harvard chan hbc 生信入门 linux r语言 tidyverse 高通量测序 质控 教学 培训">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Harvard Chan HBC Training</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">哈佛公共卫生学院官方培训</span>
+                </div>
+                <p class="hub-card-desc">全球最经典的生信入门进阶教学体系。系统涵盖 Linux 命令行、R 基础与 Tidyverse、RNA-seq/ChIP-seq 完整实战与实验设计规范。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Harvard HBC</span>
+                  <span class="h-tag">Linux & R</span>
+                  <span class="h-tag">Gold Standard</span>
+                </div>
+              </a>
+
+              <!-- Doc 2: Modern Statistics for Modern Biology -->
+              <a href="https://www.huber.embl.de/msmb/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="modern statistics susan holmes wolfgang huber embl 统计学 负二项分布 假设检验 经验贝叶斯 fdr 降维">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Modern Statistics for Modern Biology</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">斯坦福 & EMBL 统计生信圣经</span>
+                </div>
+                <p class="hub-card-desc">Susan Holmes（斯坦福）与 Wolfgang Huber（EMBL / Bioconductor 联合创始人）合著，深度剖析高通量数据的概率模型、广义线性模型与多重检验校正。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Susan Holmes</span>
+                  <span class="h-tag">Wolfgang Huber</span>
+                  <span class="h-tag">Statistics Bible</span>
+                </div>
+              </a>
+
+              <!-- Doc 3: Bioinformatics Workbook -->
+              <a href="https://bioinformaticsworkbook.org/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="bioinformatics workbook isu usda hpc slurm bash fastq sam bam vcf 实用手册">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Bioinformatics Workbook</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">ISU & USDA 实用实战手册</span>
+                </div>
+                <p class="hub-card-desc">美国农业部与爱荷华州立大学联合维护的工程手册，涵盖 HPC 超算集群调度（SLURM/PBS）、自动化 Shell 脚本与核心组学文件格式解析。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">HPC / SLURM</span>
+                  <span class="h-tag">Shell Automation</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. BULK RNA-SEQ & DIFFERENTIAL EXPRESSION -->
+        <section class="content-section hub-category-section" id="doc-bulk" data-category="bulk">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-chart-simple sec-icon"></i> 02. Bulk 转录组学与差异表达分析</h2>
+              <span class="hub-sec-desc">DESeq2 / edgeR 官方工作流、负二项 GLM 拟合与 GSEA 通路富集最佳实践</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Doc 1: rnaseqGene (DESeq2) -->
+              <a href="https://www.bioconductor.org/packages/release/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="deseq2 rnaseqgene michael love tximport vst rlog apeglm independent filtering 差异分析 官方教程">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">rnaseqGene: RNA-seq Workflow (DESeq2)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">DESeq2 官方权威工作流</span>
+                </div>
+                <p class="hub-card-desc">Michael Love（DESeq2 作者）撰写的转录组实战指南：涵盖 tximport 转录本聚合、VST/rlog 变换、负二项 GLM、apeglm LFC 收缩与独立过滤机制。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Michael Love</span>
+                  <span class="h-tag">DESeq2</span>
+                  <span class="h-tag">Bioconductor</span>
+                </div>
+              </a>
+
+              <!-- Doc 2: edgeR User's Guide -->
+              <a href="https://bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="edger limma voom gordon smyth 准似然 f检验 tmm 复杂设计 交互项 配对 批次效应">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">edgeR & limma-voom User's Guide</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">WEHI Gordon Smyth 官方指南</span>
+                </div>
+                <p class="hub-card-desc">长达 170+ 页的转录组统计圣经，详尽演示准似然 F 检验（glmQLFit）、TMM 归一化、voom 权重调整以及高阶多因子/配对/交互实验设计。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Gordon Smyth</span>
+                  <span class="h-tag">edgeR / voom</span>
+                  <span class="h-tag">Complex Designs</span>
+                </div>
+              </a>
+
+              <!-- Doc 3: Pathway Analysis Guide (Bader Lab) -->
+              <a href="https://baderlab.org/Workshops/PathwayAnalysis" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="gsea 通路富集 bader lab enrichmentmap ora kegg reactome 基因集 cytoscape 网络">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Pathway Analysis & GSEA Workshop</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">多伦多大学 Gary Bader 实验室</span>
+                </div>
+                <p class="hub-card-desc">系统传授 ORA 背景构建、GSEA 预排序算法逻辑、多通路聚类与 Cytoscape / EnrichmentMap 高级出版级网络图谱绘制。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Gary Bader</span>
+                  <span class="h-tag">GSEA Protocol</span>
+                  <span class="h-tag">EnrichmentMap</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. SINGLE-CELL RNA-SEQ FULL STACK -->
+        <section class="content-section hub-category-section" id="doc-singlecell" data-category="singlecell">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-microscope sec-icon"></i> 03. 单细胞转录组学全流程实战</h2>
+              <span class="hub-sec-desc">OSCA 剑桥圣经、Theis Lab 最佳实践指南与 Seurat / Scanpy 官方生态</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Doc 1: OSCA -->
+              <a href="https://bioconductor.org/books/release/OSCA/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="osca bioconductor aaron lun john marioni singlecell 质控 doublet scran harmony mnn 标记基因 圣经">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Orchestrating Single-Cell Analysis (OSCA)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">Bioconductor 单细胞官方圣经</span>
+                </div>
+                <p class="hub-card-desc">剑桥与 CRUK 顶尖学者（Aaron Lun, John Marioni 等）联合撰写：从矩阵质控（MAD 适应性）、Doublet 识别、scran 归一化到批次校正与 Marker 推断。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Aaron Lun</span>
+                  <span class="h-tag">SingleCellExperiment</span>
+                  <span class="h-tag">OSCA Book</span>
+                </div>
+              </a>
+
+              <!-- Doc 2: Single-cell Best Practices (Theis Lab) -->
+              <a href="https://www.sc-best-practices.org/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="single-cell best practices theis lab fabian theis scanpy anndata python 最佳实践 慕尼黑">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Single-cell Best Practices (Theis Lab)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">Scanpy / Python 单细胞权威规范</span>
+                </div>
+                <p class="hub-card-desc">慕尼黑亥姆霍兹中心 Fabian Theis 实验室编写，发表于 MSB，全面确立 Python scverse 生态从原始 FASTQ 到细胞动力学的最佳分析准则。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Fabian Theis</span>
+                  <span class="h-tag">scverse</span>
+                  <span class="h-tag">Mol Syst Biol</span>
+                </div>
+              </a>
+
+              <!-- Doc 3: Seurat Official Guides -->
+              <a href="https://satijalab.org/seurat/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="seurat rahul satija nygc sctransform rpca cca bridge integration wnn 多模态 聚类">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Seurat Official Documentation (Satija Lab)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">纽约基因组中心 (NYGC) 官方库</span>
+                </div>
+                <p class="hub-card-desc">Rahul Satija 团队官方教程库：全面涵盖 SCTransform 建模、跨批次整合（RPCA/CCA/Bridge）、多模态加权最近邻（WNN）与参考映射。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Rahul Satija</span>
+                  <span class="h-tag">Seurat v5</span>
+                  <span class="h-tag">NYGC</span>
+                </div>
+              </a>
+
+              <!-- Doc 4: Hemberg Lab Single-Cell Course -->
+              <a href="https://www.singlecellcourse.org/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="hemberg lab sanger institute 单细胞课程 droplet 测序原理 拟时序 轨迹推断">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Analysis of Single Cell RNA-seq Data</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-pathway">英国桑格研究所 (Sanger) 教程</span>
+                </div>
+                <p class="hub-card-desc">英国 Wellcome Sanger Institute 维护的高口碑公开课，深入剖析 Droplet 测序噪声数学模型、降维流形与拟时序轨迹推断算法原理。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Sanger Institute</span>
+                  <span class="h-tag">Trajectory Inference</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. SPATIAL TRANSCRIPTOMICS -->
+        <section class="content-section hub-category-section" id="doc-spatial" data-category="spatial">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-layer-group sec-icon"></i> 04. 空间转录组学与微环境生态位建模</h2>
+              <span class="hub-sec-desc">Visium/Xenium 原位空间反褶积、空间自相关与细胞通讯 (LIANA/CellChat)</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Doc 1: Squidpy -->
+              <a href="https://squidpy.readthedocs.io/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="squidpy scverse 空间图 moran i geary c 空间微环境 生态位 聚类 空间受配体 python">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Squidpy: Spatial Omics Guide (scverse)</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">scverse 官方空间组学框架</span>
+                </div>
+                <p class="hub-card-desc">构建空间邻域图（Spatial Graph）、计算空间自相关统计量（Moran's I / Geary's C）、受配体共定位打分与局部微环境生态位（Spatial Niches）聚类。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Squidpy</span>
+                  <span class="h-tag">Spatial Graph</span>
+                  <span class="h-tag">Spatial Niches</span>
+                </div>
+              </a>
+
+              <!-- Doc 2: Seurat Spatial Vignette -->
+              <a href="https://satijalab.org/seurat/articles/spatial_vignette.html" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="seurat 空间转录组 10x visium xenium rctd spotlight 反褶积 he组织切片 空间变异基因">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Seurat Spatial Transcriptomics Guide</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">10x Visium & Xenium 官方实战</span>
+                </div>
+                <p class="hub-card-desc">涵盖 H&E 组织病理切片对齐、空间反褶积（Spatial Deconvolution via RCTD / SPOTlight）与空间可变基因（SVGs）挖掘的最佳流程。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">10x Visium</span>
+                  <span class="h-tag">Deconvolution</span>
+                  <span class="h-tag">RCTD</span>
+                </div>
+              </a>
+
+              <!-- Doc 3: LIANA & CellChat -->
+              <a href="https://saezlab.github.io/liana/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="liana cellchat 细胞通讯 配受体 受体 配体 空间加权 共识打分 saez lab suoqin jin">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">LIANA: Consensus Cell-Cell Communication</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-clinical">欧洲生信 Saez-Rodriguez 实验室</span>
+                </div>
+                <p class="hub-card-desc">整合 CellChat, CellPhoneDB, SingleCellSignalR 等算法的共识受配体推断框架，支持结合单细胞与空间距离加权的微环境通讯分析。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Cell-Cell Comm</span>
+                  <span class="h-tag">Ligand-Receptor</span>
+                  <span class="h-tag">Consensus</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. VARIANT CALLING & GENOMICS -->
+        <section class="content-section hub-category-section" id="doc-variant" data-category="variant">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-dna sec-icon"></i> 05. 基因组学与变异检测</h2>
+              <span class="hub-sec-desc">GATK 官方金标准流水线、Somatic Mutect2 与 Google DeepVariant 深度学习检测</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Doc 1: GATK Best Practices -->
+              <a href="https://gatk.broadinstitute.org/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="gatk broad institute 变异检测 germline somatic mutect2 vqsr haplotypecaller wes wgs">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">GATK Best Practices Workflows</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">Broad 研究所变异检测金标准</span>
+                </div>
+                <p class="hub-card-desc">全球最具权威性的基因组变异检测全套准则：涵盖 Germline HaplotypeCaller, 肿瘤体细胞 Mutect2, VQSR 质控过滤与联合分型。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Broad GATK</span>
+                  <span class="h-tag">Germline & Somatic</span>
+                  <span class="h-tag">WGS / WES</span>
+                </div>
+              </a>
+
+              <!-- Doc 2: DeepVariant -->
+              <a href="https://github.com/google/deepvariant" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="deepvariant google 深度学习 cnn 卷积神经网络 高精度变异检测 pacbio ont illumina">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Google DeepVariant Documentation</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-tool">Google 深度学习变异检测</span>
+                </div>
+                <p class="hub-card-desc">Google 开源的基于卷积神经网络（CNN）的高精度变异检测工具，在短读长与长读长（PacBio/ONT）测序中表现顶级。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Google Health</span>
+                  <span class="h-tag">Deep Learning</span>
+                  <span class="h-tag">CNN Caller</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. WORKFLOW PIPELINES & ENGINEERING -->
+        <section class="content-section hub-category-section" id="doc-pipelines" data-category="pipelines">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-gears sec-icon"></i> 06. 生信流程编排与可复现工程</h2>
+              <span class="hub-sec-desc">Nextflow/nf-core 工业级生产流水线与 Snakemake 模块化科研自动化</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Doc 1: Nextflow & nf-core Training -->
+              <a href="https://training.nextflow.io/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="nextflow nf-core 流程编排 docker singularity 容器化 自动化流水线 hpc cloud">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Nextflow & nf-core Official Training</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-ai">生产级生信工程标准</span>
+                </div>
+                <p class="hub-card-desc">Nextflow 官方实战课程与 nf-core 社区规范：涵盖 DSL2 语法、Docker/Singularity 容器封装、AWS/SLURM 调度与模块化流程构建。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Nextflow DSL2</span>
+                  <span class="h-tag">nf-core</span>
+                  <span class="h-tag">Reproducibility</span>
+                </div>
+              </a>
+
+              <!-- Doc 2: Snakemake Best Practices -->
+              <a href="https://snakemake.readthedocs.io/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="snakemake johannes köster python 工作流 规则驱动 conda 模块化 可复现">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Snakemake Official Best Practices</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-ai">Johannes Köster 官方教程</span>
+                </div>
+                <p class="hub-card-desc">基于 Python 语法的可复现科研流程编排引擎：详尽讲解规则驱动（Rule-based）、Conda 环境隔离与集群规模化并行执行策略。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Snakemake</span>
+                  <span class="h-tag">Pythonic Pipelines</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. COMMUNITY MASTERS & PRACTICAL PLAYBOOKS -->
+        <section class="content-section hub-category-section" id="doc-community" data-category="community">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-fire sec-icon"></i> 07. GitHub 大神与社区精选实战知识库</h2>
+              <span class="hub-sec-desc">业内顶尖生信专家独家手记、高阶 ComplexHeatmap 技巧与实战避坑宝典</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Doc 1: Tommy Tang's Blog & Books -->
+              <a href="https://divingintogeneticsandgenomics.com/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="ming tang tommy chatomics diving into genetics complexheatmap chip-seq 单细胞实战 生信大神 避坑指南">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Diving into Genetics and Genomics</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-literature">Dr. Ming "Tommy" Tang (Chatomics)</span>
+                </div>
+                <p class="hub-card-desc">哈佛/Dana-Farber 生信总监 Tommy Tang 的全球知名开源知识库，涵盖海量真实生信实战技巧、单细胞/ChIP-seq 疑难避坑指南与 ComplexHeatmap 绝活。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">Dr. Ming Tang</span>
+                  <span class="h-tag">Chatomics</span>
+                  <span class="h-tag">Practical Hacks</span>
+                </div>
+              </a>
+
+              <!-- Doc 2: RNA-seqlopedia -->
+              <a href="https://rnaseq.uoregon.edu/" target="_blank" rel="noopener" class="hub-card doc-card" data-tags="rna-seqlopedia oregon nih 文库构建 实验设计 测序深度 链特异性 基础百科">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">RNA-seqlopedia</h3>
+                    <i class="fa-solid fa-arrow-up-right-from-square hub-card-arrow"></i>
+                  </div>
+                  <span class="hub-card-tag tag-literature">俄勒冈大学 & NIH 权威科普</span>
+                </div>
+                <p class="hub-card-desc">全面解析 RNA-seq 从湿实验建库（链特异性、rRNA 去除、测序深度）到干实验分析的基础理论百科，打通干湿实验壁垒。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">RNA-seqlopedia</span>
+                  <span class="h-tag">Experimental Principles</span>
                 </div>
               </a>
             </div>
