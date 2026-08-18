@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhiyang Li | Developer & Researcher</title>
+  <meta name="description" content="Zhiyang Li's personal portfolio. Full-Stack Developer, Bioinformatics & Data Enthusiast. Explore projects, research, and skills.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+  <!-- Background Glow & Grid -->
+  <div class="bg-mesh"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <span class="logo-code">&lt;</span>
+        <span class="logo-name">Zhiyang</span>
+        <span class="logo-code">/&gt;</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">关于我</a>
+        <a href="#skills" class="nav-link">技术栈</a>
+        <a href="#projects" class="nav-link">精选项目</a>
+        <a href="#journey" class="nav-link">经历</a>
+        <a href="#contact" class="nav-link">联系我</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" title="切换明暗主题" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+        <a href="#contact" class="btn btn-sm btn-primary hide-mobile">Get in Touch</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>正在探索新技术 & 持续构建中</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Zhiyang Li</span>
+            <br>
+            <span class="typewriter" id="typewriter"></span>
+          </h1>
+
+          <p class="hero-desc">
+            热爱编程与科学计算，专注于现代 Web 应用开发、生物信息数据分析与工程自动化。致力于用优雅的代码与数据洞察解决实际问题。
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-rocket"></i> 查看作品
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fa-solid fa-envelope"></i> 联系我
+            </a>
+            <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="btn btn-icon" title="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num" data-target="10">10+</span>
+              <span class="stat-label">开源/实战项目</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num" data-target="100">100%</span>
+              <span class="stat-label">持续学习热情</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">Fast</span>
+              <span class="stat-label">敏捷开发与交付</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Card Widget -->
+        <div class="hero-terminal">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">zhiyang@developer-hub:~</div>
+            <div class="terminal-action"><i class="fa-solid fa-code"></i></div>
+          </div>
+          <div class="terminal-body font-mono">
+            <p><span class="t-prompt">$</span> <span class="t-cmd">whoami</span></p>
+            <p class="t-res">Zhiyang Li (李志阳) — Developer / Creator</p>
+            <p><span class="t-prompt">$</span> <span class="t-cmd">cat skills.json</span></p>
+            <pre class="t-json">{
+  "languages": ["Python", "JavaScript", "TypeScript", "SQL", "R"],
+  "frameworks": ["React", "Vue", "Node.js", "FastAPI"],
+  "focus": ["Full-Stack", "Bioinformatics", "Cloud & DevOps"],
+  "status": "Ready for new challenges"
+}</pre>
+            <p><span class="t-prompt">$</span> <span class="t-cmd">ping -c 1 curiosity</span></p>
+            <p class="t-success">64 bytes: icmp_seq=1 ttl=64 time=0.042 ms [100% Passion]</p>
+            <p class="t-cursor"><span class="t-prompt">$</span> <span class="blink">_</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">ABOUT ME</span>
+          <h2 class="section-title">保持好奇，用技术创造价值</h2>
+          <p class="section-desc">从底层逻辑到界面交互，追求极致体验与可靠工程</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card glass-card">
+            <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>全栈工程开发</h3>
+            <p>熟悉前后端现代架构，善于构建响应式、高性能且用户体验丝滑的现代化 Web 应用与工具链。</p>
+          </div>
+
+          <div class="about-card glass-card">
+            <div class="card-icon"><i class="fa-solid fa-dna"></i></div>
+            <h3>数据分析 & 科学计算</h3>
+            <p>擅长利用 Python、R 等工具进行高维数据清洗、统计建模与可解释性数据可视化，让数据讲好故事。</p>
+          </div>
+
+          <div class="about-card glass-card">
+            <div class="card-icon"><i class="fa-solid fa-cloud-bolt"></i></div>
+            <h3>自动化与云原生</h3>
+            <p>热衷于 CI/CD 自动化流水线、Docker 容器化与无服务器架构（Serverless），追求高效交付与稳定运行。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">TECH STACK</span>
+          <h2 class="section-title">我的技能图谱</h2>
+          <p class="section-desc">持续更新的技术栈与工具箱</p>
+        </div>
+
+        <div class="skills-wrapper glass-panel">
+          <div class="skill-category">
+            <h4 class="cat-title"><i class="fa-solid fa-code"></i> 编程语言</h4>
+            <div class="tags-cloud">
+              <span class="tag"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="tag"><i class="fa-solid fa-file-code"></i> TypeScript</span>
+              <span class="tag"><i class="fa-solid fa-database"></i> SQL</span>
+              <span class="tag"><i class="fa-brands fa-r-project"></i> R</span>
+              <span class="tag"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 class="cat-title"><i class="fa-solid fa-layer-group"></i> 前端与框架</h4>
+            <div class="tags-cloud">
+              <span class="tag"><i class="fa-brands fa-react"></i> React / Next.js</span>
+              <span class="tag"><i class="fa-brands fa-vuejs"></i> Vue.js</span>
+              <span class="tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+              <span class="tag"><i class="fa-solid fa-bolt"></i> Vite / Webpack</span>
+              <span class="tag"><i class="fa-brands fa-sass"></i> SCSS / Tailwind</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 class="cat-title"><i class="fa-solid fa-server"></i> 后端与数据</h4>
+            <div class="tags-cloud">
+              <span class="tag"><i class="fa-solid fa-gears"></i> FastAPI / Flask</span>
+              <span class="tag"><i class="fa-brands fa-docker"></i> Docker</span>
+              <span class="tag"><i class="fa-solid fa-chart-line"></i> Pandas / NumPy</span>
+              <span class="tag"><i class="fa-solid fa-database"></i> PostgreSQL / SQLite</span>
+              <span class="tag"><i class="fa-brands fa-git-alt"></i> Git & GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">PORTFOLIO</span>
+          <h2 class="section-title">精选开源与实战项目</h2>
+          <p class="section-desc">点击可快速跳转到项目源码或在线预览</p>
+        </div>
+
+        <div class="project-filters" id="projectFilters">
+          <button class="filter-btn active" data-filter="all">全部 (All)</button>
+          <button class="filter-btn" data-filter="web">Web 应用</button>
+          <button class="filter-btn" data-filter="data">数据分析 & 科学</button>
+          <button class="filter-btn" data-filter="tools">实用工具</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Project 1 -->
+          <div class="project-card glass-card" data-category="web">
+            <div class="project-image-placeholder p-gradient-1">
+              <div class="p-icon"><i class="fa-solid fa-globe"></i></div>
+              <span class="project-badge">Featured</span>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="ptag">HTML5/CSS3</span>
+                <span class="ptag">JavaScript</span>
+                <span class="ptag">GitHub Pages</span>
+              </div>
+              <h3 class="project-title">个人极客主页 & 作品集</h3>
+              <p class="project-desc">基于现代化玻璃拟态 UI 设计，支持自适应明暗模式、响应式布局、动态终端演示与一键域名绑定。</p>
+              <div class="project-links">
+                <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="plink">
+                  <i class="fa-brands fa-github"></i> 源码
+                </a>
+                <a href="#hero" class="plink highlight">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> 在线演示
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card glass-card" data-category="data">
+            <div class="project-image-placeholder p-gradient-2">
+              <div class="p-icon"><i class="fa-solid fa-chart-pie"></i></div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="ptag">Python</span>
+                <span class="ptag">Data Visualization</span>
+                <span class="ptag">Bioinformatics</span>
+              </div>
+              <h3 class="project-title">生物医学高维数据分析与可视化平台</h3>
+              <p class="project-desc">针对转录组与多组学数据的高效批处理、差异表达分析与高质量出版级图表生成工作流。</p>
+              <div class="project-links">
+                <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="plink">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card glass-card" data-category="tools">
+            <div class="project-image-placeholder p-gradient-3">
+              <div class="p-icon"><i class="fa-solid fa-terminal"></i></div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="ptag">Automation</span>
+                <span class="ptag">CLI</span>
+                <span class="ptag">DevOps</span>
+              </div>
+              <h3 class="project-title">自动化开发与部署脚手架</h3>
+              <p class="project-desc">集成常用开发环境检查、快速项目模板生成以及 CI/CD 自动部署的一站式命令行工具箱。</p>
+              <div class="project-links">
+                <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="plink">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey / Timeline Section -->
+    <section class="section journey-section" id="journey">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">MILESTONES</span>
+          <h2 class="section-title">学习与成长足迹</h2>
+          <p class="section-desc">保持探索，步履不停</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2026 - 现在</span>
+              <h3 class="timeline-title">全栈开发 & 科学计算深耕</h3>
+              <p>持续构建现代 Web 应用，探索云原生与自动化架构，并将数据分析能力应用于实际前沿课题中。</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">2025 - 2026</span>
+              <h3 class="timeline-title">开源探索与技术积累</h3>
+              <p>深入掌握 Python / JS 技术栈，积极参与开源生态，完成多项数据分析与前端可视化项目。</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">启程</span>
+              <h3 class="timeline-title">敲下第一行 Hello World</h3>
+              <p>开启对计算机编程与算法世界的无限好奇，坚定用代码创造美好事物的信念。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-box glass-panel">
+          <div class="contact-header text-center">
+            <span class="section-subtitle">LET'S CONNECT</span>
+            <h2 class="section-title">开启合作与交流</h2>
+            <p class="section-desc">无论是项目探讨、技术交流还是合作机会，欢迎随时与我联系！</p>
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="c-icon"><i class="fa-brands fa-github"></i></div>
+              <h4>GitHub 主页</h4>
+              <p>查看我的更多开源项目与代码</p>
+              <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="c-link">@etonsalmon160-source <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="contact-card">
+              <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+              <h4>电子邮箱</h4>
+              <p>给我发送邮件，通常在 24 小时内回复</p>
+              <button class="c-link copy-email-btn" id="copyEmailBtn">
+                <span id="emailText">hello.zhiyang@example.com</span> <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="contact-card">
+              <div class="c-icon"><i class="fa-solid fa-comments"></i></div>
+              <h4>社交与网络</h4>
+              <p>探索更多社交平台与技术分享</p>
+              <a href="#hero" class="c-link">在线留言 / 探索 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 Zhiyang Li (李志阳). All Rights Reserved.</p>
+      <p class="footer-sub">Designed with modern glassmorphism & crafted with passion.</p>
+      <a href="#hero" class="back-to-top" title="返回顶部" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">邮箱已复制到剪贴板！</div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
