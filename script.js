@@ -445,7 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let revealObserver = null;
 
   function initScrollReveal() {
-    // Select all animatable targets across the page
     const targetElements = document.querySelectorAll(
       '.hub-sec-header, .section-header, .hub-card, .doc-card, .tool-download-card, .research-card, .skill-group, .timeline-row, .script-block, .hero-profile-row, .hub-hero-header, .hub-search-container'
     );
@@ -454,13 +453,13 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('reveal-init');
     });
 
-    // Configure stagger delay for card grids
+    // Configure distinct stagger delay for card grids
     const grids = document.querySelectorAll('.hub-card-grid, .research-grid, .skills-grid');
     grids.forEach(grid => {
       const children = Array.from(grid.children);
       children.forEach((child, idx) => {
         child.classList.add('reveal-stagger');
-        child.style.setProperty('--stagger-delay', `${(idx % 4) * 80}ms`);
+        child.style.setProperty('--stagger-delay', `${(idx % 4) * 110}ms`);
       });
     });
 
@@ -472,13 +471,12 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }, {
-        threshold: 0.06,
-        rootMargin: '0px 0px -30px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
       });
 
       targetElements.forEach(el => revealObserver.observe(el));
     } else {
-      // Fallback for older browsers
       targetElements.forEach(el => el.classList.add('revealed'));
     }
   }
@@ -488,8 +486,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = container.querySelectorAll('.reveal-init');
     items.forEach(item => {
       const rect = item.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 30) {
+      if (rect.top < window.innerHeight - 20) {
         item.classList.add('revealed');
+      } else {
+        item.classList.remove('revealed');
       }
       if (revealObserver) {
         revealObserver.observe(item);
