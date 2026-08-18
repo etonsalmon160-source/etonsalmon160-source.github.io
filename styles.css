@@ -99,9 +99,73 @@ button {
   transform: translateX(-50%);
   width: 900px;
   height: 450px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, rgba(56, 189, 248, 0.02) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.07) 0%, rgba(56, 189, 248, 0.03) 45%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+  animation: ambientPulse 14s ease-in-out infinite alternate;
+}
+
+@keyframes ambientPulse {
+  0% {
+    transform: translateX(-50%) scale(0.92);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateX(-48%) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-52%) scale(1.02);
+    opacity: 0.8;
+  }
+}
+
+/* Page View Switching Transitions */
+.page-view {
+  display: none;
+  opacity: 0;
+}
+
+.page-view.active {
+  display: block;
+  opacity: 1;
+  animation: pageViewEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageViewEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ==========================================================================
+   Scroll-Driven Reveal & Smooth Text Cascade Animation System
+   ========================================================================== */
+.reveal-init {
+  opacity: 0 !important;
+  transform: translateY(26px) scale(0.985) !important;
+  filter: blur(4px) !important;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, opacity, filter;
+}
+
+.reveal-init.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0) !important;
+}
+
+.reveal-stagger {
+  transition-delay: var(--stagger-delay, 0ms) !important;
 }
 
 /* ==========================================================================
@@ -1147,23 +1211,58 @@ body.light-theme .tool-filter-pill.active {
   gap: 1.25rem;
 }
 
-.hub-card {
+.hub-card,
+.doc-card,
+.tool-download-card {
   padding: 1.35rem;
-  background: var(--bg-card);
+  background-color: var(--bg-card);
+  background-image: radial-gradient(
+    450px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(16, 185, 129, 0.08),
+    transparent 65%
+  );
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-decoration: none;
-  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              background-color 0.3s ease;
 }
 
-.hub-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-  background: var(--bg-card-hover);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+.hub-card:hover,
+.doc-card:hover,
+.tool-download-card:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  transform: translateY(-4px);
+  background-color: var(--bg-card-hover);
+  box-shadow: 0 14px 34px -10px rgba(16, 185, 129, 0.18),
+              0 0 20px rgba(16, 185, 129, 0.05);
+}
+
+.hub-card::after,
+.doc-card::after,
+.tool-download-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.hub-card:hover::after,
+.doc-card:hover::after,
+.tool-download-card:hover::after {
+  opacity: 1;
 }
 
 .hub-card-top {

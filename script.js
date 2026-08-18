@@ -68,31 +68,38 @@ document.addEventListener('DOMContentLoaded', () => {
     if (docsNav) docsNav.style.display = 'none';
     if (toolsNav) toolsNav.style.display = 'none';
 
+    let activeContainer = viewProfile;
+
     if (target === 'hub') {
-      if (viewHub) { viewHub.style.display = 'block'; viewHub.classList.add('active'); }
+      if (viewHub) { viewHub.style.display = 'block'; viewHub.classList.add('active'); activeContainer = viewHub; }
       if (tabHub) tabHub.classList.add('active');
       if (hubNav) hubNav.style.display = 'flex';
       window.history.replaceState(null, '', '#hub');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'docs') {
-      if (viewDocs) { viewDocs.style.display = 'block'; viewDocs.classList.add('active'); }
+      if (viewDocs) { viewDocs.style.display = 'block'; viewDocs.classList.add('active'); activeContainer = viewDocs; }
       if (tabDocs) tabDocs.classList.add('active');
       if (docsNav) docsNav.style.display = 'flex';
       window.history.replaceState(null, '', '#docs');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'tools') {
-      if (viewTools) { viewTools.style.display = 'block'; viewTools.classList.add('active'); }
+      if (viewTools) { viewTools.style.display = 'block'; viewTools.classList.add('active'); activeContainer = viewTools; }
       if (tabTools) tabTools.classList.add('active');
       if (toolsNav) toolsNav.style.display = 'flex';
       window.history.replaceState(null, '', '#tools');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      if (viewProfile) { viewProfile.style.display = 'block'; viewProfile.classList.add('active'); }
+      if (viewProfile) { viewProfile.style.display = 'block'; viewProfile.classList.add('active'); activeContainer = viewProfile; }
       if (tabProfile) tabProfile.classList.add('active');
       if (profileNav) profileNav.style.display = 'flex';
       window.history.replaceState(null, '', '#');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Refresh scroll animations for newly activated view
+    setTimeout(() => {
+      refreshScrollReveal(activeContainer);
+    }, 60);
   }
 
   // Expose globally for inline onclick handlers
@@ -108,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactSection) {
       setTimeout(() => {
         contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 60);
+      }, 80);
     }
   };
 
@@ -145,6 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
     switchView('docs');
   } else if (currentHash === '#tools' || currentHash.startsWith('#tool-')) {
     switchView('tools');
+  } else {
+    switchView('profile');
   }
 
   // ==========================================================================
@@ -189,6 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       section.style.display = visibleInSection === 0 ? 'none' : 'block';
     });
+
+    refreshScrollReveal(viewHub);
   }
 
   if (hubSearchInput) {
@@ -260,6 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       section.style.display = visibleInSection === 0 ? 'none' : 'block';
     });
+
+    refreshScrollReveal(viewDocs);
   }
 
   if (docSearchInput) {
@@ -345,6 +358,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       section.style.display = visibleCount === 0 ? 'none' : 'block';
     });
+
+    refreshScrollReveal(viewTools);
   }
 
   if (toolSearchInput) {
@@ -425,7 +440,93 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 8. Scroll Spy Navigation Highlight
+  // 8. Scroll-Driven Reveal & Text Cascade Animation (IntersectionObserver)
+  // ==========================================================================
+  let revealObserver = null;
+
+  function initScrollReveal() {
+    // Select all animatable targets across the page
+    const targetElements = document.querySelectorAll(
+      '.hub-sec-header, .section-header, .hub-card, .doc-card, .tool-download-card, .research-card, .skill-group, .timeline-row, .script-block, .hero-profile-row, .hub-hero-header, .hub-search-container'
+    );
+
+    targetElements.forEach(el => {
+      el.classList.add('reveal-init');
+    });
+
+    // Configure stagger delay for card grids
+    const grids = document.querySelectorAll('.hub-card-grid, .research-grid, .skills-grid');
+    grids.forEach(grid => {
+      const children = Array.from(grid.children);
+      children.forEach((child, idx) => {
+        child.classList.add('reveal-stagger');
+        child.style.setProperty('--stagger-delay', `${(idx % 4) * 80}ms`);
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, {
+        threshold: 0.06,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      targetElements.forEach(el => revealObserver.observe(el));
+    } else {
+      // Fallback for older browsers
+      targetElements.forEach(el => el.classList.add('revealed'));
+    }
+  }
+
+  function refreshScrollReveal(container) {
+    if (!container) return;
+    const items = container.querySelectorAll('.reveal-init');
+    items.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 30) {
+        item.classList.add('revealed');
+      }
+      if (revealObserver) {
+        revealObserver.observe(item);
+      }
+    });
+  }
+
+  initScrollReveal();
+
+  // ==========================================================================
+  // 9. Card Spotlight Mouse-Follow Radial Glow (Linear/Vercel Style)
+  // ==========================================================================
+  function initCardSpotlight() {
+    const spotlightCards = document.querySelectorAll(
+      '.hub-card, .doc-card, .tool-download-card, .research-card, .skill-group, .script-block'
+    );
+
+    spotlightCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', `-999px`);
+        card.style.setProperty('--mouse-y', `-999px`);
+      });
+    });
+  }
+
+  initCardSpotlight();
+
+  // ==========================================================================
+  // 10. Scroll Spy Navigation Highlight
   // ==========================================================================
   window.addEventListener('scroll', () => {
     const scrollPosition = window.pageYOffset + 120;
@@ -460,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 9. Mobile Menu Toggle
+  // 11. Mobile Menu Toggle
   // ==========================================================================
   const menuBtnMobile = document.getElementById('menuBtnMobile');
 
