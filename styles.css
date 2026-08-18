@@ -166,15 +166,17 @@ body.light-theme .site-header {
 
 /* View Switcher Segmented Control */
 .view-switch-tabs {
-  display: inline-flex;
+  display: inline-flex !important;
+  flex-direction: row !important;
   align-items: center;
   background: var(--bg-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 3px;
   gap: 4px;
-  flex-shrink: 0;
-  white-space: nowrap;
+  flex-shrink: 0 !important;
+  min-width: max-content !important;
+  white-space: nowrap !important;
 }
 
 .view-tab-btn {
@@ -183,13 +185,15 @@ body.light-theme .site-header {
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-xs);
   color: var(--text-secondary);
-  display: inline-flex;
+  display: inline-flex !important;
+  flex-direction: row !important;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
   transition: var(--transition);
-  white-space: nowrap;
-  flex-shrink: 0;
+  white-space: nowrap !important;
+  writing-mode: horizontal-tb !important;
+  flex-shrink: 0 !important;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -198,8 +202,9 @@ body.light-theme .site-header {
 }
 
 .view-tab-btn span {
-  white-space: nowrap;
-  display: inline-block;
+  white-space: nowrap !important;
+  writing-mode: horizontal-tb !important;
+  display: inline-block !important;
 }
 
 .view-tab-btn:hover {
@@ -222,9 +227,10 @@ body.light-theme .view-tab-btn.active {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   white-space: nowrap;
-  flex-wrap: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -235,10 +241,10 @@ body.light-theme .view-tab-btn.active {
 }
 
 .nav-link {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
   font-weight: 500;
-  white-space: nowrap;
+  white-space: nowrap !important;
   flex-shrink: 0;
   transition: var(--transition);
 }
