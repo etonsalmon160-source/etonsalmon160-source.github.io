@@ -3,579 +3,420 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Li Zhiyang (李智杨) | Bioinformatics & Computational Oncology</title>
-  <meta name="description" content="Li Zhiyang (李智杨) - Undergraduate Researcher in Bioinformatics & Systems Biology at Guangdong Medical University. Focused on Single-Cell, Spatial Transcriptomics, LUAD Oncology, and AI-assisted Scientific Workflows.">
-  <meta name="keywords" content="Li Zhiyang, 李智杨, Bioinformatics, Systems Biology, Single-cell, Spatial Transcriptomics, LUAD, SMAP2, AI for Science, Guangdong Medical University">
+  <title>李智杨 (Li Zhiyang) | Bioinformatics & Systems Biology</title>
+  <meta name="description" content="李智杨 (Li Zhiyang) - Undergraduate Researcher in Bioinformatics & Systems Biology at Guangdong Medical University. Focused on Single-Cell, Spatial Transcriptomics, LUAD Oncology, and AI-assisted Scientific Research.">
   <meta name="author" content="Li Zhiyang">
 
-  <!-- Google Fonts -->
+  <!-- Inter & JetBrains Mono Fonts (Gold standard typography) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome 6 -->
+  <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="dark-theme">
-  <!-- Interactive Particle Background Canvas -->
-  <canvas id="particleCanvas" class="bg-canvas"></canvas>
-  <div class="bg-gradient-glow"></div>
-  <div class="bg-grid-overlay"></div>
+  <!-- Subtle Ambient Glow -->
+  <div class="ambient-glow"></div>
 
-  <!-- Navigation Bar -->
-  <header class="navbar" id="navbar">
-    <div class="nav-wrapper">
-      <a href="#hero" class="brand-container">
-        <div class="brand-avatar">
-          <span class="avatar-text">ZL</span>
-        </div>
-        <div class="brand-text">
-          <span class="brand-name">Li Zhiyang <span class="brand-zh">李智杨</span></span>
-          <span class="brand-tag">Bioinformatics Researcher</span>
-        </div>
+  <!-- Header Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-link">
+        <span class="brand-initials">ZL</span>
+        <span class="brand-name">李智杨 <span class="brand-en">Li Zhiyang</span></span>
       </a>
 
-      <nav class="nav-menu" id="navMenu">
-        <a href="#research" class="nav-item"><i class="fa-solid fa-dna"></i> 研究方向</a>
-        <a href="#projects" class="nav-item"><i class="fa-solid fa-flask-vial"></i> 课题与项目</a>
-        <a href="#skills" class="nav-item"><i class="fa-solid fa-laptop-code"></i> 技术体系</a>
-        <a href="#bilibili" class="nav-item"><i class="fa-brands fa-bilibili"></i> B站创作</a>
-        <a href="#about" class="nav-item"><i class="fa-solid fa-graduation-cap"></i> 学术背景</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">关于</a>
+        <a href="#research" class="nav-link">研究</a>
+        <a href="#projects" class="nav-link">课题项目</a>
+        <a href="#skills" class="nav-link">技术栈</a>
+        <a href="#bilibili" class="nav-link">B站创作</a>
+        <a href="#education" class="nav-link">经历</a>
       </nav>
 
-      <div class="nav-controls">
-        <button class="btn-theme-toggle" id="themeToggle" title="切换明暗主题" aria-label="Toggle Theme">
+      <div class="header-actions">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" title="切换明暗主题">
           <i class="fa-solid fa-moon icon-moon"></i>
           <i class="fa-solid fa-sun icon-sun"></i>
         </button>
-        <a href="#contact" class="btn btn-sm btn-glow hide-mobile">
-          <i class="fa-solid fa-paper-plane"></i> 联系交流
-        </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+        <a href="#contact" class="btn-contact-nav">联系我</a>
+        <button class="menu-btn-mobile" id="menuBtnMobile" aria-label="Toggle menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <main>
+  <main class="main-content">
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
-      <div class="container hero-container">
-        <div class="hero-left">
-          <!-- Academic Status Badge -->
-          <div class="hero-badge">
-            <span class="badge-pulsing-dot"></span>
-            <span>Undergraduate Researcher · Guangdong Medical University</span>
+      <div class="hero-container">
+        <div class="hero-profile-row">
+          <div class="hero-avatar-box">
+            <div class="avatar-ring">
+              <span class="avatar-chars">ZY</span>
+            </div>
+            <div class="status-indicator" title="Active in Research"></div>
           </div>
 
-          <h1 class="hero-headline">
-            Decoding <span class="text-gradient">Spatial & Single-Cell</span> Oncology with Computational Rigor.
-          </h1>
-
-          <h2 class="hero-subheadline">
-            李智杨 <span class="en-name">/ Li Zhiyang</span>
-            <span class="role-divider">|</span>
-            <span class="typewriter-text" id="typewriter"></span>
-          </h2>
-
-          <p class="hero-bio">
-            医学本科生（广东医科大学 · 麻醉学专业）。聚焦于<strong>肺腺癌（LUAD）</strong>的肿瘤侵袭转移与微环境空间生态位解析，探索<strong>单细胞到空间转录组映射</strong>、多组学分子分型及<strong>AI 科研自动化（AI Agent）</strong>工作流。
-          </p>
-
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
-              <i class="fa-solid fa-diagram-project"></i> 浏览研究课题
-            </a>
-            <a href="https://space.bilibili.com" target="_blank" rel="noopener" class="btn btn-secondary bilibili-btn">
-              <i class="fa-brands fa-bilibili"></i> B站「生物小小疯子」
-            </a>
-            <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="btn btn-icon-glass" title="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </div>
-
-          <!-- Quick Metrics Bar -->
-          <div class="hero-metrics">
-            <div class="metric-card">
-              <span class="metric-title">Primary Focus</span>
-              <span class="metric-value">LUAD & Metastasis</span>
+          <div class="hero-header-text">
+            <div class="status-pill">
+              <span class="pulse-dot"></span>
+              <span>Undergraduate Researcher · Guangdong Medical University</span>
             </div>
-            <div class="metric-separator"></div>
-            <div class="metric-card">
-              <span class="metric-title">Modality</span>
-              <span class="metric-value">scRNA-seq + Spatial</span>
-            </div>
-            <div class="metric-separator"></div>
-            <div class="metric-card">
-              <span class="metric-title">Core Target</span>
-              <span class="metric-value">SMAP2 & Regulators</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- HERO RIGHT: Interactive Scientific Terminal & Target Explorer -->
-        <div class="hero-right">
-          <div class="science-terminal glass-panel">
-            <div class="terminal-bar">
-              <div class="terminal-traffic-lights">
-                <span class="t-light t-red"></span>
-                <span class="t-light t-yellow"></span>
-                <span class="t-light t-green"></span>
-              </div>
-              <div class="terminal-tabs" id="terminalTabs">
-                <button class="t-tab active" data-tab="pipeline">
-                  <i class="fa-solid fa-terminal"></i> Pipeline.py
-                </button>
-                <button class="t-tab" data-tab="targets">
-                  <i class="fa-solid fa-dna"></i> Key Targets
-                </button>
-                <button class="t-tab" data-tab="spatial">
-                  <i class="fa-solid fa-microscope"></i> Spatial Niche
-                </button>
-              </div>
-              <div class="terminal-status"><span class="pulse-live"></span>LIVE</div>
-            </div>
-
-            <!-- Tab 1: Live Interactive Bio-Pipeline Terminal -->
-            <div class="terminal-content active" id="tab-pipeline">
-              <div class="code-editor font-mono">
-                <div class="code-line"><span class="c-comment"># Integrated Spatial & scRNA-seq Analysis Pipeline</span></div>
-                <div class="code-line"><span class="c-keyword">import</span> <span class="c-mod">scanpy</span> <span class="c-keyword">as</span> <span class="c-var">sc</span>, <span class="c-mod">squidpy</span> <span class="c-keyword">as</span> <span class="c-var">sq</span></div>
-                <div class="code-line"><span class="c-keyword">from</span> <span class="c-mod">omics_agent</span> <span class="c-keyword">import</span> <span class="c-func">AuditWorkflow</span>, <span class="c-func">DeconvolveNiche</span></div>
-                <div class="code-line">&nbsp;</div>
-                <div class="code-line"><span class="c-var">adata_spatial</span> = <span class="c-func">sq.read.visium</span>(<span class="c-str">"LUAD_Primary_vs_Metastasis"</span>)</div>
-                <div class="code-line"><span class="c-var">target_genes</span> = [<span class="c-str">"SMAP2"</span>, <span class="c-str">"CSRNP1"</span>, <span class="c-str">"PDE4D"</span>, <span class="c-str">"MMP1"</span>, <span class="c-str">"HILPDA"</span>]</div>
-                <div class="code-line">&nbsp;</div>
-                <div class="code-line"><span class="c-comment"># Execute cellular deconvolution & invasion boundary score</span></div>
-                <div class="code-line"><span class="c-var">niche_res</span> = <span class="c-func">DeconvolveNiche</span>(<span class="c-var">adata_spatial</span>, genes=<span class="c-var">target_genes</span>)</div>
-                <div class="code-line"><span class="c-func">AuditWorkflow.verify_reproducibility</span>(<span class="c-var">niche_res</span>, p_adj_thresh=<span class="c-num">0.01</span>)</div>
-                <div class="code-line">&nbsp;</div>
-                <div class="t-exec-output">
-                  <span class="t-badge success">✓ TCGA-LUAD Cohort (n=535)</span>: SMAP2 High vs Low Log-Rank p &lt; 0.001<br>
-                  <span class="t-badge info">ℹ Spatial Niches</span>: 4 Microenvironments Resolved (Invasion Front enriched)<br>
-                  <span class="t-badge status">⚡ AI Agent Audit</span>: Statistical Rigor Checked · Zero Pseudoreplication
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab 2: Key Target Genes Radar & Function -->
-            <div class="terminal-content" id="tab-targets">
-              <div class="target-matrix">
-                <div class="target-row">
-                  <div class="t-gene-badge primary">SMAP2</div>
-                  <div class="t-gene-info">
-                    <span class="t-role">Core Driver / Vesicle Trafficking</span>
-                    <span class="t-desc">在肺腺癌侵袭迁移前沿显著高表达，调控膜泡转运与局部浸润。</span>
-                  </div>
-                </div>
-                <div class="target-row">
-                  <div class="t-gene-badge">CSRNP1</div>
-                  <div class="t-gene-info">
-                    <span class="t-role">Transcriptional Stress Response</span>
-                    <span class="t-desc">早期应答基因，参与细胞微环境应激与转录调控网络。</span>
-                  </div>
-                </div>
-                <div class="target-row">
-                  <div class="t-gene-badge">PDE4D</div>
-                  <div class="t-gene-info">
-                    <span class="t-role">cAMP Signaling Cascade</span>
-                    <span class="t-desc">水解第二信使 cAMP，重塑肿瘤微环境信号转导与代谢。</span>
-                  </div>
-                </div>
-                <div class="target-row">
-                  <div class="t-gene-badge">MMP1 / HILPDA</div>
-                  <div class="t-gene-info">
-                    <span class="t-role">ECM Remodeling & Lipid Hypoxia</span>
-                    <span class="t-desc">细胞外基质降解穿透与低氧微环境脂质重编程协同标志物。</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab 3: Spatial Niche Visualizer Mockup -->
-            <div class="terminal-content" id="tab-spatial">
-              <div class="spatial-demo">
-                <div class="spatial-map" id="spatialCanvas">
-                  <!-- Simulated spatial dots rendered via JS -->
-                </div>
-                <div class="spatial-legend">
-                  <span class="s-dot dot-tumor"></span> 肿瘤核心区
-                  <span class="s-dot dot-invasive"></span> 侵袭前沿 (Invasion Front)
-                  <span class="s-dot dot-immune"></span> 免疫浸润区
-                  <span class="s-dot dot-stroma"></span> 基质基底
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH FOCUS SECTION (Bento Grid) -->
-    <section class="section" id="research">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="section-badge">RESEARCH INTERESTS</span>
-          <h2 class="section-heading">核心研究方向与学术探索</h2>
-          <p class="section-subheading">以肺腺癌为主要范式，结合计算生物学算法与严密统计学，深挖多组学数据背后的生物学机制。</p>
-        </div>
-
-        <div class="bento-grid">
-          <!-- Card 1: Large Feature Card -->
-          <div class="bento-card bento-span-2 glass-card">
-            <div class="bento-icon-box gradient-1">
-              <i class="fa-solid fa-microscope"></i>
-            </div>
-            <div class="bento-content">
-              <span class="bento-tag">Primary Research Area</span>
-              <h3 class="bento-title">肺腺癌（LUAD）单细胞与空间转录组生态位解析</h3>
-              <p class="bento-text">
-                利用 <strong>10x Genomics scRNA-seq</strong> 与 <strong>Visium 空间转录组</strong> 协同建模，探索肿瘤浸润边界（Invasive Front）的空间异质性。解决单细胞解聚（Deconvolution）到空间原位定位的映射难题，剖析恶性细胞克隆与成纤维细胞/巨噬细胞的空间通讯网络。
-              </p>
-              <div class="bento-chips">
-                <span><i class="fa-solid fa-check"></i> 空间生态位 (Spatial Niche)</span>
-                <span><i class="fa-solid fa-check"></i> 单细胞反褶积 (Cell Deconvolution)</span>
-                <span><i class="fa-solid fa-check"></i> 侵袭转移轨迹</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Biomarkers & Subtyping -->
-          <div class="bento-card glass-card">
-            <div class="bento-icon-box gradient-2">
-              <i class="fa-solid fa-dna"></i>
-            </div>
-            <div class="bento-content">
-              <span class="bento-tag">Target Discovery</span>
-              <h3 class="bento-title">SMAP2 轴与多组学分子分型</h3>
-              <p class="bento-text">
-                深入挖掘 <strong>SMAP2</strong> 及其协同分子群（CSRNP1, PDE4D, MMP1, HILPDA, COL6A5）在肿瘤转移过程中的功能定位，结合 TCGA 与 GEO 大样本队列构建高可信度的预后及分子亚型模型。
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3: AI Agents & Automation -->
-          <div class="bento-card glass-card">
-            <div class="bento-icon-box gradient-3">
-              <i class="fa-solid fa-robot"></i>
-            </div>
-            <div class="bento-content">
-              <span class="bento-tag">AI for Science</span>
-              <h3 class="bento-title">AI Agent & 生信科研自动化</h3>
-              <p class="bento-text">
-                探索大型语言模型与 AI 智能体在组学工作流中的落地：自动化质控分析、下游批处理管道编排、严谨的科研结果自审计（Audit），杜绝假阳性与伪重复。
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4: Wet-Lab meets Computational -->
-          <div class="bento-card bento-span-2 glass-card">
-            <div class="bento-icon-box gradient-4">
-              <i class="fa-solid fa-hand-holding-droplet"></i>
-            </div>
-            <div class="bento-content">
-              <span class="bento-tag">Methodology</span>
-              <h3 class="bento-title">计算生物学严谨性 × 湿实验直觉</h3>
-              <p class="bento-text">
-                具备医学及湿实验实操基础，坚持<strong>“生物学直觉先行、统计学方法严谨、计算工程可复现”</strong>。不做单纯的“图表搬运”，而是从临床表型和分子病理出发，设计可检验的生物假说与下游实验方案。
-              </p>
-              <div class="bento-quote">
-                “Combining biological intuition, statistical rigor and computational methods to extract reproducible biological signals from complex biomedical data.”
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS & PIPELINES SECTION -->
-    <section class="section section-dark" id="projects">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="section-badge">PROJECTS & PIPELINES</span>
-          <h2 class="section-heading">课题实践与分析流程</h2>
-          <p class="section-subheading">围绕转录组学、空间组学与算法管道的代表性研究实践</p>
-        </div>
-
-        <div class="projects-container">
-          <!-- Project 1 -->
-          <div class="project-showcase-card glass-card">
-            <div class="project-visual p-vis-1">
-              <div class="project-icon-large"><i class="fa-solid fa-network-wired"></i></div>
-              <div class="project-overlay-badge">Spatial Omics Project</div>
-            </div>
-            <div class="project-details">
-              <div class="project-meta-tags">
-                <span class="meta-tag">Spatial Transcriptomics</span>
-                <span class="meta-tag">scRNA-seq</span>
-                <span class="meta-tag">Python & R</span>
-              </div>
-              <h3 class="project-name">LUAD 单细胞到空间转录组映射与侵袭前沿生态位建模</h3>
-              <p class="project-summary">
-                针对肺腺癌原发灶与转移灶样本，构建单细胞参考数据集与 Visium 空间切片的联合分析管线。通过概率反褶积算法定位恶性细胞亚群与基质微环境在侵袭边界的共定位模式，解析促进局部微浸润的关键空间配体-受体对。
-              </p>
-              <ul class="project-highlights">
-                <li><i class="fa-solid fa-angle-right"></i> 实现了单细胞高维表型到组织切片空间坐标的原位高精度对齐</li>
-                <li><i class="fa-solid fa-angle-right"></i> 挖掘并量化肿瘤侵袭前沿（Invasion Front）的特征细胞生态位与共表达模块</li>
-                <li><i class="fa-solid fa-angle-right"></i> 严格遵循单细胞与空间质控标准，排除批次效应伪影</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-showcase-card glass-card">
-            <div class="project-visual p-vis-2">
-              <div class="project-icon-large"><i class="fa-solid fa-chart-line"></i></div>
-              <div class="project-overlay-badge">Multi-Omics Project</div>
-            </div>
-            <div class="project-details">
-              <div class="project-meta-tags">
-                <span class="meta-tag">TCGA & GEO</span>
-                <span class="meta-tag">Survival Analysis</span>
-                <span class="meta-tag">Machine Learning</span>
-              </div>
-              <h3 class="project-name">SMAP2 及协同基因家族的多队列分子分型与临床预后验证</h3>
-              <p class="project-summary">
-                在 TCGA-LUAD 及多个 GEO 独立队列（包括 GSE31210、GSE68465 等）中开展跨队列元分析。探究 SMAP2、CSRNP1、PDE4D、MMP1 等关键分子的表达异质性与免疫微环境浸润特征，构建稳健的分子亚型分层体系。
-              </p>
-              <ul class="project-highlights">
-                <li><i class="fa-solid fa-angle-right"></i> 跨越数百例临床样本的多中心验证，采用 Lasso-Cox 与多变量 Cox 比例风险回归</li>
-                <li><i class="fa-solid fa-angle-right"></i> 结合 CIBERSORTx 与 ssGSEA 评估不同分子分型下的免疫抑制微环境特征</li>
-                <li><i class="fa-solid fa-angle-right"></i> 产出符合顶级学术期刊标准的高质量出版级可视化图表（Heatmap, Volcano, Forest plots）</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-showcase-card glass-card">
-            <div class="project-visual p-vis-3">
-              <div class="project-icon-large"><i class="fa-solid fa-terminal"></i></div>
-              <div class="project-overlay-badge">AI & Pipeline Kit</div>
-            </div>
-            <div class="project-details">
-              <div class="project-meta-tags">
-                <span class="meta-tag">AI Agent</span>
-                <span class="meta-tag">Workflow Automation</span>
-                <span class="meta-tag">Reproducibility</span>
-              </div>
-              <h3 class="project-name">生信科研自动化智能体与分析结果审计工具箱</h3>
-              <p class="project-summary">
-                基于现代大语言模型与 Agent 编排框架，设计端到端的生信自动化辅助流水线。能够自动生成结构化执行脚本、执行严格的统计假设检验合规性审查（如独立过滤、DESeq2/edgeR 差异表达收缩等），大幅提升课题探索效率。
-              </p>
-              <ul class="project-highlights">
-                <li><i class="fa-solid fa-angle-right"></i> 自动化生成高质量生信报告与跨工具标准格式转换</li>
-                <li><i class="fa-solid fa-angle-right"></i> 具备防“伪重复（Pseudoreplication）”与混杂因素排查的自检机制</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TECH STACK & COMPUTATIONAL MATRIX -->
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="section-badge">SKILLS & TOOLCHAIN</span>
-          <h2 class="section-heading">技术体系与分析技能图谱</h2>
-          <p class="section-subheading">覆盖组学数据分析、统计建模、算法开发与科研工程的全栈工具链</p>
-        </div>
-
-        <div class="skills-grid">
-          <!-- Category 1 -->
-          <div class="skill-box glass-card">
-            <div class="skill-header">
-              <div class="s-icon icon-bio"><i class="fa-solid fa-dna"></i></div>
-              <h4>生物信息学与组学分析</h4>
-            </div>
-            <div class="skill-pills">
-              <span class="pill primary">scRNA-seq (Seurat / Scanpy)</span>
-              <span class="pill primary">Spatial Transcriptomics (Visium/Squidpy)</span>
-              <span class="pill">Bulk RNA-seq (DESeq2 / edgeR)</span>
-              <span class="pill">TCGA / GEO 多队列数据挖掘</span>
-              <span class="pill">GSEA / GSVA / 富集分析</span>
-              <span class="pill">CIBERSORTx 免疫浸润反褶积</span>
-              <span class="pill">CellChat / LIANA 细胞通讯</span>
-            </div>
-          </div>
-
-          <!-- Category 2 -->
-          <div class="skill-box glass-card">
-            <div class="skill-header">
-              <div class="s-icon icon-code"><i class="fa-solid fa-code"></i></div>
-              <h4>编程语言与数据科学</h4>
-            </div>
-            <div class="skill-pills">
-              <span class="pill primary">Python (Pandas, NumPy, Scikit-learn)</span>
-              <span class="pill primary">R (Bioconductor, tidyverse)</span>
-              <span class="pill">SQL 数据检索与管理</span>
-              <span class="pill">FastAPI / Streamlit 交互应用</span>
-              <span class="pill">HTML5 / Modern CSS / JavaScript</span>
-              <span class="pill">Git & GitHub 版本控制</span>
-            </div>
-          </div>
-
-          <!-- Category 3 -->
-          <div class="skill-box glass-card">
-            <div class="skill-header">
-              <div class="s-icon icon-stat"><i class="fa-solid fa-chart-pie"></i></div>
-              <h4>统计建模与学术可视化</h4>
-            </div>
-            <div class="skill-pills">
-              <span class="pill primary">Lasso-Cox / 多变量生存分析</span>
-              <span class="pill primary">ComplexHeatmap 出版级热图</span>
-              <span class="pill">ggplot2 / Matplotlib 定制绘图</span>
-              <span class="pill">PCA / UMAP / t-SNE 降维</span>
-              <span class="pill">统计推断 & 多重假设检验校正</span>
-            </div>
-          </div>
-
-          <!-- Category 4 -->
-          <div class="skill-box glass-card">
-            <div class="skill-header">
-              <div class="s-icon icon-lab"><i class="fa-solid fa-stethoscope"></i></div>
-              <h4>医学背景与实验素养</h4>
-            </div>
-            <div class="skill-pills">
-              <span class="pill primary">麻醉学与临床病理学基础</span>
-              <span class="pill">肿瘤微环境病理生理</span>
-              <span class="pill">分子生物学常规湿实验规范</span>
-              <span class="pill">AI Agent 科研自动化集成</span>
-              <span class="pill">科研结果严谨性审计</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BILIBILI CREATION & COMMUNITY SECTION -->
-    <section class="section section-dark" id="bilibili">
-      <div class="container">
-        <div class="bilibili-banner glass-panel">
-          <div class="bili-left">
-            <div class="bili-icon-badge">
-              <i class="fa-brands fa-bilibili"></i>
-            </div>
-            <div class="bili-info">
-              <span class="bili-tag">Bilibili Content Creator</span>
-              <h3 class="bili-title">B站 UP主：生物小小疯子</h3>
-              <p class="bili-desc">
-                分享生物信息学实战干货、单细胞与空间转录组前沿方法学拆解、AI 辅助科研工作流以及医学数据挖掘心得。致力于让高质量的生信科研与编程知识更清晰、更可复现。
-              </p>
-              <div class="bili-topics">
-                <span>#生物信息学</span>
-                <span>#单细胞转录组</span>
-                <span>#空间组学</span>
-                <span>#AI科研自动化</span>
-                <span>#Python/R</span>
-              </div>
-            </div>
-          </div>
-          <div class="bili-right">
-            <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="btn btn-bilibili-glow">
-              <i class="fa-solid fa-play"></i> 前往 B 站主页探索
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT & ACADEMIC BACKGROUND -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="section-badge">ACADEMIC BACKGROUND</span>
-          <h2 class="section-heading">关于我 · 教育与学术经历</h2>
-          <p class="section-subheading">立足医学前沿，用计算力量探索生命奥秘</p>
-        </div>
-
-        <div class="about-academic-card glass-card">
-          <div class="academic-timeline">
-            <!-- Timeline Item -->
-            <div class="timeline-entry">
-              <div class="timeline-marker">
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <div class="timeline-info">
-                <div class="t-head">
-                  <h4 class="t-inst">广东医科大学 (Guangdong Medical University)</h4>
-                  <span class="t-period">2024 - 至今</span>
-                </div>
-                <p class="t-role">医学本科生 · 麻醉学专业 (Anesthesiology) · 湛江校区</p>
-                <p class="t-detail">
-                  在大二阶段深入开展生物信息学与系统生物学研究。主攻肿瘤侵袭转移与单细胞/空间转录组学，保持临床医学感知与算法逻辑的双向结合。
-                </p>
-              </div>
-            </div>
-
-            <!-- Timeline Item -->
-            <div class="timeline-entry">
-              <div class="timeline-marker">
-                <i class="fa-solid fa-flask"></i>
-              </div>
-              <div class="timeline-info">
-                <div class="t-head">
-                  <h4 class="t-inst">计算肿瘤学与空间组学探索</h4>
-                  <span class="t-period">持续推进中</span>
-                </div>
-                <p class="t-role">Independent Computational Oncology Researcher</p>
-                <p class="t-detail">
-                  主导推进“肺腺癌空间生态位映射与侵袭维度建模”课题，系统性解析 SMAP2 轴及微环境相互作用；探索 AI Agent 赋能的端到端自动化生信流水线。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-card-modern glass-panel">
-          <div class="contact-header text-center">
-            <span class="section-badge">LET'S CONNECT</span>
-            <h2 class="contact-title">开启学术交流与合作探讨</h2>
-            <p class="contact-subtitle">
-              欢迎围绕生信算法、空间转录组、肿瘤微环境课题或 AI 科研自动化进行交流与合作！
+            <h1 class="hero-name">李智杨 <span class="hero-name-sub">Li Zhiyang</span></h1>
+            <p class="hero-tagline">
+              医学本科生 · 生物信息学与系统生物学研究者
             </p>
           </div>
+        </div>
 
-          <div class="contact-methods-grid">
-            <!-- Email -->
-            <div class="contact-method-card glass-card">
-              <div class="m-icon"><i class="fa-solid fa-envelope"></i></div>
-              <h4>电子邮箱</h4>
-              <p>学术交流与课题探讨</p>
-              <button class="btn-copy-email" id="btnCopyEmail">
-                <span id="emailDisplay">etonsalmon160@gmail.com</span>
-                <i class="fa-regular fa-copy"></i>
-              </button>
-            </div>
+        <p class="hero-statement">
+          现就读于<strong>广东医科大学</strong>（麻醉学专业，本科大二）。致力于将<strong>计算生物学算法、统计学严谨性与临床生物学直觉</strong>相结合，主攻<strong>肺腺癌（LUAD）</strong>的单细胞与空间转录组生态位映射、肿瘤侵袭转移机制解析及 <strong>AI 科研自动化</strong> 工作流。
+        </p>
 
-            <!-- GitHub -->
-            <div class="contact-method-card glass-card">
-              <div class="m-icon"><i class="fa-brands fa-github"></i></div>
-              <h4>GitHub 主页</h4>
-              <p>查看我的开源生信分析代码与工具</p>
-              <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="method-link">
-                @etonsalmon160-source <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
-            </div>
+        <!-- Action Links -->
+        <div class="hero-link-bar">
+          <a href="mailto:etonsalmon160@gmail.com" class="badge-link">
+            <i class="fa-regular fa-envelope"></i> etonsalmon160@gmail.com
+          </a>
+          <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="badge-link">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="badge-link bilibili">
+            <i class="fa-brands fa-bilibili"></i> B站 @生物小小疯子
+          </a>
+        </div>
+      </div>
+    </section>
 
-            <!-- B站 -->
-            <div class="contact-method-card glass-card">
-              <div class="m-icon"><i class="fa-brands fa-bilibili"></i></div>
-              <h4>Bilibili 频道</h4>
-              <p>生信干货与视频讲解</p>
-              <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="method-link">
-                @生物小小疯子 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+    <!-- ABOUT SECTION -->
+    <section class="content-section" id="about">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-num">01.</span> 关于我与学术背景
+        </h2>
+
+        <div class="prose-content">
+          <p>
+            我是一名处于医学本科阶段的计算生物学探索者。在广东医科大学麻醉学专业学习期间，我将研究重心放在<strong>肿瘤系统生物学</strong>与<strong>前沿组学数据挖掘</strong>上。
+          </p>
+          <p>
+            在科研实践中，我注重<strong>“生物学直觉先行、统计模型严谨、分析流程可复现”</strong>。相比于纯粹的工具套用，我更关注组学数据背后的病理微环境变化，特别是在肿瘤侵袭转移前沿（Invasion Front）的细胞空间交互机制与转录调控网络。同时，我也积极探索将大型语言模型与 AI 智能体引入生信流程，实现高质量的科研自动化与可复现性审计。
+          </p>
+
+          <blockquote class="research-philosophy">
+            “Combining biological intuition, statistical rigor and computational methods to extract reproducible biological signals from complex biomedical data.”
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH INTERESTS -->
+    <section class="content-section" id="research">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-num">02.</span> 核心研究方向
+        </h2>
+
+        <div class="research-grid">
+          <!-- Item 1 -->
+          <div class="research-card">
+            <div class="card-header-icon">
+              <i class="fa-solid fa-microscope"></i>
             </div>
+            <h3 class="card-title">单细胞与空间转录组学</h3>
+            <p class="card-desc">
+              利用 10x Genomics scRNA-seq 与 Visium 空间转录组数据，开展细胞类型反褶积（Deconvolution）、细胞通讯推断（CellChat/LIANA）与空间微环境生态位（Spatial Niche）建模。
+            </p>
+            <div class="card-tags">
+              <span>scRNA-seq</span>
+              <span>Spatial Transcriptomics</span>
+              <span>Squidpy / Seurat</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="research-card">
+            <div class="card-header-icon">
+              <i class="fa-solid fa-dna"></i>
+            </div>
+            <h3 class="card-title">肺腺癌（LUAD）侵袭与转移</h3>
+            <p class="card-desc">
+              以肺腺癌为主要疾病模型，解析肿瘤浸润前沿（Invasive Front）的异质性克隆，挖掘 <strong>SMAP2</strong> 及其协同分子网络（CSRNP1, PDE4D, MMP1, HILPDA, COL6A5）在基质重塑与微浸润中的关键作用。
+            </p>
+            <div class="card-tags">
+              <span>LUAD</span>
+              <span>SMAP2 Axis</span>
+              <span>Tumor Microenvironment</span>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="research-card">
+            <div class="card-header-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="card-title">多组学分子分型与临床预后</h3>
+            <p class="card-desc">
+              整合 TCGA-LUAD、GEO（GSE31210、GSE68465 等）独立临床队列，通过 Lasso-Cox 回归、无监督聚类与免疫浸润评估（CIBERSORTx/ssGSEA），建立可信度高的分子亚型与预后评估模型。
+            </p>
+            <div class="card-tags">
+              <span>TCGA / GEO</span>
+              <span>Lasso-Cox</span>
+              <span>Survival Analysis</span>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="research-card">
+            <div class="card-header-icon">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <h3 class="card-title">AI Agent & 生信科研自动化</h3>
+            <p class="card-desc">
+              构建基于大语言模型与 Agent 编排框架的端到端科研辅助流水线，涵盖自动化质控过滤、下游统计推断合规性审查（独立过滤、LFC 收缩）与科学结果可复现性审计。
+            </p>
+            <div class="card-tags">
+              <span>AI for Science</span>
+              <span>Workflow Automation</span>
+              <span>Reproducibility</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="content-section" id="projects">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-num">03.</span> 课题实践与分析流程
+        </h2>
+
+        <div class="projects-list">
+          <!-- Project Card 1 -->
+          <div class="project-entry">
+            <div class="project-entry-header">
+              <span class="entry-type">Spatial & Single-Cell Project</span>
+              <span class="entry-date">2025 - Present</span>
+            </div>
+            <h3 class="project-entry-title">肺腺癌单细胞到空间转录组映射与侵袭前沿微环境生态位解析</h3>
+            <p class="project-entry-desc">
+              整合原发与转移性肺腺癌的高通量单细胞数据集与 Visium 组织空间转录组切片，构建细胞空间解聚与原位坐标映射流水线。定量解析浸润前沿（Invasive Front）处恶性上皮细胞与成纤维细胞、肿瘤相关巨噬细胞（TAM）的空间共定位特征。
+            </p>
+            <ul class="entry-bullets">
+              <li>建立了严格的双端单细胞质控与批次效应校正规范，确保低假阳性率。</li>
+              <li>识别出与肿瘤局部微浸润显著相关的特征共表达模块与空间配受体通讯轴。</li>
+              <li>采用 Python (Scanpy, Squidpy) 与 R (Seurat, SpatialExperiment) 进行跨平台交叉验证。</li>
+            </ul>
+            <div class="entry-tags">
+              <span>10x Genomics</span>
+              <span>Visium</span>
+              <span>Scanpy</span>
+              <span>Cell-Cell Communication</span>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div class="project-entry">
+            <div class="project-entry-header">
+              <span class="entry-type">Multi-Cohort Transcriptomics</span>
+              <span class="entry-date">2025 - Present</span>
+            </div>
+            <h3 class="project-entry-title">SMAP2 及关联分子群的多队列转录组学挖掘与分子分型建模</h3>
+            <p class="project-entry-desc">
+              在 TCGA-LUAD（n=535）及多个 GEO 独立肺腺癌微阵列/RNA-seq 队列中，系统探究 SMAP2 及其功能协同基因（CSRNP1, PDE4D, MMP1, HILPDA, COL6A5）的表达模式、拷贝数变异关联及免疫微环境浸润表型。
+            </p>
+            <ul class="entry-bullets">
+              <li>通过单变量与多变量 Cox 比例风险回归模型，验证候选靶标在多中心独立队列中的预后稳健性。</li>
+              <li>结合 CIBERSORTx 与 ssGSEA，阐明靶标高表达亚群在免疫逃逸与基质激活维度的生物学特征。</li>
+              <li>输出符合主流学术期刊标准的出版级可视化图表（ComplexHeatmap、火山图、Forest Plot 等）。</li>
+            </ul>
+            <div class="entry-tags">
+              <span>TCGA-LUAD</span>
+              <span>GEO Meta-Analysis</span>
+              <span>Cox Regression</span>
+              <span>ComplexHeatmap</span>
+            </div>
+          </div>
+
+          <!-- Project Card 3 -->
+          <div class="project-entry">
+            <div class="project-entry-header">
+              <span class="entry-type">AI & Workflow Engineering</span>
+              <span class="entry-date">2026</span>
+            </div>
+            <h3 class="project-entry-title">面向计算生物学研究的 AI Agent 自动化分析与结果审计工作流</h3>
+            <p class="project-entry-desc">
+              设计针对高维生物组学数据的智能体驱动执行流水线，支持从原始表达矩阵输入到统计建模与结构化报告生成的自动化衔接，重点集成科研合规性自检与防伪重复机制。
+            </p>
+            <ul class="entry-bullets">
+              <li>内置统计推断审查规则，自动规避批次纠正矩阵直接用于假设检验等典型方法学误区。</li>
+              <li>提供结构化代码生成与自动化流水线编排能力，提升探索性生信分析的迭代效率。</li>
+            </ul>
+            <div class="entry-tags">
+              <span>AI Agent</span>
+              <span>Statistical Audit</span>
+              <span>Workflow Orchestration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="content-section" id="skills">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-num">04.</span> 技能与工具体系
+        </h2>
+
+        <div class="skills-category-list">
+          <!-- Skill Group 1 -->
+          <div class="skill-group">
+            <h4 class="skill-group-name">组学与生信分析 (Omics & Bioinformatics)</h4>
+            <div class="skill-tags">
+              <span class="stag">scRNA-seq (Seurat, Scanpy)</span>
+              <span class="stag">Spatial Transcriptomics (Visium, Squidpy)</span>
+              <span class="stag">Bulk RNA-seq (DESeq2, edgeR)</span>
+              <span class="stag">TCGA & GEO Mining</span>
+              <span class="stag">Pathway Enrichment (GSEA, GSVA)</span>
+              <span class="stag">Immune Infiltration (CIBERSORTx)</span>
+              <span class="stag">Cell-Cell Interaction (CellChat, LIANA)</span>
+            </div>
+          </div>
+
+          <!-- Skill Group 2 -->
+          <div class="skill-group">
+            <h4 class="skill-group-name">编程与数据工程 (Programming & Data Science)</h4>
+            <div class="skill-tags">
+              <span class="stag">Python (Pandas, NumPy, Scikit-learn)</span>
+              <span class="stag">R (Bioconductor, tidyverse)</span>
+              <span class="stag">SQL 数据库检索</span>
+              <span class="stag">FastAPI / Streamlit 交互应用</span>
+              <span class="stag">Git & GitHub 协同</span>
+              <span class="stag">Linux / Shell 脚本编程</span>
+            </div>
+          </div>
+
+          <!-- Skill Group 3 -->
+          <div class="skill-group">
+            <h4 class="skill-group-name">统计建模与科研可视化 (Statistics & Visualization)</h4>
+            <div class="skill-tags">
+              <span class="stag">Lasso-Cox / 多变量生存分析</span>
+              <span class="stag">ComplexHeatmap 出版级热图</span>
+              <span class="stag">ggplot2 / Matplotlib 定制图表</span>
+              <span class="stag">PCA / UMAP / t-SNE 降维分析</span>
+              <span class="stag">多重假设检验校正 (FDR / Benjamini-Hochberg)</span>
+            </div>
+          </div>
+
+          <!-- Skill Group 4 -->
+          <div class="skill-group">
+            <h4 class="skill-group-name">医学与实验素养 (Medical & Laboratory Domain)</h4>
+            <div class="skill-tags">
+              <span class="stag">麻醉学与临床病理学基础</span>
+              <span class="stag">肿瘤微环境与侵袭转移病理生理</span>
+              <span class="stag">分子生物学常规湿实验规范</span>
+              <span class="stag">AI Agent 科研辅助与流程审计</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILIBILI COMMUNITY -->
+    <section class="content-section" id="bilibili">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-num">05.</span> 内容创作与技术分享
+        </h2>
+
+        <div class="bilibili-box">
+          <div class="bili-header">
+            <div class="bili-logo-icon">
+              <i class="fa-brands fa-bilibili"></i>
+            </div>
+            <div>
+              <h3 class="bili-channel-name">B站 UP主：生物小小疯子</h3>
+              <p class="bili-sub">致力于传播清晰、严谨、可复现的生物信息学与 AI 科研干货</p>
+            </div>
+          </div>
+          <p class="bili-description">
+            在 Bilibili 平台持续分享计算生物学前沿方法拆解、单细胞与空间转录组实战教学、TCGA/GEO 数据挖掘技巧以及 AI 辅助科研工作流心得。
+          </p>
+          <div class="bili-action-row">
+            <a href="https://search.bilibili.com/all?keyword=%E7%94%9F%E7%89%A9%E5%B0%8F%E5%B0%8F%E7%96%AF%E5%AD%90" target="_blank" rel="noopener" class="btn-bili-visit">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> 在 B 站搜索并访问频道
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION / TIMELINE -->
+    <section class="content-section" id="education">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-num">06.</span> 教育与科研足迹
+        </h2>
+
+        <div class="timeline-block">
+          <!-- Item 1 -->
+          <div class="timeline-row">
+            <div class="time-col">2024 - 至今</div>
+            <div class="desc-col">
+              <h4 class="time-title">广东医科大学 (Guangdong Medical University)</h4>
+              <p class="time-sub">医学本科生 · 麻醉学专业 · 湛江校区</p>
+              <p class="time-detail">
+                在本科阶段系统学习医学基础与麻醉学课程，同时深入展开生物信息学、单细胞/空间转录组与肿瘤系统生物学研究。
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-row">
+            <div class="time-col">2025 - 2026</div>
+            <div class="desc-col">
+              <h4 class="time-title">计算肿瘤学课题研究与工作流探索</h4>
+              <p class="time-sub">Independent Computational Oncology Researcher</p>
+              <p class="time-detail">
+                推进肺腺癌侵袭前沿微环境解析与 SMAP2 调控网络挖掘；设计并开发 AI Agent 赋能的生信科研自动化辅助工具。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="content-section" id="contact">
+      <div class="section-container">
+        <h2 class="section-title">
+          <span class="title-num">07.</span> 联系与交流
+        </h2>
+
+        <div class="contact-panel">
+          <p class="contact-lead">
+            无论您是希望就计算生物学课题、单细胞与空间组学分析、科研自动化工具进行学术交流，还是探讨合作机会，均欢迎随时联系！
+          </p>
+
+          <div class="contact-button-row">
+            <a href="mailto:etonsalmon160@gmail.com" class="btn-contact-main">
+              <i class="fa-regular fa-envelope"></i> etonsalmon160@gmail.com
+            </a>
+            <button class="btn-contact-secondary" id="btnCopyEmail" title="复制邮箱">
+              <i class="fa-regular fa-copy"></i> 复制邮箱地址
+            </button>
+            <a href="https://github.com/etonsalmon160-source" target="_blank" rel="noopener" class="btn-contact-secondary">
+              <i class="fa-brands fa-github"></i> GitHub Profile
+            </a>
           </div>
         </div>
       </div>
@@ -583,23 +424,21 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-brand">
-        <span class="f-logo">Li Zhiyang (李智杨)</span>
-        <span class="f-desc">Undergraduate Researcher in Bioinformatics & Systems Biology</span>
-      </div>
-      <p class="footer-copy">© 2026 Li Zhiyang. Designed with rigorous aesthetics & hosted on GitHub Pages.</p>
-      <a href="#hero" class="btn-back-top" title="回到顶部" aria-label="Back to Top">
-        <i class="fa-solid fa-arrow-up"></i>
-      </a>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-text">
+        © 2026 李智杨 (Li Zhiyang) · Built with clean semantic web standards and hosted on GitHub Pages.
+      </p>
+      <p class="footer-subtext">
+        Domain: <a href="https://eto-1024.me">eto-1024.me</a> · Academic Portfolio
+      </p>
     </div>
   </footer>
 
-  <!-- Toast Notification Container -->
-  <div class="toast" id="toastMessage">已成功复制到剪贴板！</div>
+  <!-- Toast -->
+  <div class="toast-popup" id="toast">已成功复制邮箱地址到剪贴板！</div>
 
-  <!-- Main JavaScript File -->
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
