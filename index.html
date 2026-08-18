@@ -7,6 +7,13 @@
   <meta name="description" content="eto-1024 · 学术主页、生物信息权威资源导航、生信技术文档与 AI Agent 开发者工具箱。">
   <meta name="author" content="eto-1024">
 
+  <!-- Enforce HTTPS -->
+  <script>
+    if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+      location.replace(location.href.replace(/^http:/, 'https:'));
+    }
+  </script>
+
   <!-- Typography: Geist, Plus Jakarta Sans, Newsreader, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
