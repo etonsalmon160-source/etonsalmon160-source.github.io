@@ -1168,6 +1168,7 @@ body.light-theme .filter-pill.active {
 .tag-clinical { background: rgba(249, 115, 22, 0.1); color: var(--accent-orange); border: 1px solid rgba(249, 115, 22, 0.3); }
 .tag-tool { background: rgba(129, 140, 248, 0.1); color: var(--accent-indigo); border: 1px solid rgba(129, 140, 248, 0.3); }
 .tag-ai { background: rgba(236, 72, 153, 0.1); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.3); }
+.tag-literature { background: rgba(234, 179, 8, 0.1); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3); }
 
 .hub-card-desc {
   font-size: 0.86rem;
