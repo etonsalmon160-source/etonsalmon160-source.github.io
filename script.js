@@ -98,6 +98,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // Expose globally for inline onclick handlers
   window.switchView = switchView;
 
+  // Cross-view Contact Me handler
+  window.handleContactClick = function(e) {
+    if (e) e.preventDefault();
+    if (!viewProfile || viewProfile.style.display !== 'block') {
+      switchView('profile');
+    }
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      setTimeout(() => {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+  };
+
+  const btnContactNav = document.getElementById('btnContactNav');
+  if (btnContactNav) {
+    btnContactNav.addEventListener('click', window.handleContactClick);
+  }
+
   if (tabProfile) tabProfile.addEventListener('click', () => switchView('profile'));
   if (tabHub) tabHub.addEventListener('click', () => switchView('hub'));
   if (tabDocs) tabDocs.addEventListener('click', () => switchView('docs'));
