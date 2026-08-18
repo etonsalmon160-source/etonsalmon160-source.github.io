@@ -17,7 +17,7 @@
   
   <!-- Stylesheet & Favicon -->
   <link rel="icon" type="image/jpeg" href="avatar.jpg">
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=5.0">
 </head>
 <body class="dark-theme">
   <!-- Subtle Ambient Glow -->
@@ -42,6 +42,9 @@
           </button>
           <button class="view-tab-btn" data-view="docs" id="tabDocs" onclick="switchView('docs')">
             <i class="fa-solid fa-book-open"></i> <span>技术文档</span>
+          </button>
+          <button class="view-tab-btn" data-view="tools" id="tabTools" onclick="switchView('tools')">
+            <i class="fa-solid fa-download"></i> <span>工具下载</span>
           </button>
         </div>
       </div>
@@ -77,6 +80,15 @@
         <a href="#doc-variant" class="nav-link">变异检测</a>
         <a href="#doc-pipelines" class="nav-link">流程工程</a>
         <a href="#doc-community" class="nav-link">大神实战</a>
+      </nav>
+
+      <!-- Nav Links for Tools View -->
+      <nav class="nav-links" id="toolsNav" style="display: none;">
+        <a href="#tool-agents" class="nav-link">AI 智能体</a>
+        <a href="#tool-r" class="nav-link">R 语言生态</a>
+        <a href="#tool-python" class="nav-link">Python 环境</a>
+        <a href="#tool-oneclick" class="nav-link">一键安装脚本</a>
+        <a href="#tool-skills" class="nav-link">科研 Skill/MCP</a>
       </nav>
 
       <div class="header-actions">
@@ -1845,6 +1857,488 @@
         </section>
       </div>
     </div>
+
+    <!-- ==========================================================================
+         VIEW 4: TOOLS & AI AGENT DOWNLOAD HUB (SWITCHABLE)
+         ========================================================================== -->
+    <div id="viewTools" class="page-view" style="display: none;">
+      <!-- TOOLS HERO & SEARCH -->
+      <section class="hub-hero-section">
+        <div class="section-container">
+          <div class="hub-hero-header">
+            <span class="hub-badge"><i class="fa-solid fa-download"></i> 开发者与科研工具下载导航</span>
+            <h1 class="hub-title">Bio-Tools & AI Agent Download Hub</h1>
+            <p class="hub-subtitle">
+              汇聚全球主流大厂 AI 编程智能体、R / Python 极速科学计算环境官方直链、一键生信安装脚本与专属科研 Skill / MCP 插件包。
+            </p>
+          </div>
+
+          <!-- Instant Search Bar for Tools -->
+          <div class="hub-search-container">
+            <div class="hub-search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="toolSearchInput" class="hub-search-input" placeholder="输入工具名称、AI 智能体、语言或包管理器（如 Cursor, Claude, Miniforge, RStudio, uv, MCP）..." autocomplete="off">
+              <button id="toolSearchClear" class="search-clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Quick Filter Pills for Tools -->
+            <div class="hub-filter-pills" id="toolFilterPills">
+              <button class="tool-filter-pill active" data-filter="all">全部工具 (<span id="countToolsAll">0</span>)</button>
+              <button class="tool-filter-pill" data-filter="agents"><i class="fa-solid fa-robot"></i> AI 智能体 Agents</button>
+              <button class="tool-filter-pill" data-filter="r-env"><i class="fa-solid fa-r"></i> R 语言生态</button>
+              <button class="tool-filter-pill" data-filter="python-env"><i class="fa-brands fa-python"></i> Python 科学计算</button>
+              <button class="tool-filter-pill" data-filter="oneclick"><i class="fa-solid fa-bolt"></i> 一键安装脚本</button>
+              <button class="tool-filter-pill" data-filter="skills"><i class="fa-solid fa-puzzle-piece"></i> 科研 Skill & MCP</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOOLS CONTENT SECTIONS -->
+      <div class="hub-sections-wrapper">
+        <!-- 1. AI CODING & RESEARCH AGENTS -->
+        <section class="content-section hub-category-section" id="tool-agents" data-category="agents">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-robot sec-icon"></i> 01. 顶级大厂 AI 编程与科研 Agent 官方矩阵</h2>
+              <span class="hub-sec-desc">全球领军级 AI Code Editor、自主终端 Coding Agent 与科研推理大模型官方入口</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Agent 1: Cursor -->
+              <div class="hub-card tool-download-card" data-tags="cursor ai code editor 编程神器 智能补全 代码重构 编辑器 agent">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Cursor</h3>
+                    <span class="tool-badge-pill pill-hot">🔥 行业标杆</span>
+                  </div>
+                  <span class="hub-card-tag tag-ai">AI-First 编程编辑器</span>
+                </div>
+                <p class="hub-card-desc">当前全球公认综合能力最强、体验最丝滑的 AI 原生代码编辑器，深度整合项目全局 Context Index 与多模型一键切换。</p>
+                <div class="tool-action-row">
+                  <a href="https://www.cursor.com/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-download"></i> 官方下载入口
+                  </a>
+                  <span class="tool-plat-badge"><i class="fa-brands fa-windows"></i> Win / <i class="fa-brands fa-apple"></i> Mac / <i class="fa-brands fa-linux"></i> Linux</span>
+                </div>
+              </div>
+
+              <!-- Agent 2: Claude & Claude Code -->
+              <div class="hub-card tool-download-card" data-tags="claude anthropic claude code cli sonnet opus 终端 agent mcp">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Claude & Claude Code (CLI)</h3>
+                    <span class="tool-badge-pill pill-rec">⭐ 顶尖推理</span>
+                  </div>
+                  <span class="hub-card-tag tag-ai">Anthropic 终端自主 Agent</span>
+                </div>
+                <p class="hub-card-desc">Claude 3.5 Sonnet / Opus 顶尖学术与代码推理大脑；最新发布的 Claude Code 支持在命令行中自主理解代码库、执行测试与 Git 协同。</p>
+                <div class="tool-action-row">
+                  <a href="https://claude.ai/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Claude Web 端
+                  </a>
+                  <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener" class="btn-tool-sub">
+                    <i class="fa-brands fa-github"></i> Claude Code CLI
+                  </a>
+                </div>
+              </div>
+
+              <!-- Agent 3: Google DeepMind Antigravity / Gemini -->
+              <div class="hub-card tool-download-card" data-tags="google deepmind gemini code assist antigravity 谷歌 ai 超长上下文">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Google Gemini Code Assist</h3>
+                    <span class="tool-badge-pill pill-rec">🌟 超长上下文</span>
+                  </div>
+                  <span class="hub-card-tag tag-ai">DeepMind 代码推理生态</span>
+                </div>
+                <p class="hub-card-desc">Google DeepMind 前沿代码推理架构，依托 200 万超长 Token 上下文，支持全仓库级别的高精理解与企业级云端协作。</p>
+                <div class="tool-action-row">
+                  <a href="https://cloud.google.com/gemini" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Gemini 官方入口
+                  </a>
+                  <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener" class="btn-tool-sub">
+                    <i class="fa-solid fa-brain"></i> DeepMind 架构
+                  </a>
+                </div>
+              </div>
+
+              <!-- Agent 4: Windsurf -->
+              <div class="hub-card tool-download-card" data-tags="windsurf codeium cascade flow agent ide 状态流 编程助手">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Windsurf IDE (Codeium)</h3>
+                    <span class="tool-badge-pill pill-new">✨ 创新交互</span>
+                  </div>
+                  <span class="hub-card-tag tag-ai">Cascade Flow 自主 Agent</span>
+                </div>
+                <p class="hub-card-desc">Codeium 推出的下一代自主 Agent IDE，独创 Cascade 状态流机制，能够在多文件重构中实现人机无缝协作与深层上下文联动。</p>
+                <div class="tool-action-row">
+                  <a href="https://codeium.com/windsurf" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-download"></i> 官方安装包
+                  </a>
+                  <span class="tool-plat-badge"><i class="fa-brands fa-windows"></i> / <i class="fa-brands fa-apple"></i> / <i class="fa-brands fa-linux"></i></span>
+                </div>
+              </div>
+
+              <!-- Agent 5: OpenAI ChatGPT Desktop -->
+              <div class="hub-card tool-download-card" data-tags="openai chatgpt desktop codex o1 o3 python 沙盒 数据分析">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">ChatGPT Desktop (OpenAI)</h3>
+                    <span class="tool-badge-pill">官方客户端</span>
+                  </div>
+                  <span class="hub-card-tag tag-ai">高级数据分析与桌面协同</span>
+                </div>
+                <p class="hub-card-desc">OpenAI 官方桌面客户端，内置 Advanced Data Analysis（Python 沙盒运行环境），支持直接导入表格进行统计制图与代码解释。</p>
+                <div class="tool-action-row">
+                  <a href="https://openai.com/chatgpt/download/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-download"></i> 桌面端下载
+                  </a>
+                  <a href="https://chatgpt.com/" target="_blank" rel="noopener" class="btn-tool-sub">
+                    <i class="fa-solid fa-globe"></i> Web 网页版
+                  </a>
+                </div>
+              </div>
+
+              <!-- Agent 6: Cline / Roo Code -->
+              <div class="hub-card tool-download-card" data-tags="cline roo code vs code 插件 开源 agent mcp 终端控制 自主编写">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Cline / Roo Code</h3>
+                    <span class="tool-badge-pill pill-hot">开源硬核</span>
+                  </div>
+                  <span class="hub-card-tag tag-ai">VS Code 终端自主 Agent</span>
+                </div>
+                <p class="hub-card-desc">100% 开源透明的 VS Code 终端 Agent，原生支持 MCP 协议、文件读写与终端命令执行，支持接入自定义 API 密钥。</p>
+                <div class="tool-action-row">
+                  <a href="https://github.com/cline/cline" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-brands fa-github"></i> GitHub 源码
+                  </a>
+                  <a href="https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev" target="_blank" rel="noopener" class="btn-tool-sub">
+                    <i class="fa-solid fa-plug"></i> VS Code 市场
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. R & RSTUDIO ECOSYSTEM -->
+        <section class="content-section hub-category-section" id="tool-r" data-category="r-env">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-r sec-icon"></i> 02. R 语言与 RStudio 权威环境与加速配置</h2>
+              <span class="hub-sec-desc">CRAN 官方安装包、清华大学镜像高速通道与 Posit P3M 二进制秒级安装</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- R 1: CRAN R -->
+              <div class="hub-card tool-download-card" data-tags="r语言 cran 清华源 安装包 windows mac linux r-4.4">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">R 官方发行版 (CRAN)</h3>
+                    <span class="tool-badge-pill pill-rec">官方基石</span>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">The R Project (4.4.x)</span>
+                </div>
+                <p class="hub-card-desc">全球科学统计与生物信息学计算核心基石。国内推荐使用清华大学 TUNA 镜像站，下载速度可达数十兆每秒。</p>
+                <div class="tool-action-row">
+                  <a href="https://mirrors.tuna.tsinghua.edu.cn/CRAN/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-bolt"></i> 清华镜像站高速下载
+                  </a>
+                  <a href="https://cran.r-project.org/" target="_blank" rel="noopener" class="btn-tool-sub">
+                    <i class="fa-solid fa-globe"></i> CRAN 国际官网
+                  </a>
+                </div>
+              </div>
+
+              <!-- R 2: RStudio Desktop -->
+              <div class="hub-card tool-download-card" data-tags="rstudio posit ide 桌面版 数据分析 画图 调试">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">RStudio Desktop (Posit)</h3>
+                    <span class="tool-badge-pill pill-hot">推荐 IDE</span>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">专业 R 语言集成开发环境</span>
+                </div>
+                <p class="hub-card-desc">生信学者装机必备 IDE，拥有卓越的变量浏览器、绘图面板、Markdown 文档渲染与断点调试器。</p>
+                <div class="tool-action-row">
+                  <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-download"></i> Posit 官网下载
+                  </a>
+                  <span class="tool-plat-badge"><i class="fa-brands fa-windows"></i> Win / <i class="fa-brands fa-apple"></i> macOS</span>
+                </div>
+              </div>
+
+              <!-- R 3: Rtools -->
+              <div class="hub-card tool-download-card" data-tags="rtools c++ fortran windows 编译 工具链 bioconductor">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Rtools (Windows 编译工具链)</h3>
+                    <span class="tool-badge-pill">Windows 必备</span>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">C++/Fortran 源码编译器</span>
+                </div>
+                <p class="hub-card-desc">Windows 用户在安装包含底层 C/C++ 算法的 Bioconductor 包（如 DESeq2 / Seurat）时必须配套安装的编译套件。</p>
+                <div class="tool-action-row">
+                  <a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-download"></i> Rtools44 官方下载
+                  </a>
+                </div>
+              </div>
+
+              <!-- R 4: Posit Package Manager -->
+              <div class="hub-card tool-download-card" data-tags="p3m posit package manager 二进制 加速源 免编译 r包">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Posit Package Manager (P3M)</h3>
+                    <span class="tool-badge-pill pill-new">⚡ 秒级安装</span>
+                  </div>
+                  <span class="hub-card-tag tag-cancer">云端预编译二进制加速</span>
+                </div>
+                <p class="hub-card-desc">Posit 官方提供的预编译 CRAN / Bioconductor 二进制源，彻底告别漫长的本地编译，安装速度提升 10 倍！</p>
+                <div class="tool-action-row">
+                  <a href="https://packagemanager.posit.co/client/#/repos/cran/setup" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-gear"></i> P3M 配置生成器
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. PYTHON & PACKAGE MANAGERS -->
+        <section class="content-section hub-category-section" id="tool-python" data-category="python-env">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-brands fa-python sec-icon"></i> 03. Python 科学计算与极速包管理环境</h2>
+              <span class="hub-sec-desc">Miniforge/Mamba 开源发行版、Astral uv 极速包管理器与官方 Python</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Python 1: Miniforge / Mamba -->
+              <div class="hub-card tool-download-card" data-tags="miniforge mamba conda bioconda conda-forge 生信环境 包管理">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Miniforge / Mamba</h3>
+                    <span class="tool-badge-pill pill-hot">🔥 生信首选</span>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">C++ 极速 Conda 发行版</span>
+                </div>
+                <p class="hub-card-desc">默认预配置 `conda-forge` 与 `bioconda` 源，基于 C++ 依赖解析器速度提升 10 倍，完全免费开源且无商业版权纠纷。</p>
+                <div class="tool-action-row">
+                  <a href="https://github.com/conda-forge/miniforge/releases" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-brands fa-github"></i> Miniforge Releases 直链
+                  </a>
+                  <span class="tool-plat-badge">Win / Mac (M1/M2/M3) / Linux</span>
+                </div>
+              </div>
+
+              <!-- Python 2: uv -->
+              <div class="hub-card tool-download-card" data-tags="uv astral rust python 包管理 pip 替代 极速 虚拟环境">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">uv (Astral)</h3>
+                    <span class="tool-badge-pill pill-new">⚡ 10-100x 极速</span>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">Rust 打造的超极速 Python 工具</span>
+                </div>
+                <p class="hub-card-desc">比传统 `pip` 与 `virtualenv` 快 10 到 100 倍！原生支持自动下载 Python 各版本、秒级创建隔离虚拟环境并解析依赖。</p>
+                <div class="tool-action-row">
+                  <a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-book"></i> uv 官方文档与安装
+                  </a>
+                  <a href="https://github.com/astral-sh/uv" target="_blank" rel="noopener" class="btn-tool-sub">
+                    <i class="fa-brands fa-github"></i> GitHub 源码
+                  </a>
+                </div>
+              </div>
+
+              <!-- Python 3: Python.org -->
+              <div class="hub-card tool-download-card" data-tags="python 官方 安装包 3.10 3.11 3.12 解释器">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Python 官方发行版</h3>
+                    <span class="tool-badge-pill">官方标准</span>
+                  </div>
+                  <span class="hub-card-tag tag-singlecell">CPython 官方解释器</span>
+                </div>
+                <p class="hub-card-desc">Python 官方独立安装包。在生物信息学生态中，推荐安装 **Python 3.10 或 3.11**，具备对 Scanpy、PyTorch 及底层 C 库最佳的兼容性。</p>
+                <div class="tool-action-row">
+                  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="btn-tool-download">
+                    <i class="fa-solid fa-download"></i> 官方下载入口
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. ONE-CLICK SETUP SCRIPTS -->
+        <section class="content-section hub-category-section" id="tool-oneclick" data-category="oneclick">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-bolt sec-icon"></i> 04. 🚀 生信科研环境一键初始化脚本</h2>
+              <span class="hub-sec-desc">点击即可一键复制经过工业级验证的生产环境快速配置脚本与装机命令</span>
+            </div>
+
+            <div class="code-script-container">
+              <!-- Script 1: R Bioconductor 1-Click -->
+              <div class="script-block">
+                <div class="script-header">
+                  <div class="script-title-group">
+                    <span class="script-lang-badge badge-r">R Script</span>
+                    <span class="script-name">R 语言全栈生信核心包一键加速安装 (清华/中科大源 + Bioconductor)</span>
+                  </div>
+                  <button class="btn-copy-code" onclick="copyCodeSnippet('rSetupCode', this)">
+                    <i class="fa-regular fa-copy"></i> <span>一键复制代码</span>
+                  </button>
+                </div>
+                <pre class="script-pre"><code id="rSetupCode"># ==============================================================================
+# Li Zhiyang (eto-1024) - R 生信核心包一键加速安装脚本
+# ==============================================================================
+options("repos" = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+options(BioC_mirror = "https://mirrors.tuna.tsinghua.edu.cn/bioconductor")
+
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
+
+# 批量安装 CRAN + Bioconductor 核心生信与可视化套件
+bio_packages &lt;- c(
+    "DESeq2", "edgeR", "limma", "Seurat", "SingleCellExperiment",
+    "ComplexHeatmap", "clusterProfiler", "org.Hs.eg.db", "org.Mm.eg.db",
+    "tidyverse", "ggplot2", "patchwork", "pheatmap", "survival", "survminer"
+)
+
+BiocManager::install(bio_packages, update = FALSE, ask = FALSE)
+message("🎉 所有 R 语言核心生信包安装配置完成！")</code></pre>
+              </div>
+
+              <!-- Script 2: Python scRNA-seq & Spatial 1-Click -->
+              <div class="script-block">
+                <div class="script-header">
+                  <div class="script-title-group">
+                    <span class="script-lang-badge badge-python">Bash / Mamba</span>
+                    <span class="script-name">Python 单细胞与空间组学独立虚拟环境一键构建</span>
+                  </div>
+                  <button class="btn-copy-code" onclick="copyCodeSnippet('pythonSetupCode', this)">
+                    <i class="fa-regular fa-copy"></i> <span>一键复制代码</span>
+                  </button>
+                </div>
+                <pre class="script-pre"><code id="pythonSetupCode"># ==============================================================================
+# Li Zhiyang (eto-1024) - Python 生信虚拟环境一键快速部署 (Mamba / Conda)
+# ==============================================================================
+# 1. 创建基于 Python 3.10 的独立生信虚拟环境
+mamba create -n bio-env python=3.10 -y
+mamba activate bio-env
+
+# 2. 批量安装 Scanpy、空间组学及高性能数据科学依赖
+mamba install -c conda-forge -c bioconda \
+    scanpy squidpy scvi-tools anndata polars biopython \
+    jupyterlab matplotlib seaborn scikit-learn -y
+
+echo "🎉 Python 生信与单细胞/空转分析环境 (bio-env) 构建完成！"</code></pre>
+              </div>
+
+              <!-- Script 3: Windows PowerShell Winget -->
+              <div class="script-block">
+                <div class="script-header">
+                  <div class="script-title-group">
+                    <span class="script-lang-badge badge-ps">PowerShell</span>
+                    <span class="script-name">Windows 官方包管理器 (Winget) 一键安装生信开发全家桶</span>
+                  </div>
+                  <button class="btn-copy-code" onclick="copyCodeSnippet('wingetCode', this)">
+                    <i class="fa-regular fa-copy"></i> <span>一键复制代码</span>
+                  </button>
+                </div>
+                <pre class="script-pre"><code id="wingetCode"># ==============================================================================
+# Li Zhiyang (eto-1024) - Windows Terminal 极速装机命令
+# ==============================================================================
+winget install RProject.R --accept-package-agreements --accept-source-agreements
+winget install Posit.RStudio --accept-package-agreements --accept-source-agreements
+winget install CondaForge.Miniforge3 --accept-package-agreements --accept-source-agreements
+winget install Astral.uv --accept-package-agreements --accept-source-agreements</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. SCIENTIFIC SKILLS & MCP -->
+        <section class="content-section hub-category-section" id="tool-skills" data-category="skills">
+          <div class="section-container">
+            <div class="hub-sec-header">
+              <h2 class="hub-sec-title"><i class="fa-solid fa-puzzle-piece sec-icon"></i> 05. 🧬 科研 AI Agent 专属 Skill 包 & MCP 协议生态</h2>
+              <span class="hub-sec-desc">模型上下文协议 (Model Context Protocol) 与生信自动化 Prompt/Skill 体系</span>
+            </div>
+
+            <div class="hub-card-grid">
+              <!-- Skill 1: Bio-Agent Skills -->
+              <div class="hub-card tool-download-card" data-tags="agent skills 生信技能包 deseq2 scanpy gatk 规范 自动化">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Bioinformatics Agent Skills</h3>
+                    <span class="tool-badge-pill pill-rec">Agent 规范</span>
+                  </div>
+                  <span class="hub-card-tag tag-tool">高精度生信工作流指令集</span>
+                </div>
+                <p class="hub-card-desc">专为 AI Agent（Antigravity / Cursor / Claude Code）打造的标准化生信执行准则，涵盖自适应质控、负二项 GLM、LFC 收缩与变异过滤。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">bio-differential-expression</span>
+                  <span class="h-tag">bio-single-cell</span>
+                  <span class="h-tag">bio-variant-calling</span>
+                </div>
+              </div>
+
+              <!-- Skill 2: MCP Config -->
+              <div class="hub-card tool-download-card" data-tags="mcp model context protocol pubmed uniprot ensembl 插件 配置文件">
+                <div class="hub-card-top">
+                  <div class="hub-card-title-row">
+                    <h3 class="hub-card-name">Bio-Research MCP Servers</h3>
+                    <span class="tool-badge-pill pill-hot">🔥 MCP 协议</span>
+                  </div>
+                  <span class="hub-card-tag tag-tool">模型实时直连生物数据库</span>
+                </div>
+                <p class="hub-card-desc">基于 Anthropic Model Context Protocol 协议，让 AI 具备直接在本地检索 PubMed 文献、查询 UniProt 蛋白质注释与 Ensembl 基因坐标的实时扩展能力。</p>
+                <div class="hub-card-footer">
+                  <span class="h-tag">mcp-pubmed</span>
+                  <span class="h-tag">mcp-uniprot</span>
+                  <span class="h-tag">mcp-bigquery</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- MCP Config Template Box -->
+            <div class="script-block" style="margin-top: 1.5rem;">
+              <div class="script-header">
+                <div class="script-title-group">
+                  <span class="script-lang-badge badge-json">JSON</span>
+                  <span class="script-name">AI Agent 生信扩展标准配置文件 (mcp_config.json 模板)</span>
+                </div>
+                <button class="btn-copy-code" onclick="copyCodeSnippet('mcpConfigCode', this)">
+                  <i class="fa-regular fa-copy"></i> <span>一键复制配置模板</span>
+                </button>
+              </div>
+              <pre class="script-pre"><code id="mcpConfigCode">{
+  "mcpServers": {
+    "ncbi-pubmed": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-pubmed"],
+      "description": "实时检索 PubMed 论文、摘要及引用网络"
+    },
+    "filesystem-workspace": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "./data"],
+      "description": "安全访问本地多组学原始数据与中间矩阵"
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -1863,6 +2357,6 @@
   <div class="toast-popup" id="toast">已成功复制邮箱地址到剪贴板！</div>
 
   <!-- Scripts -->
-  <script src="script.js?v=4.0"></script>
+  <script src="script.js?v=5.0"></script>
 </body>
 </html>

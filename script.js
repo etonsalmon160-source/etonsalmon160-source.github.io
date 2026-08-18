@@ -1,5 +1,5 @@
 /**
- * Li Zhiyang (eto-1024) Academic Portfolio, Bio-Nav Hub & Bio-Docs Curriculum - Core Scripts
+ * Li Zhiyang (eto-1024) Academic Portfolio, Bio-Nav Hub, Bio-Docs & Tools Download Hub - Core Scripts
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,61 +29,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 2. Three-Page View Switcher (Profile vs Bio-Nav Hub vs Bio-Docs)
+  // 2. Four-Page View Switcher (Profile vs Hub vs Docs vs Tools)
   // ==========================================================================
   const tabProfile = document.getElementById('tabProfile');
   const tabHub = document.getElementById('tabHub');
   const tabDocs = document.getElementById('tabDocs');
+  const tabTools = document.getElementById('tabTools');
 
   const viewProfile = document.getElementById('viewProfile');
   const viewHub = document.getElementById('viewHub');
   const viewDocs = document.getElementById('viewDocs');
+  const viewTools = document.getElementById('viewTools');
 
   const profileNav = document.getElementById('profileNav');
   const hubNav = document.getElementById('hubNav');
   const docsNav = document.getElementById('docsNav');
+  const toolsNav = document.getElementById('toolsNav');
 
   const btnHeroToHub = document.getElementById('btnHeroToHub');
   const brandLink = document.getElementById('brandLink');
 
   function switchView(target) {
     // Hide all views first
-    viewProfile.style.display = 'none';
-    viewProfile.classList.remove('active');
-    viewHub.style.display = 'none';
-    viewHub.classList.remove('active');
-    viewDocs.style.display = 'none';
-    viewDocs.classList.remove('active');
+    if (viewProfile) { viewProfile.style.display = 'none'; viewProfile.classList.remove('active'); }
+    if (viewHub) { viewHub.style.display = 'none'; viewHub.classList.remove('active'); }
+    if (viewDocs) { viewDocs.style.display = 'none'; viewDocs.classList.remove('active'); }
+    if (viewTools) { viewTools.style.display = 'none'; viewTools.classList.remove('active'); }
 
     // Reset tabs
-    tabProfile.classList.remove('active');
-    tabHub.classList.remove('active');
-    tabDocs.classList.remove('active');
+    if (tabProfile) tabProfile.classList.remove('active');
+    if (tabHub) tabHub.classList.remove('active');
+    if (tabDocs) tabDocs.classList.remove('active');
+    if (tabTools) tabTools.classList.remove('active');
 
     // Reset top navs
-    profileNav.style.display = 'none';
-    hubNav.style.display = 'none';
-    docsNav.style.display = 'none';
+    if (profileNav) profileNav.style.display = 'none';
+    if (hubNav) hubNav.style.display = 'none';
+    if (docsNav) docsNav.style.display = 'none';
+    if (toolsNav) toolsNav.style.display = 'none';
 
     if (target === 'hub') {
-      viewHub.style.display = 'block';
-      viewHub.classList.add('active');
-      tabHub.classList.add('active');
-      hubNav.style.display = 'flex';
+      if (viewHub) { viewHub.style.display = 'block'; viewHub.classList.add('active'); }
+      if (tabHub) tabHub.classList.add('active');
+      if (hubNav) hubNav.style.display = 'flex';
       window.history.replaceState(null, '', '#hub');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (target === 'docs') {
-      viewDocs.style.display = 'block';
-      viewDocs.classList.add('active');
-      tabDocs.classList.add('active');
-      docsNav.style.display = 'flex';
+      if (viewDocs) { viewDocs.style.display = 'block'; viewDocs.classList.add('active'); }
+      if (tabDocs) tabDocs.classList.add('active');
+      if (docsNav) docsNav.style.display = 'flex';
       window.history.replaceState(null, '', '#docs');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (target === 'tools') {
+      if (viewTools) { viewTools.style.display = 'block'; viewTools.classList.add('active'); }
+      if (tabTools) tabTools.classList.add('active');
+      if (toolsNav) toolsNav.style.display = 'flex';
+      window.history.replaceState(null, '', '#tools');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      viewProfile.style.display = 'block';
-      viewProfile.classList.add('active');
-      tabProfile.classList.add('active');
-      profileNav.style.display = 'flex';
+      if (viewProfile) { viewProfile.style.display = 'block'; viewProfile.classList.add('active'); }
+      if (tabProfile) tabProfile.classList.add('active');
+      if (profileNav) profileNav.style.display = 'flex';
       window.history.replaceState(null, '', '#');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -95,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tabProfile) tabProfile.addEventListener('click', () => switchView('profile'));
   if (tabHub) tabHub.addEventListener('click', () => switchView('hub'));
   if (tabDocs) tabDocs.addEventListener('click', () => switchView('docs'));
+  if (tabTools) tabTools.addEventListener('click', () => switchView('tools'));
 
   if (btnHeroToHub) {
     btnHeroToHub.addEventListener('click', (e) => {
@@ -117,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
     switchView('hub');
   } else if (currentHash === '#docs' || currentHash.startsWith('#doc-')) {
     switchView('docs');
+  } else if (currentHash === '#tools' || currentHash.startsWith('#tool-')) {
+    switchView('tools');
   }
 
   // ==========================================================================
@@ -262,7 +271,121 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 5. Copy Email Functionality
+  // 5. Tools & Agent Download Search & Filter Logic
+  // ==========================================================================
+  const toolCards = document.querySelectorAll('#viewTools .tool-download-card');
+  const toolCategorySections = document.querySelectorAll('#viewTools .hub-category-section');
+  const toolSearchInput = document.getElementById('toolSearchInput');
+  const toolSearchClear = document.getElementById('toolSearchClear');
+  const toolFilterPills = document.querySelectorAll('#toolFilterPills .tool-filter-pill');
+  const countToolsAllSpan = document.getElementById('countToolsAll');
+
+  if (countToolsAllSpan) {
+    countToolsAllSpan.textContent = toolCards.length + 3; // Including scripts
+  }
+
+  let activeToolCategory = 'all';
+  let searchToolQuery = '';
+
+  function filterToolResources() {
+    toolCategorySections.forEach(section => {
+      const secCategory = section.getAttribute('data-category');
+      const cardsInSection = section.querySelectorAll('.tool-download-card');
+      const scriptBlocks = section.querySelectorAll('.script-block');
+      let visibleCount = 0;
+
+      cardsInSection.forEach(card => {
+        const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+        const title = (card.querySelector('.hub-card-name')?.textContent || '').toLowerCase();
+        const desc = (card.querySelector('.hub-card-desc')?.textContent || '').toLowerCase();
+        const combinedText = `${title} ${desc} ${tags}`;
+
+        const matchCategory = (activeToolCategory === 'all' || activeToolCategory === secCategory);
+        const matchSearch = searchToolQuery === '' || combinedText.includes(searchToolQuery.toLowerCase());
+
+        if (matchCategory && matchSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      scriptBlocks.forEach(block => {
+        const text = (block.textContent || '').toLowerCase();
+        const matchCategory = (activeToolCategory === 'all' || activeToolCategory === secCategory || activeToolCategory === 'oneclick');
+        const matchSearch = searchToolQuery === '' || text.includes(searchToolQuery.toLowerCase());
+
+        if (matchCategory && matchSearch) {
+          block.style.display = 'block';
+          visibleCount++;
+        } else {
+          block.style.display = 'none';
+        }
+      });
+
+      section.style.display = visibleCount === 0 ? 'none' : 'block';
+    });
+  }
+
+  if (toolSearchInput) {
+    toolSearchInput.addEventListener('input', (e) => {
+      searchToolQuery = e.target.value.trim();
+      toolSearchClear.style.display = searchToolQuery.length > 0 ? 'block' : 'none';
+      filterToolResources();
+    });
+  }
+
+  if (toolSearchClear) {
+    toolSearchClear.addEventListener('click', () => {
+      toolSearchInput.value = '';
+      searchToolQuery = '';
+      toolSearchClear.style.display = 'none';
+      filterToolResources();
+      toolSearchInput.focus();
+    });
+  }
+
+  toolFilterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      toolFilterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeToolCategory = pill.getAttribute('data-filter') || 'all';
+      filterToolResources();
+    });
+  });
+
+  // ==========================================================================
+  // 6. One-Click Code Snippet Copy Functionality
+  // ==========================================================================
+  window.copyCodeSnippet = function(codeId, btnElement) {
+    const codeElement = document.getElementById(codeId);
+    if (!codeElement) return;
+
+    const textToCopy = codeElement.textContent;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      const originalHtml = btnElement.innerHTML;
+      btnElement.innerHTML = '<i class="fa-solid fa-check" style="color: #10b981;"></i> <span style="color: #10b981;">已成功复制！</span>';
+
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.textContent = '代码脚本已成功复制到剪贴板！';
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2200);
+      }
+
+      setTimeout(() => {
+        btnElement.innerHTML = originalHtml;
+      }, 2000);
+    }).catch(err => {
+      console.error('Copy script failed:', err);
+    });
+  };
+
+  // ==========================================================================
+  // 7. Copy Email Functionality
   // ==========================================================================
   const btnCopyEmail = document.getElementById('btnCopyEmail');
   const toast = document.getElementById('toast');
@@ -271,6 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnCopyEmail && toast) {
     btnCopyEmail.addEventListener('click', () => {
       navigator.clipboard.writeText(emailAddress).then(() => {
+        toast.textContent = '已成功复制邮箱地址到剪贴板！';
         toast.classList.add('show');
         setTimeout(() => {
           toast.classList.remove('show');
@@ -282,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 6. Scroll Spy Navigation Highlight
+  // 8. Scroll Spy Navigation Highlight
   // ==========================================================================
   window.addEventListener('scroll', () => {
     const scrollPosition = window.pageYOffset + 120;
@@ -295,6 +419,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (viewDocs && viewDocs.style.display === 'block') {
       activeNav = docsNav;
       currentSections = document.querySelectorAll('#viewDocs .hub-category-section[id]');
+    } else if (viewTools && viewTools.style.display === 'block') {
+      activeNav = toolsNav;
+      currentSections = document.querySelectorAll('#viewTools .hub-category-section[id]');
     }
 
     currentSections.forEach(sec => {
@@ -314,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 7. Mobile Menu Toggle
+  // 9. Mobile Menu Toggle
   // ==========================================================================
   const menuBtnMobile = document.getElementById('menuBtnMobile');
 
@@ -323,6 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let currentNav = profileNav;
       if (viewHub && viewHub.style.display === 'block') currentNav = hubNav;
       if (viewDocs && viewDocs.style.display === 'block') currentNav = docsNav;
+      if (viewTools && viewTools.style.display === 'block') currentNav = toolsNav;
 
       if (currentNav.style.display === 'flex') {
         currentNav.style.display = 'none';

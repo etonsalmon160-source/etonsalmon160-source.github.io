@@ -1077,7 +1077,8 @@ body.light-theme .icon-moon { display: none; }
 }
 
 .filter-pill,
-.doc-filter-pill {
+.doc-filter-pill,
+.tool-filter-pill {
   padding: 0.4rem 0.85rem;
   background: var(--bg-card);
   border-radius: var(--radius-full);
@@ -1091,13 +1092,15 @@ body.light-theme .icon-moon { display: none; }
 }
 
 .filter-pill:hover,
-.doc-filter-pill:hover {
+.doc-filter-pill:hover,
+.tool-filter-pill:hover {
   border-color: var(--border-hover);
   color: var(--text-primary);
 }
 
 .filter-pill.active,
-.doc-filter-pill.active {
+.doc-filter-pill.active,
+.tool-filter-pill.active {
   background: var(--text-primary);
   color: var(--bg-page);
   font-weight: 600;
@@ -1105,7 +1108,8 @@ body.light-theme .icon-moon { display: none; }
 }
 
 body.light-theme .filter-pill.active,
-body.light-theme .doc-filter-pill.active {
+body.light-theme .doc-filter-pill.active,
+body.light-theme .tool-filter-pill.active {
   background: #09090b;
   color: #ffffff;
 }
@@ -1237,6 +1241,212 @@ body.light-theme .doc-filter-pill.active {
   text-align: center;
   padding: 4rem 1.5rem;
   color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Tool Download Cards & Action Buttons
+   ========================================================================== */
+.tool-download-card {
+  padding: 1.5rem;
+}
+
+.tool-badge-pill {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.pill-hot {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.pill-rec {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-green);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.pill-new {
+  background: rgba(168, 85, 247, 0.12);
+  color: var(--accent-purple);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.tool-action-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.btn-tool-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  background: var(--text-primary);
+  color: var(--bg-page);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-tool-download:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+body.light-theme .btn-tool-download {
+  background: #09090b;
+  color: #ffffff;
+}
+
+.btn-tool-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-tool-sub:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.tool-plat-badge {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   One-Click Script Container & Code Copy Blocks
+   ========================================================================== */
+.code-script-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.script-block {
+  background: #0d0e12;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.light-theme .script-block {
+  background: #18181b;
+  border-color: #27272a;
+}
+
+.script-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.script-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.script-lang-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-xs);
+}
+
+.badge-r {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.badge-python {
+  background: rgba(234, 179, 8, 0.15);
+  color: #eab308;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.badge-ps {
+  background: rgba(129, 140, 248, 0.15);
+  color: #818cf8;
+  border: 1px solid rgba(129, 140, 248, 0.3);
+}
+
+.badge-json {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.script-name {
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #f4f4f5;
+}
+
+.btn-copy-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-xs);
+  color: #f4f4f5;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-copy-code:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.script-pre {
+  margin: 0;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #d4d4d8;
+  background: transparent;
+}
+
+.script-pre code {
+  font-family: inherit;
 }
 
 /* ==========================================================================
