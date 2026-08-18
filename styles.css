@@ -660,6 +660,14 @@ body.light-theme .avatar-ring {
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.icon-skill {
+  color: var(--accent-green);
+  font-size: 0.9rem;
 }
 
 .skill-tags {
